@@ -1,0 +1,10 @@
+input_dir: ${PROJECT_DIR}/VideoGameApp
+output_dir: ${PROJECT_DIR}/VideoGameApp/SwiftGen
+xcassets:
+  inputs:
+    - App/Assets.xcassets
+  outputs:
+    - templatePath: ${PROJECT_DIR}/VideoGameApp/SwiftGen/template.stencil
+      params:
+        publicAccess: true
+      output: Assets.generated.swift

@@ -17,6 +17,9 @@
 		E5D3D2D72A5E983C00B98AD1 /* VideoGameAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2D62A5E983C00B98AD1 /* VideoGameAppTests.swift */; };
 		E5D3D2E12A5E983C00B98AD1 /* VideoGameAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2E02A5E983C00B98AD1 /* VideoGameAppUITests.swift */; };
 		E5D3D2E32A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2E22A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift */; };
+		E5D3D2F52A5EAB7B00B98AD1 /* swiftgen.config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E5D3D2F42A5EAB7B00B98AD1 /* swiftgen.config.yml */; };
+		E5D3D2F72A5EADCA00B98AD1 /* template.stencil in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2F62A5EADCA00B98AD1 /* template.stencil */; };
+		E5D3D2F92A5EAF7000B98AD1 /* Assets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2F82A5EAF7000B98AD1 /* Assets.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		E5D3D2DC2A5E983C00B98AD1 /* VideoGameAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoGameAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D3D2E02A5E983C00B98AD1 /* VideoGameAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameAppUITests.swift; sourceTree = "<group>"; };
 		E5D3D2E22A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5D3D2F42A5EAB7B00B98AD1 /* swiftgen.config.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.config.yml; sourceTree = "<group>"; };
+		E5D3D2F62A5EADCA00B98AD1 /* template.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = template.stencil; sourceTree = "<group>"; };
+		E5D3D2F82A5EAF7000B98AD1 /* Assets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D3D2EF2A5E984C00B98AD1 /* App */,
+				E5D3D2F32A5EAB4300B98AD1 /* SwiftGen */,
 				E5D3D2C02A5E983A00B98AD1 /* ViewController.swift */,
 				E5D3D2C22A5E983A00B98AD1 /* Main.storyboard */,
 				E5D3D2CA2A5E983B00B98AD1 /* LaunchScreen.storyboard */,
@@ -138,6 +145,16 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		E5D3D2F32A5EAB4300B98AD1 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				E5D3D2F42A5EAB7B00B98AD1 /* swiftgen.config.yml */,
+				E5D3D2F62A5EADCA00B98AD1 /* template.stencil */,
+				E5D3D2F82A5EAF7000B98AD1 /* Assets.generated.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +162,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5D3D2E62A5E983C00B98AD1 /* Build configuration list for PBXNativeTarget "VideoGameApp" */;
 			buildPhases = (
+				E5D3D2FA2A5EAFA100B98AD1 /* Swift Gen */,
 				E5D3D2B52A5E983A00B98AD1 /* Sources */,
 				E5D3D2B62A5E983A00B98AD1 /* Frameworks */,
 				E5D3D2B72A5E983A00B98AD1 /* Resources */,
@@ -244,6 +262,7 @@
 			files = (
 				E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */,
 				E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */,
+				E5D3D2F52A5EAB7B00B98AD1 /* swiftgen.config.yml in Resources */,
 				E5D3D2C42A5E983A00B98AD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +283,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E5D3D2FA2A5EAFA100B98AD1 /* Swift Gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >& /dev/null; then\n  swiftgen config run --config VideoGameApp/SwiftGen/swiftgen.config.yml\nelse\n  echo \"error: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5D3D2B52A5E983A00B98AD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,7 +312,9 @@
 				E5D3D2C12A5E983A00B98AD1 /* ViewController.swift in Sources */,
 				E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */,
 				E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */,
+				E5D3D2F72A5EADCA00B98AD1 /* template.stencil in Sources */,
 				E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */,
+				E5D3D2F92A5EAF7000B98AD1 /* Assets.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
