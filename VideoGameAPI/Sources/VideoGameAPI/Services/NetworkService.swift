@@ -8,11 +8,13 @@
 import Foundation
 
 public protocol NetworkServiceProtocol: AnyObject {
-    func fetchFromAPI<T: BaseRequestProtocol>(_ request: T, completion: @escaping (Result<T.Response, Error>) -> Void)
+    func fetchFromAPI<T: BaseRequestProtocol>(_ request: T, completion: @escaping (Result<T.Response, NetworkError>) -> Void)
 }
 
 public class NetworkService: NetworkServiceProtocol {
-    public func fetchFromAPI<T>(_ request: T, completion: @escaping (Result<T.Response, Error>) -> Void) where T : BaseRequestProtocol {
+    public static let shared = NetworkService()
+    
+    public func fetchFromAPI<T>(_ request: T, completion: @escaping (Result<T.Response, NetworkError>) -> Void) where T : BaseRequestProtocol {
         guard var urlComponent = URLComponents(string: request.url) else {
             return completion(.failure(NetworkError.notFoundPageError))
         }
@@ -34,22 +36,22 @@ public class NetworkService: NetworkServiceProtocol {
         urlRequest.allHTTPHeaderFields = request.headers
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            if let error = error {
-                return completion(.failure(error))
+            if error != nil {
+                return completion(.failure(NetworkError.operationFailed))
             }
             
             guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                return completion(.failure(NSError()))
+                return completion(.failure(NetworkError.operationFailed))
             }
             
             guard let data = data else {
-                return completion(.failure(NSError()))
+                return completion(.failure(NetworkError.operationFailed))
             }
             
             do {
                 try completion(.success(request.decode(data)))
-            } catch let error as NSError {
-                completion(.failure(error))
+            } catch {
+                completion(.failure(NetworkError.operationFailed))
             }
         }.resume()
     }
