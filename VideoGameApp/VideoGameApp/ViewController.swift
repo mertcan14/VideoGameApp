@@ -6,12 +6,34 @@
 //
 
 import UIKit
- 
-class ViewController: UIViewController {
+import VideoGameAPI
 
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.getDetailVideoGame("3328")
     }
     
+    func getListVideoGame() {
+        NetworkService.shared.getListVideoGame { [weak self] response in
+            switch response {
+            case .success(let videoGameResult):
+                print(videoGameResult)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getDetailVideoGame(_ idOfGame: String) {
+        NetworkService.shared.getDetailVideoGame(idOfGame: idOfGame) { [weak self] response in
+            switch response {
+            case .success(let videoGameResult):
+                print(videoGameResult)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
