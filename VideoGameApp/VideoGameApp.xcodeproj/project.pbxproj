@@ -10,6 +10,12 @@
 		E5495BBD2A5EE4CA000CED59 /* Assets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5495BBA2A5EE4CA000CED59 /* Assets.generated.swift */; };
 		E5495BBE2A5EE4CA000CED59 /* swiftgen.config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E5495BBB2A5EE4CA000CED59 /* swiftgen.config.yml */; };
 		E5495BBF2A5EE4CA000CED59 /* template.stencil in Resources */ = {isa = PBXBuildFile; fileRef = E5495BBC2A5EE4CA000CED59 /* template.stencil */; };
+		E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679272A6123EC0036D886 /* SplashViewController.swift */; };
+		E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A679282A6123EC0036D886 /* SplashViewController.xib */; };
+		E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792B2A6124000036D886 /* SplashRouter.swift */; };
+		E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792D2A6124100036D886 /* SplashPresenter.swift */; };
+		E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792F2A6124220036D886 /* SplashInteractor.swift */; };
+		E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679322A61302E0036D886 /* BaseViewController.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
 		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
 		E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */; };
@@ -18,8 +24,6 @@
 		E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */; };
 		E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */; };
 		E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */; };
-		E5D3D2C12A5E983A00B98AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2C02A5E983A00B98AD1 /* ViewController.swift */; };
-		E5D3D2C42A5E983A00B98AD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D3D2C22A5E983A00B98AD1 /* Main.storyboard */; };
 		E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2C52A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld */; };
 		E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D3D2C82A5E983B00B98AD1 /* Assets.xcassets */; };
 		E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D3D2CA2A5E983B00B98AD1 /* LaunchScreen.storyboard */; };
@@ -49,6 +53,12 @@
 		E5495BBA2A5EE4CA000CED59 /* Assets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.generated.swift; sourceTree = "<group>"; };
 		E5495BBB2A5EE4CA000CED59 /* swiftgen.config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.config.yml; sourceTree = "<group>"; };
 		E5495BBC2A5EE4CA000CED59 /* template.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = template.stencil; sourceTree = "<group>"; };
+		E5A679272A6123EC0036D886 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		E5A679282A6123EC0036D886 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		E5A6792B2A6124000036D886 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
+		E5A6792D2A6124100036D886 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		E5A6792F2A6124220036D886 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		E5A679322A61302E0036D886 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
 		E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoGameService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVideoGameRequest.swift; sourceTree = "<group>"; };
@@ -58,8 +68,6 @@
 		E5D3D2B92A5E983A00B98AD1 /* VideoGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E5D3D2C02A5E983A00B98AD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E5D3D2C32A5E983A00B98AD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5D3D2C62A5E983A00B98AD1 /* VideoGameApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoGameApp.xcdatamodel; sourceTree = "<group>"; };
 		E5D3D2C82A5E983B00B98AD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5D3D2CB2A5E983B00B98AD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,6 +113,35 @@
 				E5495BBC2A5EE4CA000CED59 /* template.stencil */,
 			);
 			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		E5A679252A6121F30036D886 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				E5A679312A6130060036D886 /* Base */,
+				E5A679262A6122160036D886 /* Splash */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E5A679262A6122160036D886 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E5A6792F2A6124220036D886 /* SplashInteractor.swift */,
+				E5A6792D2A6124100036D886 /* SplashPresenter.swift */,
+				E5A6792B2A6124000036D886 /* SplashRouter.swift */,
+				E5A679272A6123EC0036D886 /* SplashViewController.swift */,
+				E5A679282A6123EC0036D886 /* SplashViewController.xib */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		E5A679312A6130060036D886 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E5A679322A61302E0036D886 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		E5CCB80C2A5FEB6500864F1F /* Frameworks */ = {
@@ -169,9 +206,8 @@
 				E5CCB80F2A5FECD100864F1F /* Extensions */,
 				E5CCB8122A5FEE5300864F1F /* Helper */,
 				E5CCB8152A600AB100864F1F /* Model */,
+				E5A679252A6121F30036D886 /* Module */,
 				E5495BB92A5EE4CA000CED59 /* SwiftGen */,
-				E5D3D2C02A5E983A00B98AD1 /* ViewController.swift */,
-				E5D3D2C22A5E983A00B98AD1 /* Main.storyboard */,
 				E5D3D2CA2A5E983B00B98AD1 /* LaunchScreen.storyboard */,
 				E5D3D2CD2A5E983B00B98AD1 /* Info.plist */,
 			);
@@ -320,8 +356,8 @@
 				E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */,
 				E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */,
 				E5495BBE2A5EE4CA000CED59 /* swiftgen.config.yml in Resources */,
+				E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */,
 				E5495BBF2A5EE4CA000CED59 /* template.stencil in Resources */,
-				E5D3D2C42A5E983A00B98AD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,9 +454,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D3D2C12A5E983A00B98AD1 /* ViewController.swift in Sources */,
+				E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */,
+				E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */,
 				E5CCB8172A600AC500864F1F /* VideoGameModel.swift in Sources */,
 				E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */,
+				E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */,
 				E5CCB8192A60397800864F1F /* DetailVideoGameModel.swift in Sources */,
 				E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */,
 				E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */,
@@ -428,6 +466,8 @@
 				E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */,
 				E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */,
 				E5495BBD2A5EE4CA000CED59 /* Assets.generated.swift in Sources */,
+				E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */,
+				E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,14 +504,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E5D3D2C22A5E983A00B98AD1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5D3D2C32A5E983A00B98AD1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E5D3D2CA2A5E983B00B98AD1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -608,7 +640,6 @@
 				INFOPLIST_FILE = VideoGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -635,7 +666,6 @@
 				INFOPLIST_FILE = VideoGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
