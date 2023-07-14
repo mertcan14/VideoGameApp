@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoInternetViewController" customModule="VideoGameApp" customModuleProvider="target">
+            <connections>
+                <outlet property="timeLabel" destination="Ag2-Ty-xEm" id="rgu-5O-zx0"/>
+                <outlet property="tryAgainBtn" destination="QBt-pw-E6Z" id="NSp-FJ-ehS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qp5-Rf-iaO">
+                    <rect key="frame" x="39.333333333333343" y="183" width="314.33333333333326" height="511"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nointernet" translatesAutoresizingMaskIntoConstraints="NO" id="0Or-b0-7Tt">
+                            <rect key="frame" x="0.0" y="0.0" width="314.33333333333331" height="306.66666666666669"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You do not have an internet connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTP-Vh-LkC">
+                            <rect key="frame" x="0.0" y="306.66666666666669" width="314.33333333333331" height="48"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ag2-Ty-xEm">
+                            <rect key="frame" x="0.0" y="378.66666666666663" width="314.33333333333331" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBt-pw-E6Z">
+                            <rect key="frame" x="0.0" y="398.66666666666663" width="314.33333333333331" height="40"/>
+                            <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="bmN-5l-dY8"/>
+                            </constraints>
+                            <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Check Connection">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                <color key="baseBackgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="tryAgainBtnClicked:" destination="-1" eventType="touchUpInside" id="RjH-eF-mx2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Ag2-Ty-xEm" firstAttribute="leading" secondItem="Qp5-Rf-iaO" secondAttribute="leading" id="6pj-lV-PGc"/>
+                        <constraint firstItem="0Or-b0-7Tt" firstAttribute="height" secondItem="Qp5-Rf-iaO" secondAttribute="height" multiplier="0.6" id="CMJ-E5-W6M"/>
+                        <constraint firstAttribute="trailing" secondItem="QTP-Vh-LkC" secondAttribute="trailing" id="FPN-xu-pHb"/>
+                        <constraint firstItem="QTP-Vh-LkC" firstAttribute="leading" secondItem="Qp5-Rf-iaO" secondAttribute="leading" id="JI3-Ti-ATN"/>
+                        <constraint firstItem="QBt-pw-E6Z" firstAttribute="leading" secondItem="Qp5-Rf-iaO" secondAttribute="leading" id="TWr-8o-UmP"/>
+                        <constraint firstItem="Ag2-Ty-xEm" firstAttribute="top" secondItem="QTP-Vh-LkC" secondAttribute="bottom" constant="24" id="Wac-5R-9uT"/>
+                        <constraint firstItem="QTP-Vh-LkC" firstAttribute="top" secondItem="0Or-b0-7Tt" secondAttribute="bottom" id="cdb-lD-Rpg"/>
+                        <constraint firstItem="0Or-b0-7Tt" firstAttribute="leading" secondItem="Qp5-Rf-iaO" secondAttribute="leading" id="fRV-77-HHA"/>
+                        <constraint firstAttribute="trailing" secondItem="Ag2-Ty-xEm" secondAttribute="trailing" id="fjI-vX-KUm"/>
+                        <constraint firstAttribute="trailing" secondItem="0Or-b0-7Tt" secondAttribute="trailing" id="hoG-E0-6Oa"/>
+                        <constraint firstItem="QBt-pw-E6Z" firstAttribute="top" secondItem="Ag2-Ty-xEm" secondAttribute="bottom" constant="4" id="knD-jc-T3p"/>
+                        <constraint firstItem="0Or-b0-7Tt" firstAttribute="top" secondItem="Qp5-Rf-iaO" secondAttribute="top" id="lfe-a6-avB"/>
+                        <constraint firstAttribute="trailing" secondItem="QBt-pw-E6Z" secondAttribute="trailing" id="n5h-rI-4KS"/>
+                        <constraint firstItem="0Or-b0-7Tt" firstAttribute="width" secondItem="Qp5-Rf-iaO" secondAttribute="width" id="wBN-Yz-tFH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Qp5-Rf-iaO" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="GQo-dQ-aPf"/>
+                <constraint firstItem="Qp5-Rf-iaO" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="VQC-ce-OPc"/>
+                <constraint firstItem="Qp5-Rf-iaO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="iP1-LK-Cyu"/>
+                <constraint firstItem="Qp5-Rf-iaO" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="lZ7-iC-bFR"/>
+            </constraints>
+            <point key="canvasLocation" x="139.69465648854961" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nointernet" width="2000" height="2000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -16,12 +16,20 @@
 		E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792D2A6124100036D886 /* SplashPresenter.swift */; };
 		E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792F2A6124220036D886 /* SplashInteractor.swift */; };
 		E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679322A61302E0036D886 /* BaseViewController.swift */; };
+		E5A679362A6140370036D886 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679352A6140370036D886 /* LoadingView.swift */; };
+		E5A679382A6141AE0036D886 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679372A6141AE0036D886 /* LoadingShowable.swift */; };
+		E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */; };
+		E5A6793D2A6142B00036D886 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */; };
+		E5A6793F2A6143C10036D886 /* NoInternetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6793E2A6143C10036D886 /* NoInternetPresenter.swift */; };
+		E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679402A6143D20036D886 /* NoInternetInteractor.swift */; };
+		E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679422A6143E10036D886 /* NoInternetRouter.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
 		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
 		E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */; };
 		E5CCB8172A600AC500864F1F /* VideoGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8162A600AC500864F1F /* VideoGameModel.swift */; };
 		E5CCB8192A60397800864F1F /* DetailVideoGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8182A60397800864F1F /* DetailVideoGameModel.swift */; };
 		E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */; };
+		E5D348282A616D6E00322844 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D348272A616D6E00322844 /* UIView+Extension.swift */; };
 		E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */; };
 		E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */; };
 		E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2C52A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld */; };
@@ -59,12 +67,20 @@
 		E5A6792D2A6124100036D886 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		E5A6792F2A6124220036D886 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		E5A679322A61302E0036D886 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E5A679352A6140370036D886 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E5A679372A6141AE0036D886 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
+		E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
+		E5A6793E2A6143C10036D886 /* NoInternetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPresenter.swift; sourceTree = "<group>"; };
+		E5A679402A6143D20036D886 /* NoInternetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetInteractor.swift; sourceTree = "<group>"; };
+		E5A679422A6143E10036D886 /* NoInternetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetRouter.swift; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
 		E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoGameService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVideoGameRequest.swift; sourceTree = "<group>"; };
 		E5CCB8162A600AC500864F1F /* VideoGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameModel.swift; sourceTree = "<group>"; };
 		E5CCB8182A60397800864F1F /* DetailVideoGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGameModel.swift; sourceTree = "<group>"; };
 		E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailVideoGameRequest.swift; sourceTree = "<group>"; };
+		E5D348272A616D6E00322844 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E5D3D2B92A5E983A00B98AD1 /* VideoGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A679312A6130060036D886 /* Base */,
+				E5A679392A61427B0036D886 /* NoInternet */,
 				E5A679262A6122160036D886 /* Splash */,
 			);
 			path = Module;
@@ -144,6 +161,26 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		E5A679342A61401C0036D886 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				E5A679352A6140370036D886 /* LoadingView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		E5A679392A61427B0036D886 /* NoInternet */ = {
+			isa = PBXGroup;
+			children = (
+				E5A679402A6143D20036D886 /* NoInternetInteractor.swift */,
+				E5A6793E2A6143C10036D886 /* NoInternetPresenter.swift */,
+				E5A679422A6143E10036D886 /* NoInternetRouter.swift */,
+				E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */,
+				E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */,
+			);
+			path = NoInternet;
+			sourceTree = "<group>";
+		};
 		E5CCB80C2A5FEB6500864F1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */,
+				E5D348272A616D6E00322844 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +202,7 @@
 			children = (
 				E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */,
 				E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */,
+				E5A679372A6141AE0036D886 /* LoadingShowable.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -203,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D3D2EF2A5E984C00B98AD1 /* App */,
+				E5A679342A61401C0036D886 /* CustomView */,
 				E5CCB80F2A5FECD100864F1F /* Extensions */,
 				E5CCB8122A5FEE5300864F1F /* Helper */,
 				E5CCB8152A600AB100864F1F /* Model */,
@@ -355,6 +395,7 @@
 			files = (
 				E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */,
 				E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */,
+				E5A6793D2A6142B00036D886 /* NoInternetViewController.xib in Resources */,
 				E5495BBE2A5EE4CA000CED59 /* swiftgen.config.yml in Resources */,
 				E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */,
 				E5495BBF2A5EE4CA000CED59 /* template.stencil in Resources */,
@@ -454,15 +495,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */,
 				E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */,
 				E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */,
 				E5CCB8172A600AC500864F1F /* VideoGameModel.swift in Sources */,
+				E5A679382A6141AE0036D886 /* LoadingShowable.swift in Sources */,
 				E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */,
 				E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */,
 				E5CCB8192A60397800864F1F /* DetailVideoGameModel.swift in Sources */,
 				E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */,
 				E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */,
+				E5A679362A6140370036D886 /* LoadingView.swift in Sources */,
+				E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */,
+				E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */,
 				E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */,
+				E5A6793F2A6143C10036D886 /* NoInternetPresenter.swift in Sources */,
+				E5D348282A616D6E00322844 /* UIView+Extension.swift in Sources */,
 				E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */,
 				E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */,
 				E5495BBD2A5EE4CA000CED59 /* Assets.generated.swift in Sources */,

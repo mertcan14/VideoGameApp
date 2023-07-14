@@ -34,11 +34,14 @@ final class SplashRouter {
 
 extension SplashRouter: SplashRouterProtocol {
     func navigate(_ route: SplashRoutes) {
+        guard let window = viewController?.view.window else { return }
         switch route {
         case .homeScreen:
             print("go home")
         case .noInternetScreen:
-            print("go noInternet")
+            let noInternetVC = NoInternetRouter.createModule()
+            let navigationController = UINavigationController(rootViewController: noInternetVC)
+            window.rootViewController = navigationController
         }
     }
 }
