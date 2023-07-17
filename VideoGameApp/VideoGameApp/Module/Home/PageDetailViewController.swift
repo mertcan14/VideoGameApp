@@ -9,10 +9,14 @@ import UIKit
 
 final class PageDetailViewController: UIViewController {
 
+    // MARK: - IBOutlet Definitions
     @IBOutlet weak var homeImageView: UIImageView!
-    var index = 0
-    var image: String?
+    
+    // MARK: - Variable Definitions
+    private var index = 0
+    private var image: String?
 
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,9 +26,11 @@ final class PageDetailViewController: UIViewController {
         homeImageView.contentMode = .scaleToFill
     }
     
+    // MARK: - Funcs
     static func getInstance(index: Int, image: String?) -> PageDetailViewController {
-        guard let vc = UIStoryboard(name: "HomeViewController", bundle: nil)
-            .instantiateViewController(withIdentifier: "PageDetailViewController") as? PageDetailViewController else { return PageDetailViewController() }
+        let storyboard = UIStoryboard(name: "HomeViewController", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "PageDetailViewController")
+                as? PageDetailViewController else { return PageDetailViewController() }
         vc.index = index
         vc.image = image
         return vc

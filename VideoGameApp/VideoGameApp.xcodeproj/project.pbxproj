@@ -13,6 +13,10 @@
 		E59AFE582A6516490060CA62 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59AFE572A6516490060CA62 /* Color.xcassets */; };
 		E59AFE5A2A6522FB0060CA62 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE592A6522FB0060CA62 /* Collection+Extension.swift */; };
 		E59AFE5C2A65248F0060CA62 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */; };
+		E59AFE602A65532D0060CA62 /* VideoGameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE5E2A65532D0060CA62 /* VideoGameCollectionViewCell.swift */; };
+		E59AFE612A65532D0060CA62 /* VideoGameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59AFE5F2A65532D0060CA62 /* VideoGameCollectionViewCell.xib */; };
+		E59AFE632A655E0B0060CA62 /* VideoGameCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE622A655E0B0060CA62 /* VideoGameCellPresenter.swift */; };
+		E59AFE662A65623E0060CA62 /* VideoGameCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE652A65623E0060CA62 /* VideoGameCellModel.swift */; };
 		E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679272A6123EC0036D886 /* SplashViewController.swift */; };
 		E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A679282A6123EC0036D886 /* SplashViewController.xib */; };
 		E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792B2A6124000036D886 /* SplashRouter.swift */; };
@@ -74,6 +78,10 @@
 		E59AFE572A6516490060CA62 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		E59AFE592A6522FB0060CA62 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		E59AFE5E2A65532D0060CA62 /* VideoGameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameCollectionViewCell.swift; sourceTree = "<group>"; };
+		E59AFE5F2A65532D0060CA62 /* VideoGameCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoGameCollectionViewCell.xib; sourceTree = "<group>"; };
+		E59AFE622A655E0B0060CA62 /* VideoGameCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameCellPresenter.swift; sourceTree = "<group>"; };
+		E59AFE652A65623E0060CA62 /* VideoGameCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameCellModel.swift; sourceTree = "<group>"; };
 		E5A679272A6123EC0036D886 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A679282A6123EC0036D886 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		E5A6792B2A6124000036D886 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -149,6 +157,24 @@
 				E5495BBC2A5EE4CA000CED59 /* template.stencil */,
 			);
 			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		E59AFE5D2A6553020060CA62 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E59AFE5E2A65532D0060CA62 /* VideoGameCollectionViewCell.swift */,
+				E59AFE622A655E0B0060CA62 /* VideoGameCellPresenter.swift */,
+				E59AFE5F2A65532D0060CA62 /* VideoGameCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E59AFE642A6561B10060CA62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E59AFE652A65623E0060CA62 /* VideoGameCellModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E5A679252A6121F30036D886 /* Module */ = {
@@ -242,6 +268,8 @@
 		E5D348292A61867F00322844 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E59AFE5D2A6553020060CA62 /* Cell */,
+				E59AFE642A6561B10060CA62 /* Model */,
 				E5D3482E2A6186D500322844 /* HomeInteractor.swift */,
 				E5D348302A6186E500322844 /* HomePresenter.swift */,
 				E5D348322A61871100322844 /* HomeRouter.swift */,
@@ -431,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59AFE612A65532D0060CA62 /* VideoGameCollectionViewCell.xib in Resources */,
 				E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */,
 				E59AFE582A6516490060CA62 /* Color.xcassets in Resources */,
 				E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */,
@@ -535,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59AFE602A65532D0060CA62 /* VideoGameCollectionViewCell.swift in Sources */,
 				E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */,
 				E59AFE5A2A6522FB0060CA62 /* Collection+Extension.swift in Sources */,
 				E5D3482F2A6186D500322844 /* HomeInteractor.swift in Sources */,
@@ -550,10 +580,12 @@
 				E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */,
 				E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */,
 				E59AFE5C2A65248F0060CA62 /* UIImageView+Extension.swift in Sources */,
+				E59AFE632A655E0B0060CA62 /* VideoGameCellPresenter.swift in Sources */,
 				E5A679362A6140370036D886 /* LoadingView.swift in Sources */,
 				E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */,
 				E5D348332A61871100322844 /* HomeRouter.swift in Sources */,
 				E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */,
+				E59AFE662A65623E0060CA62 /* VideoGameCellModel.swift in Sources */,
 				E5D348312A6186E500322844 /* HomePresenter.swift in Sources */,
 				E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */,
 				E5A6793F2A6143C10036D886 /* NoInternetPresenter.swift in Sources */,

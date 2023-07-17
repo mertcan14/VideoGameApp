@@ -33,14 +33,9 @@ final class SplashPresenter: SplashPresenterProtocol {
 
 extension SplashPresenter: SplashInteractorOutputProtocol {
     func returnInternetConnection(_ status: Bool) {
-        if status {
-            view.delay(1.0) {
-                self.router.navigate(.homeScreen)
-            }
-        } else {
-            view.delay(1.0) {
-                self.router.navigate(.noInternetScreen)
-            }
+        view.delay(1.0) { [weak self] in
+            guard let self = self else { return }
+            self.router.navigate(status ? .homeScreen : .noInternetScreen)
         }
     }
 }

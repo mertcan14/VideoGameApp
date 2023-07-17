@@ -12,6 +12,7 @@ protocol HomePresenterProtocol: AnyObject {
     
     func viewDidLoad()
     func setImagesForSlider()
+    func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
 }
 
 final class HomePresenter {
@@ -22,6 +23,7 @@ final class HomePresenter {
         didSet {
             self.view.hideLoading()
             setImagesForSlider()
+            self.view.reloadData()
         }
     }
     var nextPage: String?
@@ -35,9 +37,26 @@ final class HomePresenter {
         self.router = router
         self.view = view
     }
+    
+    private func setParseImageURL(_ urlString: String?) -> String? {
+        guard let url = urlString else { return nil }
+        var parseUrl = url.split(separator: "/")
+        parseUrl.insert("crop/600/400", at: 3)
+        return parseUrl.joined(separator: "/")
+    }
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
+        guard let videoGame = self.videoGames[safe: index],
+              let nameOfGame = videoGame.name,
+              let ratingOfGame = videoGame.rating,
+              let releasedOfGame = videoGame.released,
+              let imageString = setParseImageURL(videoGame.backgroundImage),
+              let imageURL = URL(string: imageString) else { return nil }
+        return VideoGameCellModel(imageURL: imageURL, nameOfGame: nameOfGame, ratingOfGame: ratingOfGame, releasedOfGame: releasedOfGame)
+    }
+    
     func setImagesForSlider() {
         var images: [String] = []
         for index in 0..<3 {
@@ -55,6 +74,7 @@ extension HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
         self.view.showLoading()
         self.interactor.fetchGames()
+        self.view.collectionViewRegister()
     }
 }
 

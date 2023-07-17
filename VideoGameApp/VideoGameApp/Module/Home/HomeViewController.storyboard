@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4gC-BF-lG6">
-                                <rect key="frame" x="19.666666666666657" y="115" width="353.66666666666674" height="200"/>
+                                <rect key="frame" x="12" y="115" width="369" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="g25-RC-nH6"/>
                                 </constraints>
@@ -26,10 +26,10 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-kd-T8N">
-                                <rect key="frame" x="19.666666666666657" y="65" width="353.66666666666674" height="38"/>
+                                <rect key="frame" x="12" y="65" width="369" height="38"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-JC-EcO">
-                                        <rect key="frame" x="0.0" y="6" width="325.66666666666669" height="28"/>
+                                        <rect key="frame" x="0.0" y="6" width="341" height="28"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Pnu-b6-Qjp"/>
@@ -43,7 +43,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-O3-usT">
-                                        <rect key="frame" x="325.66666666666663" y="6.9999999999999964" width="28" height="26.333333333333332"/>
+                                        <rect key="frame" x="341" y="6.9999999999999964" width="28" height="26.333333333333332"/>
                                         <color key="tintColor" red="0.73725490196078436" green="0.22352941176470587" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="CeO-rc-o7d"/>
@@ -60,6 +60,21 @@
                                     <constraint firstAttribute="bottom" secondItem="5Pv-O3-usT" secondAttribute="bottom" constant="4" id="uoF-Oa-gwO"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dh9-Oz-pcb">
+                                <rect key="frame" x="12" y="327" width="369" height="491"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HuK-z7-3cQ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="obS-q9-Z5h"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="j18-Gg-MPO"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,12 +82,18 @@
                             <constraint firstItem="4gC-BF-lG6" firstAttribute="top" secondItem="a1l-kd-T8N" secondAttribute="bottom" constant="12" id="6n1-LC-NT3"/>
                             <constraint firstItem="4gC-BF-lG6" firstAttribute="trailing" secondItem="a1l-kd-T8N" secondAttribute="trailing" id="94r-Uf-tO3"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="AIK-a8-RWk"/>
+                            <constraint firstItem="Dh9-Oz-pcb" firstAttribute="trailing" secondItem="a1l-kd-T8N" secondAttribute="trailing" id="AeT-8l-eMw"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="J7B-8z-MVo"/>
-                            <constraint firstItem="a1l-kd-T8N" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="9:10" id="sbD-1f-rOF"/>
+                            <constraint firstItem="Dh9-Oz-pcb" firstAttribute="top" secondItem="4gC-BF-lG6" secondAttribute="bottom" constant="12" id="aDm-lE-1L4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a1l-kd-T8N" secondAttribute="trailing" constant="12" id="c3r-qs-zPX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dh9-Oz-pcb" secondAttribute="bottom" id="cW5-zb-IgV"/>
+                            <constraint firstItem="Dh9-Oz-pcb" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="sNF-sL-91K"/>
                             <constraint firstItem="4gC-BF-lG6" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="wav-pB-RkB"/>
+                            <constraint firstItem="a1l-kd-T8N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="xyX-OF-daa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameCollectionView" destination="Dh9-Oz-pcb" id="mYI-Nk-S7X"/>
                         <outlet property="searchView" destination="a1l-kd-T8N" id="0ss-Uu-JEK"/>
                     </connections>
                 </viewController>
@@ -89,7 +110,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyD-GM-LMA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="5"/>
+            <point key="canvasLocation" x="936" y="5"/>
         </scene>
         <!--Page Detail View Controller-->
         <scene sceneID="S2R-Cw-TwN">
