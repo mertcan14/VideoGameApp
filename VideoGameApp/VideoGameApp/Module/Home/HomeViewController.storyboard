@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="VideoGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4gC-BF-lG6">
+                                <rect key="frame" x="19.666666666666657" y="115" width="353.66666666666674" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="g25-RC-nH6"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="G78-Yy-VFj" kind="embed" id="fZw-yX-b02"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-kd-T8N">
+                                <rect key="frame" x="19.666666666666657" y="65" width="353.66666666666674" height="38"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-JC-EcO">
+                                        <rect key="frame" x="0.0" y="6" width="325.66666666666669" height="28"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Pnu-b6-Qjp"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.73725490199999999" green="0.22352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-O3-usT">
+                                        <rect key="frame" x="325.66666666666663" y="6.9999999999999964" width="28" height="26.333333333333332"/>
+                                        <color key="tintColor" red="0.73725490196078436" green="0.22352941176470587" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="CeO-rc-o7d"/>
+                                            <constraint firstAttribute="height" constant="28" id="GUl-Sr-JYT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3DF-JC-EcO" secondAttribute="bottom" constant="4" id="012-xY-3If"/>
+                                    <constraint firstItem="3DF-JC-EcO" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="Jia-Bb-CJO"/>
+                                    <constraint firstItem="5Pv-O3-usT" firstAttribute="leading" secondItem="3DF-JC-EcO" secondAttribute="trailing" id="cWa-kX-bcc"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Pv-O3-usT" secondAttribute="trailing" id="hhb-dq-DL6"/>
+                                    <constraint firstAttribute="height" constant="38" id="oEq-gp-B6D"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Pv-O3-usT" secondAttribute="bottom" constant="4" id="uoF-Oa-gwO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4gC-BF-lG6" firstAttribute="top" secondItem="a1l-kd-T8N" secondAttribute="bottom" constant="12" id="6n1-LC-NT3"/>
+                            <constraint firstItem="4gC-BF-lG6" firstAttribute="trailing" secondItem="a1l-kd-T8N" secondAttribute="trailing" id="94r-Uf-tO3"/>
+                            <constraint firstItem="a1l-kd-T8N" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="AIK-a8-RWk"/>
+                            <constraint firstItem="a1l-kd-T8N" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="J7B-8z-MVo"/>
+                            <constraint firstItem="a1l-kd-T8N" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="9:10" id="sbD-1f-rOF"/>
+                            <constraint firstItem="4gC-BF-lG6" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="wav-pB-RkB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchView" destination="a1l-kd-T8N" id="0ss-Uu-JEK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+        </scene>
+        <!--Home Page View Controller-->
+        <scene sceneID="Oh5-KV-qmE">
+            <objects>
+                <pageViewController storyboardIdentifier="HomePageViewController" autoresizesArchivedViewToFullSize="NO" keyboardType="off" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="G78-Yy-VFj" customClass="HomePageViewController" customModule="VideoGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyD-GM-LMA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="5"/>
+        </scene>
+        <!--Page Detail View Controller-->
+        <scene sceneID="S2R-Cw-TwN">
+            <objects>
+                <viewController storyboardIdentifier="PageDetailViewController" id="CGG-TF-o53" customClass="PageDetailViewController" customModule="VideoGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qmr-03-Fy3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-kh-Y9V">
+                                <rect key="frame" x="0.0" y="348.66666666666669" width="393" height="180.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="E9Y-zF-EGW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4yP-Pr-yYq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Og-kh-Y9V" firstAttribute="leading" secondItem="Qmr-03-Fy3" secondAttribute="leading" id="ixa-j5-WVu"/>
+                            <constraint firstItem="0Og-kh-Y9V" firstAttribute="centerY" secondItem="4yP-Pr-yYq" secondAttribute="centerY" id="lma-WF-8IY"/>
+                            <constraint firstAttribute="trailing" secondItem="0Og-kh-Y9V" secondAttribute="trailing" id="w2J-lZ-LRw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeImageView" destination="0Og-kh-Y9V" id="2tZ-PO-PVA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlT-wt-Zzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1650" y="5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

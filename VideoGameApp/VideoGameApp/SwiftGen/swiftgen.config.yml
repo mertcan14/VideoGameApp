@@ -3,6 +3,7 @@ output_dir: ${PROJECT_DIR}/VideoGameApp/SwiftGen
 xcassets:
   inputs:
     - App/Assets.xcassets
+    - App/Color.xcassets
   outputs:
     - templatePath: ${PROJECT_DIR}/VideoGameApp/SwiftGen/template.stencil
       params:

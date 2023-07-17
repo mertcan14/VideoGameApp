@@ -13,4 +13,5 @@ public extension UIImage {
 // MARK: - Colors
 public extension UIColor {
   static let accentColor: UIColor = UIColor(named: "AccentColor")!
+  static let fieldColor: UIColor = UIColor(named: "FieldColor")!
 }
