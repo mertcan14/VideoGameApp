@@ -21,16 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="380" height="79"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssx-by-Reh">
-                                <rect key="frame" x="6" y="6" width="368" height="67"/>
+                                <rect key="frame" x="2" y="6" width="376" height="67"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GRm-pS-pvf">
-                                        <rect key="frame" x="110.66666666666667" y="4" width="253.33333333333331" height="59"/>
+                                        <rect key="frame" x="110.66666666666666" y="4" width="261.33333333333337" height="59"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jm3-fI-hI9">
-                                                <rect key="frame" x="0.0" y="0.0" width="251.33333333333334" height="27.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="241.33333333333334" height="27.666666666666668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syp-8T-zbY">
-                                                        <rect key="frame" x="0.0" y="5.3333333333333339" width="241.33333333333334" height="19.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="5.3333333333333339" width="231.33333333333334" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -94,9 +94,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ssx-by-Reh" firstAttribute="top" secondItem="PDO-PT-rAt" secondAttribute="top" constant="6" id="GhF-wN-qYO"/>
-                            <constraint firstAttribute="trailing" secondItem="ssx-by-Reh" secondAttribute="trailing" constant="6" id="Sox-Gk-tnd"/>
+                            <constraint firstAttribute="trailing" secondItem="ssx-by-Reh" secondAttribute="trailing" constant="2" id="Sox-Gk-tnd"/>
                             <constraint firstAttribute="bottom" secondItem="ssx-by-Reh" secondAttribute="bottom" constant="6" id="YyJ-r4-pnw"/>
-                            <constraint firstItem="ssx-by-Reh" firstAttribute="leading" secondItem="PDO-PT-rAt" secondAttribute="leading" constant="6" id="qnN-kA-AvE"/>
+                            <constraint firstItem="ssx-by-Reh" firstAttribute="leading" secondItem="PDO-PT-rAt" secondAttribute="leading" constant="2" id="qnN-kA-AvE"/>
                         </constraints>
                     </view>
                 </subviews>

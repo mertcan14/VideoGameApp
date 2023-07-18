@@ -19,6 +19,7 @@ protocol BaseViewControllerProtocol: AnyObject, LoadingShowable {
 class BaseViewController: UIViewController, LoadingShowable {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func delay(_ delay: Double, closure: @escaping () -> Void) {

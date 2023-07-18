@@ -9,10 +9,13 @@ import Foundation
 
 protocol HomePresenterProtocol: AnyObject {
     var numberOfVideoGames: Int { get }
+    var numberOfSearchedVideoGames: Int { get }
     
     func viewDidLoad()
     func setImagesForSlider()
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
+    func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
+    func searchVideoGame(_ searchText: String)
 }
 
 final class HomePresenter {
@@ -27,6 +30,7 @@ final class HomePresenter {
         }
     }
     var nextPage: String?
+    var searchedVideoGame: [VideoGame] = []
     
     init(
         _ view: HomeViewControllerProtocol,
@@ -47,6 +51,32 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    var numberOfSearchedVideoGames: Int {
+        self.searchedVideoGame.count
+    }
+    
+    func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
+        guard let videoGame = self.searchedVideoGame[safe: index],
+              let nameOfGame = videoGame.name,
+              let ratingOfGame = videoGame.rating,
+              let releasedOfGame = videoGame.released,
+              let imageString = setParseImageURL(videoGame.backgroundImage),
+              let imageURL = URL(string: imageString) else { return nil }
+        return VideoGameCellModel(imageURL: imageURL, nameOfGame: nameOfGame, ratingOfGame: ratingOfGame, releasedOfGame: releasedOfGame)
+    }
+    
+    func searchVideoGame(_ searchText: String) {
+        searchedVideoGame = []
+        videoGames.forEach { [weak self] videoGame in
+            guard let name = videoGame.name else { return }
+            if name.lowercased().contains(searchText) {
+                self?.searchedVideoGame.append(videoGame)
+            }
+        }
+        self.view.reloadData()
+        self.view.hidePageView()    
+    }
+    
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
         guard let videoGame = self.videoGames[safe: index],
               let nameOfGame = videoGame.name,
@@ -58,13 +88,7 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func setImagesForSlider() {
-        var images: [String] = []
-        for index in 0..<3 {
-            guard let videoGame = videoGames[safe: index],
-                  let image = videoGame.backgroundImage else { return }
-            images.append(image)
-        }
-        self.view.setSliderImages(images)
+        self.view.setSliderImages(Array(self.videoGames.prefix(upTo: 3)))
     }
     
     var numberOfVideoGames: Int {

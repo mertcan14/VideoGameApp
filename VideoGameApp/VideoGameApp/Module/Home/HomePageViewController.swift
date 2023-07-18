@@ -10,7 +10,7 @@ import UIKit
 final class HomePageViewController: UIPageViewController {
     // MARK: - Variable Definitions
     private var individualPageViewControllerList = [UIViewController]()
-    private var images: [String] = [] {
+    private var images: [VideoGame] = [] {
         didSet {
             configureViewControllers()
         }
@@ -28,9 +28,9 @@ final class HomePageViewController: UIPageViewController {
     private func configureViewControllers() {
         DispatchQueue.main.async {
             self.individualPageViewControllerList = [
-                PageDetailViewController.getInstance(index: 0, image: self.images[safe: 0]),
-                PageDetailViewController.getInstance(index: 1, image: self.images[safe: 1]),
-                PageDetailViewController.getInstance(index: 2, image: self.images[safe: 2])
+                PageDetailViewController.getInstance(index: 0, videoGame: self.images[safe: 0]),
+                PageDetailViewController.getInstance(index: 1, videoGame: self.images[safe: 1]),
+                PageDetailViewController.getInstance(index: 2, videoGame: self.images[safe: 2])
             ]
             guard let constantindividualPageViewController = self.individualPageViewControllerList[safe: 0] else { return }
             self.setViewControllers([constantindividualPageViewController], direction: .forward, animated: true)
@@ -53,8 +53,8 @@ final class HomePageViewController: UIPageViewController {
     }
     
     @objc func getImages(notification: Notification) {
-        guard let imagesAny = notification.userInfo?["images"],
-              let imagesString = imagesAny as? [String] else { return }
+        guard let imagesAny = notification.userInfo?["videoGame"],
+              let imagesString = imagesAny as? [VideoGame] else { return }
         self.images = imagesString
     }
 }
