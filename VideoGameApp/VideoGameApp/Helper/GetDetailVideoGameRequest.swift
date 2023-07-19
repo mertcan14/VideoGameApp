@@ -9,7 +9,7 @@ import Foundation
 import VideoGameAPI
 
 struct GetDetailVideoGameRequest: BaseRequestProtocol {
-    typealias Response = DetailVideoGameResult
+    typealias Response = DetailVideoGame
     private let apiKey: String = "2b4634cc446c49fe81e0ad55b7ad042c"
     var headers: [String: String] = [:]
     var idOfGame: String
@@ -30,9 +30,9 @@ struct GetDetailVideoGameRequest: BaseRequestProtocol {
         .get
     }
     
-    func decode(_ data: Data) throws -> DetailVideoGameResult {
+    func decode(_ data: Data) throws -> DetailVideoGame {
         let decoder = JSONDecoder()
-        let response = try decoder.decode(DetailVideoGameResult.self, from: data)
+        let response = try decoder.decode(DetailVideoGame.self, from: data)
         return response
     }
 }

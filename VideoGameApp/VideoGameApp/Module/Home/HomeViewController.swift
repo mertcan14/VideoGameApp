@@ -128,7 +128,9 @@ extension HomeViewController: HomeViewControllerProtocol {
 }
 // MARK: - Extension UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presenter.goDetailScreen(indexPath.row)
+    }
 }
 // MARK: - Extension UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {

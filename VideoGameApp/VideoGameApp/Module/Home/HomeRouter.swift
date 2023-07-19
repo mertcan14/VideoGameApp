@@ -8,7 +8,7 @@
 import UIKit
 // MARK: - Enum HomeRoutes
 enum HomeRoutes {
-    case goDetailScreen
+    case goDetailScreen(_ idOfVideoGame: String)
 }
 // MARK: - Protocol HomeRouterProtocol
 protocol HomeRouterProtocol: AnyObject {
@@ -33,9 +33,12 @@ final class HomeRouter {
 // MARK: - Extension HomeRouterProtocol
 extension HomeRouter: HomeRouterProtocol {
     func navigate(_ route: HomeRoutes) {
+        guard let window = viewController?.view.window else { return }
         switch route {
-        case .goDetailScreen:
-            print("go detail page")
+        case .goDetailScreen(let idOfVideoGame):
+            let sendVC = DetailVideoGameRouter.createModule()
+            sendVC.presenter.setIdOfVideoGame(idOfVideoGame)
+            viewController?.navigationController?.pushViewController(sendVC, animated: true)
         }
     }
 }

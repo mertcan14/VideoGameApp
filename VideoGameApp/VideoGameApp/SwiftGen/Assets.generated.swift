@@ -8,11 +8,15 @@ public extension UIImage {
   static let androidW: UIImage = UIImage(named: "androidW")!
   static let apple: UIImage = UIImage(named: "apple")!
   static let appleW: UIImage = UIImage(named: "appleW")!
+  static let arrow: UIImage = UIImage(named: "arrow")!
+  static let arrowW: UIImage = UIImage(named: "arrowW")!
   static let computer: UIImage = UIImage(named: "computer")!
   static let computerW: UIImage = UIImage(named: "computerW")!
   static let hearticon: UIImage = UIImage(named: "hearticon")!
   static let homeicon: UIImage = UIImage(named: "homeicon")!
+  static let likedicon: UIImage = UIImage(named: "likedicon")!
   static let likeicon: UIImage = UIImage(named: "likeicon")!
+  static let likeiconW: UIImage = UIImage(named: "likeiconW")!
   static let linux: UIImage = UIImage(named: "linux")!
   static let linuxW: UIImage = UIImage(named: "linuxW")!
   static let loading: UIImage = UIImage(named: "loading")!

@@ -20,7 +20,9 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageOfGameView: UIImageView!
     @IBOutlet weak var relesedOfGameLabel: UILabel!
     @IBOutlet weak var ratingOfGameLabel: UILabel!
+    @IBOutlet weak var ratingView: UIStackView!
     @IBOutlet weak var nameOfGameLabel: UILabel!
+    @IBOutlet weak var realesedView: UIStackView!
     
     var cellPresenter: VideoGameCellPresenterProtocol! {
         didSet {
@@ -62,10 +64,18 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
     }
     
     func setRatingOfGame(_ text: Double?) {
+        guard let text else {
+            self.ratingView.isHidden = true
+            return
+        }
         self.ratingOfGameLabel.text = "\(text)"
     }
     
     func setReleasedOfGame(_ text: String?) {
+        guard let text else {
+            self.realesedView.isHidden = true
+            return
+        }
         self.relesedOfGameLabel.text = text
     }
 }

@@ -135,6 +135,8 @@
                 <outlet property="nameOfGameLabel" destination="syp-8T-zbY" id="8T8-iE-Tqh"/>
                 <outlet property="outerView" destination="ssx-by-Reh" id="UfV-mH-wtb"/>
                 <outlet property="ratingOfGameLabel" destination="ae2-WI-2rb" id="hzP-gF-9VX"/>
+                <outlet property="ratingView" destination="nqn-fJ-vU9" id="w37-Ad-Tft"/>
+                <outlet property="realesedView" destination="7hc-tT-GOE" id="4Ky-eO-JBY"/>
                 <outlet property="relesedOfGameLabel" destination="msI-qL-0bB" id="pp3-iS-NJE"/>
             </connections>
             <point key="canvasLocation" x="208.3969465648855" y="60.563380281690144"/>

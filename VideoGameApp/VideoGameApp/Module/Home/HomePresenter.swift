@@ -15,6 +15,7 @@ protocol HomePresenterProtocol: AnyObject {
     var numberOfSlide: Int { get }
     
     func viewDidLoad()
+    func goDetailScreen(_ index: Int)
     func setImagesForSlider()
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
     func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
@@ -54,6 +55,11 @@ final class HomePresenter {
 }
 // MARK: - Extension HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
+    func goDetailScreen(_ index: Int) {
+        guard let idOfVideoGame = self.videoGames[index + slideCount].id else { return }
+        self.router.navigate(.goDetailScreen(String(idOfVideoGame)))
+    }
+    
     var numberOfSlide: Int {
         slideCount
     }

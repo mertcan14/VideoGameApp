@@ -89,6 +89,8 @@ final class PageDetailViewController: UIViewController {
     private func configImageView() {
         homeImageView.layer.cornerRadius = imageCornerRadius
         homeImageView.clipsToBounds = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        homeImageView.addGestureRecognizer(tap)
     }
     
     private func createImageView(_ nameOfPlatform: String, _ isDark: Bool) -> UIImageView {
@@ -105,11 +107,8 @@ final class PageDetailViewController: UIViewController {
         guard let image = videoGame.backgroundImage,
               let imageURL = URL(string: image) else { return }
         homeImageView.downloadedWithCompletion(from: imageURL) {[weak self] image in
-            var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0
-            var alpha: CGFloat = 0
-            image?.averageColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-            let sumColorValue = red + green + blue
-            self?.setPlatform(sumColorValue < 1)
+            guard let image else { return }
+            self?.setPlatform(image.isDark())
             self?.homeImageView.contentMode = .scaleToFill
         }
         homeImageView.contentMode = .scaleToFill
@@ -127,6 +126,13 @@ final class PageDetailViewController: UIViewController {
             self?.platformStackView.addArrangedSubview(imageView)
             self?.platformSWWidth.constant += 25
         }
+    }
+    // MARK: Funcs
+    @objc func handleTap() {
+        let sendVC = DetailVideoGameRouter.createModule()
+        self.navigationController?.pushViewController(sendVC, animated: true)
+        guard let idOfVideoGame = videoGame?.id else { return }
+        sendVC.presenter.setIdOfVideoGame(String(idOfVideoGame))
     }
     // MARK: - Funcs For Instance
     static func getInstance(videoGame: VideoGame?) -> PageDetailViewController {
