@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: Class SplashViewController
 final class SplashViewController: BaseViewController {
     var presenter: SplashPresenterProtocol!
     

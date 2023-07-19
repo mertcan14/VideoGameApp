@@ -4,19 +4,17 @@
 //
 //  Created by mertcan YAMAN on 14.07.2023.
 //
-
-import Foundation
 import UIKit
-
+// MARK: - Enum SplashRoutes
 enum SplashRoutes {
     case homeScreen
     case noInternetScreen
 }
-
+// MARK: - Protocol SplashRouterProtocol
 protocol SplashRouterProtocol: AnyObject {
     func navigate(_ route: SplashRoutes)
 }
-
+// MARK: - Class SplashRouter
 final class SplashRouter {
     weak var viewController: SplashViewController?
     
@@ -31,7 +29,7 @@ final class SplashRouter {
         return view
     }
 }
-
+// MARK: - Extension SplashRouterProtocol
 extension SplashRouter: SplashRouterProtocol {
     func navigate(_ route: SplashRoutes) {
         guard let window = viewController?.view.window else { return }

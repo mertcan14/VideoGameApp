@@ -15,8 +15,10 @@ public extension UIImage {
   static let likeicon: UIImage = UIImage(named: "likeicon")!
   static let linux: UIImage = UIImage(named: "linux")!
   static let linuxW: UIImage = UIImage(named: "linuxW")!
+  static let loading: UIImage = UIImage(named: "loading")!
   static let nintendo: UIImage = UIImage(named: "nintendo")!
   static let nintendoW: UIImage = UIImage(named: "nintendoW")!
+  static let noimage: UIImage = UIImage(named: "noimage")!
   static let nointernet: UIImage = UIImage(named: "nointernet")!
   static let other: UIImage = UIImage(named: "other")!
   static let playstation: UIImage = UIImage(named: "playstation")!

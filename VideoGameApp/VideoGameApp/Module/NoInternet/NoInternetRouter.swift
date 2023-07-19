@@ -5,16 +5,16 @@
 //  Created by mertcan YAMAN on 14.07.2023.
 //
 
-import Foundation
-
+import UIKit
+// MARK: - Enum NoInternetRoutes
 enum NoInternetRoutes {
     case goHomeScreen
 }
-
+// MARK: - Protocol NoInternetRouterProtocol
 protocol NoInternetRouterProtocol: AnyObject {
     func navigate(_ route: NoInternetRoutes)
 }
-
+// MARK: - Class NoInternetRouter
 final class NoInternetRouter {
     weak var viewController: NoInternetViewController?
     
@@ -29,12 +29,15 @@ final class NoInternetRouter {
         return view
     }
 }
-
+// MARK: - Extension NoInternetRouterProtocol
 extension NoInternetRouter: NoInternetRouterProtocol {
     func navigate(_ route: NoInternetRoutes) {
+        guard let window = viewController?.view.window else { return }
         switch route {
         case .goHomeScreen:
-            print("go Home")
+            let sendVC = HomeRouter.createModule()
+            let navigationController = UINavigationController(rootViewController: sendVC)
+            window.rootViewController = navigationController
         }
     }
 }

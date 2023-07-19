@@ -7,16 +7,20 @@
 
 import Foundation
 
+private let maxSecondForWait: Int = 90
+private let addSecondForWait: Int = 10
+private var timeWaitStarter: Int = 5
+
+// MARK: - Protocol NoInternetPresenterProtocol
 protocol NoInternetPresenterProtocol: AnyObject {
     func checkInternetConnection()
 }
-
+// MARK: - Class NoInternetPresenter
 final class NoInternetPresenter {
     unowned var view: NoInternetViewControllerProtocol
     let router: NoInternetRouterProtocol
     let interactor: NoInternetInteractorProtocol
-    var timeWaitStarter: Int = 5
-    var timeWait: Int = 5
+    var timeWait: Int = timeWaitStarter
     var timer: Timer?
     
     init(
@@ -57,26 +61,26 @@ final class NoInternetPresenter {
         }
     }
 }
-
+// MARK: - Extension NoInternetPresenterProtocol
 extension NoInternetPresenter: NoInternetPresenterProtocol {
     func checkInternetConnection() {
         interactor.checkInternetConnection()
     }
 }
-
+// MARK: - Extension NoInternetInteractorOutputProtocol
 extension NoInternetPresenter: NoInternetInteractorOutputProtocol {
     func returnInternetConnection(_ status: Bool) {
         self.view.hideLoading()
         if status {
-            print("go home")
+            self.router.navigate(.goHomeScreen)
         } else {
             timeWait = timeWaitStarter
             self.view.setTimeLabel(self.timeString(TimeInterval(timeWait)))
             self.view.showTimeLabel()
             self.view.enabledBtn(false)
             self.runTimer()
-            if timeWaitStarter < 90 {
-                self.timeWaitStarter += 10
+            if timeWaitStarter < maxSecondForWait {
+                timeWaitStarter += addSecondForWait
             }
         }
     }

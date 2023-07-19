@@ -6,16 +6,16 @@
 //
 
 import UIKit
-
+// MARK: - Protocol VideoGameCollectionViewCellProtocol
 protocol VideoGameCollectionViewCellProtocol: AnyObject {
-    func setImage(_ image: URL)
-    func setNameOfGame(_ text: String)
-    func setRatingOfGame(_ text: Double)
-    func setReleasedOfGame(_ text: String)
+    func setImage(_ image: URL?)
+    func setNameOfGame(_ text: String?)
+    func setRatingOfGame(_ text: Double?)
+    func setReleasedOfGame(_ text: String?)
 }
-
+// MARK: - Class VideoGameCollectionViewCell
 final class VideoGameCollectionViewCell: UICollectionViewCell {
-
+    // MARK: - IBOutlet Definitions
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var imageOfGameView: UIImageView!
     @IBOutlet weak var relesedOfGameLabel: UILabel!
@@ -29,10 +29,10 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
-            super.awakeFromNib()
-
-           setShadow()
-        }
+        super.awakeFromNib()
+        
+        setShadow()
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -46,21 +46,26 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
         outerView.layer.shadowRadius = 1.5
     }
 }
-
+// MARK: - Extension VideoGameCollectionViewCellProtocol
 extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
-    func setImage(_ image: URL) {
+    func setImage(_ image: URL?) {
+        guard let image else {
+            self.imageOfGameView.image = .noimage
+            return
+        }
         self.imageOfGameView.downloaded(from: image)
+        self.imageOfGameView.contentMode = .scaleAspectFill
     }
     
-    func setNameOfGame(_ text: String) {
+    func setNameOfGame(_ text: String?) {
         self.nameOfGameLabel.text = text
     }
     
-    func setRatingOfGame(_ text: Double) {
+    func setRatingOfGame(_ text: Double?) {
         self.ratingOfGameLabel.text = "\(text)"
     }
     
-    func setReleasedOfGame(_ text: String) {
+    func setReleasedOfGame(_ text: String?) {
         self.relesedOfGameLabel.text = text
     }
 }

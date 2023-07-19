@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: - Protocol BaseViewControllerProtocol
 protocol BaseViewControllerProtocol: AnyObject, LoadingShowable {
     func showAlert(
         _ title: String,
@@ -15,7 +15,7 @@ protocol BaseViewControllerProtocol: AnyObject, LoadingShowable {
     )
     func delay(_ delay: Double, closure: @escaping () -> Void)
 }
-
+// MARK: - Class BaseViewController
 class BaseViewController: UIViewController, LoadingShowable {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class BaseViewController: UIViewController, LoadingShowable {
         DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
     }
 }
-
+// MARK: - Extension BaseViewControllerProtocol
 extension BaseViewController: BaseViewControllerProtocol {
     func showAlert(
         _ title: String,

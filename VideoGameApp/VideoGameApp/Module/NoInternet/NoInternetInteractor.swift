@@ -7,19 +7,19 @@
 
 import Foundation
 import VideoGameAPI
-
+// MARK: - Protocol NoInternetInteractorProtocol
 protocol NoInternetInteractorProtocol {
     func checkInternetConnection()
 }
-
+// MARK: - Protocol NoInternetInteractorOutputProtocol
 protocol NoInternetInteractorOutputProtocol {
     func returnInternetConnection(_ status: Bool)
 }
-
+// MARK: - Class NoInternetInteractor
 final class NoInternetInteractor {
     var output: NoInternetInteractorOutputProtocol?
 }
-
+// MARK: - Extension NoInternetInteractorProtocol
 extension NoInternetInteractor: NoInternetInteractorProtocol {
     func checkInternetConnection() {
         self.output?.returnInternetConnection(ReachabilityService.isConnectedToNetwork())

@@ -6,15 +6,15 @@
 //
 
 import UIKit
-
+// MARK: - Enum HomeRoutes
 enum HomeRoutes {
     case goDetailScreen
 }
-
+// MARK: - Protocol HomeRouterProtocol
 protocol HomeRouterProtocol: AnyObject {
     func navigate(_ route: HomeRoutes)
 }
-
+// MARK: - Class HomeRouter
 final class HomeRouter {
     weak var viewController: HomeViewController?
     
@@ -30,7 +30,7 @@ final class HomeRouter {
         return view
     }
 }
-
+// MARK: - Extension HomeRouterProtocol
 extension HomeRouter: HomeRouterProtocol {
     func navigate(_ route: HomeRoutes) {
         switch route {

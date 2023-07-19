@@ -10,7 +10,7 @@ import UIKit
 final class HomePageViewController: UIPageViewController {
     // MARK: - Variable Definitions
     private var individualPageViewControllerList = [UIViewController]()
-    private var images: [VideoGame] = [] {
+    private var videoGames: [VideoGame] = [] {
         didSet {
             configureViewControllers()
         }
@@ -27,11 +27,11 @@ final class HomePageViewController: UIPageViewController {
     // MARK: - Funcs For Configure
     private func configureViewControllers() {
         DispatchQueue.main.async {
-            self.individualPageViewControllerList = [
-                PageDetailViewController.getInstance(index: 0, videoGame: self.images[safe: 0]),
-                PageDetailViewController.getInstance(index: 1, videoGame: self.images[safe: 1]),
-                PageDetailViewController.getInstance(index: 2, videoGame: self.images[safe: 2])
-            ]
+            self.videoGames.forEach {[weak self] videoGame in
+                self?.individualPageViewControllerList.append(
+                    PageDetailViewController.getInstance(videoGame: videoGame)
+                )
+            }
             guard let constantindividualPageViewController = self.individualPageViewControllerList[safe: 0] else { return }
             self.setViewControllers([constantindividualPageViewController], direction: .forward, animated: true)
         }
@@ -49,20 +49,23 @@ final class HomePageViewController: UIPageViewController {
     }
     
     private func setNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(getImages(notification:)), name: Notification.Name("GetImages"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(getvideoGames(notification:)),
+                                               name: Notification.Name("GetvideoGames"),
+                                               object: nil)
     }
     
-    @objc func getImages(notification: Notification) {
+    @objc func getvideoGames(notification: Notification) {
         guard let imagesAny = notification.userInfo?["videoGame"],
-              let imagesString = imagesAny as? [VideoGame] else { return }
-        self.images = imagesString
+              let videoGames = imagesAny as? [VideoGame] else { return }
+        self.videoGames = videoGames
     }
 }
 
 // MARK: - Extension UIPageViewControllerDelegate
 extension HomePageViewController: UIPageViewControllerDelegate {
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 3
+        return self.videoGames.count
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
@@ -73,14 +76,14 @@ extension HomePageViewController: UIPageViewControllerDelegate {
 // MARK: - Extension UIPageViewControllerDataSource
 extension HomePageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let indexOfCurrentPageVC = individualPageViewControllerList.firstIndex(of: viewController) else { return nil }
-        
+        guard let indexOfCurrentPageVC = individualPageViewControllerList
+            .firstIndex(of: viewController) else { return nil }
         return indexOfCurrentPageVC == 0 ? nil : self.individualPageViewControllerList[indexOfCurrentPageVC - 1]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let indexOfCurrentPageVC = individualPageViewControllerList.firstIndex(of: viewController) else { return nil }
-        
+        guard let indexOfCurrentPageVC = individualPageViewControllerList
+            .firstIndex(of: viewController) else { return nil }
         let lastViewController = individualPageViewControllerList.count - 1
         return indexOfCurrentPageVC == lastViewController ? nil : self.individualPageViewControllerList[indexOfCurrentPageVC + 1]
     }

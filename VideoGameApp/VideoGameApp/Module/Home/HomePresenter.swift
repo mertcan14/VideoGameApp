@@ -7,9 +7,12 @@
 
 import Foundation
 
+private let slideCount: Int = 3
+// MARK: Protocol HomePresenterProtocol
 protocol HomePresenterProtocol: AnyObject {
     var numberOfVideoGames: Int { get }
     var numberOfSearchedVideoGames: Int { get }
+    var numberOfSlide: Int { get }
     
     func viewDidLoad()
     func setImagesForSlider()
@@ -17,11 +20,13 @@ protocol HomePresenterProtocol: AnyObject {
     func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
     func searchVideoGame(_ searchText: String)
 }
-
+// MARK: Class HomePresenter
 final class HomePresenter {
     unowned var view: HomeViewControllerProtocol
     let router: HomeRouterProtocol
     let interactor: HomeInteractorProtocol
+    var nextPage: String?
+    var searchedVideoGame: [VideoGame] = []
     var videoGames: [VideoGame] = [] {
         didSet {
             self.view.hideLoading()
@@ -29,8 +34,6 @@ final class HomePresenter {
             self.view.reloadData()
         }
     }
-    var nextPage: String?
-    var searchedVideoGame: [VideoGame] = []
     
     init(
         _ view: HomeViewControllerProtocol,
@@ -49,8 +52,12 @@ final class HomePresenter {
         return parseUrl.joined(separator: "/")
     }
 }
-
+// MARK: - Extension HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
+    var numberOfSlide: Int {
+        slideCount
+    }
+    
     var numberOfSearchedVideoGames: Int {
         self.searchedVideoGame.count
     }
@@ -88,7 +95,7 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func setImagesForSlider() {
-        self.view.setSliderImages(Array(self.videoGames.prefix(upTo: 3)))
+        self.view.setSliderImages(Array(self.videoGames.prefix(upTo: slideCount)))
     }
     
     var numberOfVideoGames: Int {
@@ -99,9 +106,10 @@ extension HomePresenter: HomePresenterProtocol {
         self.view.showLoading()
         self.interactor.fetchGames()
         self.view.collectionViewRegister()
+        self.view.setupCollectionViewLayout()
     }
 }
-
+// MARK: - Extension HomeInteractorOutputProtocol
 extension HomePresenter: HomeInteractorOutputProtocol {
     func getError(_ errorText: String) {
         self.view.showAlert("Error", errorText, nil)

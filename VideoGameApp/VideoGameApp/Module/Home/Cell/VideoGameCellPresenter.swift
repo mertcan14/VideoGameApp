@@ -6,11 +6,11 @@
 //
 
 import Foundation
-
+// MARK: Protocol VideoGameCellPresenterProtocol
 protocol VideoGameCellPresenterProtocol {
     func load()
 }
-
+// MARK: class VideoGameCellPresenter
 final class VideoGameCellPresenter {
     weak var view: VideoGameCollectionViewCellProtocol?
     private let videoGame: VideoGameCellModel
@@ -20,7 +20,7 @@ final class VideoGameCellPresenter {
         self.videoGame = videoGame
     }
 }
-
+// MARK: Extension VideoGameCellPresenterProtocol
 extension VideoGameCellPresenter: VideoGameCellPresenterProtocol {
     func load() {
         self.view?.setImage(self.videoGame.imageURL)

@@ -7,20 +7,20 @@
 
 import Foundation
 import VideoGameAPI
-
+// MARK: - Protocol HomeInteractorProtocol
 protocol HomeInteractorProtocol: AnyObject {
     func fetchGames()
 }
-
+// MARK: - Protocol HomeInteractorOutputProtocol
 protocol HomeInteractorOutputProtocol: AnyObject {
     func getGames(_ games: VideoGameResult)
     func getError(_ errorText: String)
 }
-
+// MARK: - Class HomeInteractor
 final class HomeInteractor {
     var output: HomeInteractorOutputProtocol?
 }
-
+// MARK: - Extension HomeInteractorProtocol
 extension HomeInteractor: HomeInteractorProtocol {
     func fetchGames() {
         NetworkService.shared.getListVideoGame { [weak self] result in

@@ -6,11 +6,11 @@
 //
 
 import Foundation
-
+// MARK: Protocol SplashPresenterProtocol
 protocol SplashPresenterProtocol: AnyObject {
     func viewDidAppear()
 }
-
+// MARK: Class SplashPresenter
 final class SplashPresenter: SplashPresenterProtocol {
     unowned var view: BaseViewControllerProtocol
     let router: SplashRouterProtocol
@@ -30,7 +30,7 @@ final class SplashPresenter: SplashPresenterProtocol {
         interactor.checkInternetConnection()
     }
 }
-
+// MARK: Extension SplashInteractorOutputProtocol
 extension SplashPresenter: SplashInteractorOutputProtocol {
     func returnInternetConnection(_ status: Bool) {
         view.delay(1.0) { [weak self] in
