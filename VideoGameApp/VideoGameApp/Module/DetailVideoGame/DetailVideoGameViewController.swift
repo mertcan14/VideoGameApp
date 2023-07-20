@@ -44,13 +44,14 @@ final class DetailVideoGameViewController: BaseViewController {
     private func setBackImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.backButtonImageView.image = isDark ? .arrowW : .arrow
-            
+            print("back \(isDark)")
         }
     }
     
     private func setLikeImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.likeButtonImageView.image = isDark ? .likeiconW : .likeicon
+            print("like \(isDark)")
         }
     }
     
@@ -66,8 +67,8 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
                 self?.gameImageView.image = .noimage
                 return
             }
-            self?.setLikeImageView(image.isDarkBottomRight())
-            self?.setBackImageView(image.isDarkLeftTop())
+            self?.setLikeImageView(image.isDark(.bottomRight))
+            self?.setBackImageView(image.isDark(.leftTop))
             self?.gameImageView.contentMode = .scaleAspectFill
         }
     }

@@ -108,7 +108,7 @@ final class PageDetailViewController: UIViewController {
               let imageURL = URL(string: image) else { return }
         homeImageView.downloadedWithCompletion(from: imageURL) {[weak self] image in
             guard let image else { return }
-            self?.setPlatform(image.isDark())
+            self?.setPlatform(image.isDark(.all))
             self?.homeImageView.contentMode = .scaleToFill
         }
         homeImageView.contentMode = .scaleToFill

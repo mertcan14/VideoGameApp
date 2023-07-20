@@ -40,6 +40,7 @@
 		E5C18DEE2A64349500856941 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C18DED2A64349500856941 /* HomeViewController.storyboard */; };
 		E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DEF2A64387300856941 /* HomePageViewController.swift */; };
 		E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */; };
+		E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
 		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
 		E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */; };
@@ -112,6 +113,7 @@
 		E5C18DED2A64349500856941 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		E5C18DEF2A64387300856941 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
+		E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift.swift"; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
 		E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoGameService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVideoGameRequest.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */,
 				E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */,
 				E59CD2AC2A68053300B99CF5 /* UIImage+Extension.swift */,
+				E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				E59CD2AD2A68053300B99CF5 /* UIImage+Extension.swift in Sources */,
 				E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */,
 				E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */,
+				E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

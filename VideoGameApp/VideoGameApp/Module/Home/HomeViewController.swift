@@ -36,7 +36,6 @@ final class HomeViewController: BaseViewController {
     public var presenter: HomePresenterProtocol!
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
     private var numberOfItemPerRow: CGFloat = 1
-    private var timer: Timer?
     private var isSearching = false
     
     // MARK: - Lifecycle Methods
@@ -135,7 +134,13 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK: - Extension UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        isSearching ? self.presenter.numberOfSearchedVideoGames : self.presenter.numberOfVideoGames - presenter.numberOfSlide
+        let numberOfItem = isSearching ? self.presenter.numberOfSearchedVideoGames : self.presenter.numberOfVideoGames - presenter.numberOfSlide
+        if numberOfItem == 0 {
+            collectionView.setEmptyView(title: "Sorry", message: "The game you were looking for was not found")
+        } else {
+            collectionView.restore()
+        }
+        return numberOfItem
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -150,29 +155,17 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - Extension UITextFieldDelegate
 extension HomeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        timer?.invalidate()
-        let currentText = textField.text ?? ""
-        if (currentText as NSString).replacingCharacters(in: range, with: string).count >= requiredWordToSearch {
-            timer = Timer.scheduledTimer(
-                timeInterval: 0.5,
-                target: self,
-                selector: #selector(performSearch),
-                userInfo: nil,
-                repeats: false)
+        guard let text = textField.text else { return true }
+        let currentText = (text as NSString).replacingCharacters(in: range, with: string)
+        if currentText.count >= requiredWordToSearch {
+            performSearch(currentText)
         } else {
-            timer = Timer.scheduledTimer(
-                timeInterval: 0.5,
-                target: self,
-                selector: #selector(removeSearch),
-                userInfo: nil,
-                repeats: false)
+            isSearching ? removeSearch() : nil
         }
         return true
     }
     
-    @objc func performSearch() {
-        guard let text = searhTextField.text else { return }
+    @objc func performSearch(_ text: String) {
         presenter.searchVideoGame(text.lowercased())
         isSearching = true
     }

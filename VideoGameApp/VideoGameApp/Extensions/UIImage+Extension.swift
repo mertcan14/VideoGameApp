@@ -7,27 +7,24 @@
 
 import UIKit
 
+enum IsDarkArea {
+    case all
+    case bottomRight
+    case leftTop
+}
+
 extension UIImage {
-    func isDark() -> Bool {
+    func isDark(_ area: IsDarkArea) -> Bool {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0
         var alpha: CGFloat = 0
-        self.averageColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        let sumColorValue = red + green + blue
-        return sumColorValue < 1.2
-    }
-    
-    func isDarkBottomRight() -> Bool {
-        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        self.averageColorRightBottom?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        let sumColorValue = red + green + blue
-        return sumColorValue < 1.2
-    }
-    
-    func isDarkLeftTop() -> Bool {
-        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        self.averageColorLeftTop?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        switch area {
+        case .all:
+            self.averageColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        case .bottomRight:
+            self.averageColorRightBottom?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        case .leftTop:
+            self.averageColorLeftTop?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        }
         let sumColorValue = red + green + blue
         return sumColorValue < 1.2
     }
@@ -46,7 +43,7 @@ extension UIImage {
         guard let inputImg = CIImage(image: self) else { return nil }
         let extent = inputImg.extent
         let pixelSize = extent.size.width * 0.1
-        let originX = extent.size.width * pixelSize
+        let originX = extent.size.width - pixelSize
         let extentVector = CIVector(x: originX, y: 0, z: pixelSize, w: pixelSize)
         return calculateBitmap(inputImg, extentVector)
     }
