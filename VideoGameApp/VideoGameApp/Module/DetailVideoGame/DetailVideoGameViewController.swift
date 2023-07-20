@@ -13,6 +13,7 @@ protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
     func setRealesedDate(_ date: String)
     func setMetacriticRate(_ metaCriticRate: String)
     func setDescription(_ description: String)
+    func likedActionSuccess()
 }
 // MARK: - Class DetailVideoGameViewController
 final class DetailVideoGameViewController: BaseViewController {
@@ -31,14 +32,20 @@ final class DetailVideoGameViewController: BaseViewController {
         showLoading()
         presenter.viewDidLoad()
         configBackButton()
+        configLikeButton()
     }
     @IBAction func goBackBtnClicked(_ sender: Any) {
         presenter.goBackScreen()
     }
     
     private func configBackButton() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
-        backButtonImageView.addGestureRecognizer(tap)
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
+        backButtonImageView.addGestureRecognizer(backTap)
+    }
+    
+    private func configLikeButton() {
+        let likeButton = UITapGestureRecognizer(target: self, action: #selector(liked))
+        likeButtonImageView.addGestureRecognizer(likeButton)
     }
     
     private func setBackImageView(_ isDark: Bool) {
@@ -56,9 +63,19 @@ final class DetailVideoGameViewController: BaseViewController {
     @objc private func goBackScreen() {
         presenter.goBackScreen()
     }
+    
+    @objc private func liked() {
+        presenter.likeVideoGame()
+    }
 }
 // MARK: - Extension DetailVideoGameViewControllerProtocol
 extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func likedActionSuccess() {
+        DispatchQueue.main.async { [weak self] in
+            self?.likeButtonImageView.image = .likedicon
+        }
+    }
+    
     func setImageView(_ url: URL) {
         self.gameImageView.downloadedWithCompletion(from: url) {[weak self] image in
             guard let image else {

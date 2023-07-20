@@ -48,6 +48,9 @@
 		E5C9DB362A69131A0097FE0B /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */; };
 		E5C9DB392A691F3B0097FE0B /* VideoGameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */; };
 		E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */; };
+		E5C9DB3E2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */; };
+		E5C9DB402A69507F0097FE0B /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E5C9DB3F2A69507F0097FE0B /* MyCoreData */; };
+		E5C9DB422A6952350097FE0B /* MyCoreDataService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
 		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
 		E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */; };
@@ -128,6 +131,9 @@
 		E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameTabBarController.swift; sourceTree = "<group>"; };
 		E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		E5C9DB3C2A6941EE0097FE0B /* MyCoreData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoreData; path = ../MyCoreData; sourceTree = "<group>"; };
+		E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
+		E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCoreDataService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
 		E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoGameService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVideoGameRequest.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */,
+				E5C9DB402A69507F0097FE0B /* MyCoreData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +318,7 @@
 				E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */,
 				E59CD2AC2A68053300B99CF5 /* UIImage+Extension.swift */,
 				E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */,
+				E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 				E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */,
 				E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */,
 				E5A679372A6141AE0036D886 /* LoadingShowable.swift */,
+				E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -353,6 +362,7 @@
 		E5D3D2B02A5E983A00B98AD1 = {
 			isa = PBXGroup;
 			children = (
+				E5C9DB3C2A6941EE0097FE0B /* MyCoreData */,
 				E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */,
 				E5D3D2BB2A5E983A00B98AD1 /* VideoGameApp */,
 				E5D3D2D52A5E983C00B98AD1 /* VideoGameAppTests */,
@@ -437,6 +447,7 @@
 			name = VideoGameApp;
 			packageProductDependencies = (
 				E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */,
+				E5C9DB3F2A69507F0097FE0B /* MyCoreData */,
 			);
 			productName = VideoGameApp;
 			productReference = E5D3D2B92A5E983A00B98AD1 /* VideoGameApp.app */;
@@ -646,6 +657,7 @@
 				E5A679382A6141AE0036D886 /* LoadingShowable.swift in Sources */,
 				E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */,
 				E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */,
+				E5C9DB3E2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift in Sources */,
 				E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */,
 				E5D3482C2A61869600322844 /* HomeViewController.swift in Sources */,
 				E5CCB8192A60397800864F1F /* DetailVideoGameModel.swift in Sources */,
@@ -657,6 +669,7 @@
 				E5C9DB362A69131A0097FE0B /* FavoritesRouter.swift in Sources */,
 				E59CD2A92A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift in Sources */,
 				E5C9DB2F2A6912E00097FE0B /* FavoritesViewController.swift in Sources */,
+				E5C9DB422A6952350097FE0B /* MyCoreDataService+Extension.swift in Sources */,
 				E5C9DB342A69130D0097FE0B /* FavoritesPresenter.swift in Sources */,
 				E59AFE632A655E0B0060CA62 /* VideoGameCellPresenter.swift in Sources */,
 				E5A679362A6140370036D886 /* LoadingView.swift in Sources */,
@@ -1007,6 +1020,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E5C9DB3F2A69507F0097FE0B /* MyCoreData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyCoreData;
+		};
 		E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = VideoGameAPI;

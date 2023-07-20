@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FavoritesPresenterProtocol: AnyObject {
-    
+    func viewDidLoad()
 }
 
 final class FavoritesPresenter {
@@ -27,9 +27,18 @@ final class FavoritesPresenter {
 }
 
 extension FavoritesPresenter: FavoritesPresenterProtocol {
-    
+    func viewDidLoad() {
+        self.view.showLoading()
+        self.interactor.fetchVideoGames()
+    }
 }
 
 extension FavoritesPresenter: FavoritesInteractorOutputProtocol {
+    func getVideoGames(_ videoGames: [VideoGame]) {
+        self.view.hideLoading()
+    }
     
+    func getError(_ error: String) {
+        self.view.showAlert("Error", error, nil)
+    }
 }

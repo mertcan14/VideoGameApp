@@ -11,8 +11,7 @@ let package = Package(
             name: "VideoGameAPI",
             targets: ["VideoGameAPI"]),
     ],
-    dependencies: [
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "VideoGameAPI",

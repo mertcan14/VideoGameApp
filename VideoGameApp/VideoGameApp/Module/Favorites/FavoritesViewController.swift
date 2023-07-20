@@ -16,6 +16,7 @@ final class FavoritesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
     }
 }
 
