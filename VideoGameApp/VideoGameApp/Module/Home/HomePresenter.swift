@@ -109,7 +109,6 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func viewDidLoad() {
-        self.view.showLoading()
         self.interactor.fetchGames()
         self.view.collectionViewRegister()
         self.view.setupCollectionViewLayout()

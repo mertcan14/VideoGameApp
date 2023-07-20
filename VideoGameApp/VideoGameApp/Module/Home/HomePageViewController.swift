@@ -22,6 +22,7 @@ final class HomePageViewController: UIPageViewController {
         setNotificationCenter()
         setOutlets()
         setUIPageControl()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     // MARK: - Funcs For Configure

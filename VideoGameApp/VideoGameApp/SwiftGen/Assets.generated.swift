@@ -27,6 +27,7 @@ public extension UIImage {
   static let other: UIImage = UIImage(named: "other")!
   static let playstation: UIImage = UIImage(named: "playstation")!
   static let playstationW: UIImage = UIImage(named: "playstationW")!
+  static let star: UIImage = UIImage(named: "star")!
   static let xbox: UIImage = UIImage(named: "xbox")!
   static let xboxW: UIImage = UIImage(named: "xboxW")!
 }
@@ -35,4 +36,5 @@ public extension UIImage {
 public extension UIColor {
   static let accentColor: UIColor = UIColor(named: "AccentColor")!
   static let fieldColor: UIColor = UIColor(named: "FieldColor")!
+  static let tabBarColor: UIColor = UIColor(named: "TabBarColor")!
 }

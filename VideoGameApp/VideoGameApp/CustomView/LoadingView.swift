@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadingView {
+final class LoadingView {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     static let shared = LoadingView()
     var blurView: UIVisualEffectView = UIVisualEffectView()
@@ -26,7 +26,7 @@ class LoadingView {
     }
     
     func startLoading() {
-        UIApplication.shared.windows.first?.addSubview(blurView)
+        UIApplication.shared.currentUIWindow()?.addSubview(blurView)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
     }

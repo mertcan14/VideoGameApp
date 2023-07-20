@@ -46,6 +46,9 @@ final class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         checkDeviceOrientation()
+        if presenter.numberOfVideoGames == 0 {
+            self.showLoading()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -59,7 +59,7 @@ enum ParentPlatformEnum: String {
     }
 }
 // MARK: - Class PageDetailViewController
-final class PageDetailViewController: UIViewController {
+final class PageDetailViewController: BaseViewController {
 
     // MARK: - IBOutlet Definitions
     @IBOutlet weak var platformStackView: UIStackView!

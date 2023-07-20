@@ -41,6 +41,13 @@
 		E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DEF2A64387300856941 /* HomePageViewController.swift */; };
 		E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */; };
 		E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */; };
+		E5C9DB2F2A6912E00097FE0B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */; };
+		E5C9DB302A6912E00097FE0B /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */; };
+		E5C9DB322A6912FE0097FE0B /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */; };
+		E5C9DB342A69130D0097FE0B /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB332A69130D0097FE0B /* FavoritesPresenter.swift */; };
+		E5C9DB362A69131A0097FE0B /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */; };
+		E5C9DB392A691F3B0097FE0B /* VideoGameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */; };
+		E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
 		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
 		E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */; };
@@ -114,6 +121,13 @@
 		E5C18DEF2A64387300856941 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
 		E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift.swift"; sourceTree = "<group>"; };
+		E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		E5C9DB332A69130D0097FE0B /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameTabBarController.swift; sourceTree = "<group>"; };
+		E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
 		E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoGameService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVideoGameRequest.swift; sourceTree = "<group>"; };
@@ -210,9 +224,11 @@
 			children = (
 				E5A679312A6130060036D886 /* Base */,
 				E59CD2A12A67CC7C00B99CF5 /* DetailVideoGame */,
+				E5C9DB2C2A6912740097FE0B /* Favorites */,
 				E5D348292A61867F00322844 /* Home */,
 				E5A679392A61427B0036D886 /* NoInternet */,
 				E5A679262A6122160036D886 /* Splash */,
+				E5C9DB372A691EF90097FE0B /* TabBar */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -255,6 +271,27 @@
 				E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */,
 			);
 			path = NoInternet;
+			sourceTree = "<group>";
+		};
+		E5C9DB2C2A6912740097FE0B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */,
+				E5C9DB332A69130D0097FE0B /* FavoritesPresenter.swift */,
+				E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */,
+				E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */,
+				E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E5C9DB372A691EF90097FE0B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */,
+				E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		E5CCB80C2A5FEB6500864F1F /* Frameworks */ = {
@@ -496,6 +533,7 @@
 				E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */,
 				E59AFE582A6516490060CA62 /* Color.xcassets in Resources */,
 				E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */,
+				E5C9DB302A6912E00097FE0B /* FavoritesViewController.xib in Resources */,
 				E5C18DEE2A64349500856941 /* HomeViewController.storyboard in Resources */,
 				E5A6793D2A6142B00036D886 /* NoInternetViewController.xib in Resources */,
 				E5495BBE2A5EE4CA000CED59 /* swiftgen.config.yml in Resources */,
@@ -604,7 +642,9 @@
 				E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */,
 				E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */,
 				E5CCB8172A600AC500864F1F /* VideoGameModel.swift in Sources */,
+				E5C9DB322A6912FE0097FE0B /* FavoritesInteractor.swift in Sources */,
 				E5A679382A6141AE0036D886 /* LoadingShowable.swift in Sources */,
+				E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */,
 				E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */,
 				E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */,
 				E5D3482C2A61869600322844 /* HomeViewController.swift in Sources */,
@@ -614,7 +654,10 @@
 				E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */,
 				E59CD2A72A67CCED00B99CF5 /* DetailVideoGameRouter.swift in Sources */,
 				E59AFE5C2A65248F0060CA62 /* UIImageView+Extension.swift in Sources */,
+				E5C9DB362A69131A0097FE0B /* FavoritesRouter.swift in Sources */,
 				E59CD2A92A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift in Sources */,
+				E5C9DB2F2A6912E00097FE0B /* FavoritesViewController.swift in Sources */,
+				E5C9DB342A69130D0097FE0B /* FavoritesPresenter.swift in Sources */,
 				E59AFE632A655E0B0060CA62 /* VideoGameCellPresenter.swift in Sources */,
 				E5A679362A6140370036D886 /* LoadingView.swift in Sources */,
 				E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */,
@@ -628,6 +671,7 @@
 				E5A6793F2A6143C10036D886 /* NoInternetPresenter.swift in Sources */,
 				E5D348282A616D6E00322844 /* UIView+Extension.swift in Sources */,
 				E59CD2A42A67CCBB00B99CF5 /* DetailVideoGameViewController.swift in Sources */,
+				E5C9DB392A691F3B0097FE0B /* VideoGameTabBarController.swift in Sources */,
 				E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */,
 				E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */,
 				E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */,
