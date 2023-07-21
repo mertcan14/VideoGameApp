@@ -46,4 +46,29 @@ extension BaseViewController: BaseViewControllerProtocol {
         alertController.addAction(okAction)
         self.present(alertController, animated: true)
     }
+    
+    func showPopUp(
+        _ title: String,
+        _ message: String,
+        buttonTitle: String? = "OK",
+        buttonAction: (() -> Void)? = nil,
+        cancelAction: (() -> Void)? = nil
+    ) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: buttonTitle, style: .default) { _ in
+            guard let buttonAction else { return }
+            buttonAction()
+        }
+        alertController.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
+            guard let cancelAction else { return }
+            cancelAction()
+        }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
+    }
 }

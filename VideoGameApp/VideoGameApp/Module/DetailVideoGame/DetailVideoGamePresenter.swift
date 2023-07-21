@@ -8,6 +8,8 @@
 import Foundation
 
 protocol DetailVideoGamePresenterProtocol: AnyObject {
+    var isLiked: Bool { get }
+    
     func goBackScreen()
     func viewDidLoad()
     func setIdOfVideoGame(_ id: String)
@@ -19,6 +21,7 @@ final class DetailVideoGamePresenter {
     let router: DetailVideoGameRouterProtocol
     let interactor: DetailVideoGameInteractorProtocol
     var idOfVideoGame: String?
+    var isLiked: Bool = false
     var videoGame: DetailVideoGame? {
         didSet {
             reloadData()
@@ -55,7 +58,7 @@ final class DetailVideoGamePresenter {
         self.view.setImageView(imageURL)
     }
     
-    private func convertObjectToDict() -> [String: Any]? {
+    private func convertVideoGameToDict() -> [String: Any]? {
         guard let id = videoGame?.id else { return nil }
         let objDict: [String: Any] = [
             "id": id,
@@ -70,13 +73,22 @@ final class DetailVideoGamePresenter {
 
 extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
     func likeVideoGame() {
-        guard let objDict = convertObjectToDict() else { return }
-        self.interactor.likedVideoGame(objDict)
+        if !isLiked {
+            guard let objDict = convertVideoGameToDict() else { return }
+            self.interactor.likedVideoGame(objDict)
+        } else {
+            guard let idOfVideoGame,
+                  let id = Int(idOfVideoGame) else { return }
+            self.interactor.unLikedVideoGame(["id": id])
+        }
+        
     }
     
     func viewDidLoad() {
         guard let idOfVideoGame else { return }
         self.interactor.fetchDetailVideoGameById(idOfVideoGame)
+        guard let id = Int(idOfVideoGame) else { return }
+        self.interactor.isLikedVideoGame(["id": id])
     }
     
     func setIdOfVideoGame(_ id: String) {
@@ -89,9 +101,24 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
 }
 
 extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
+    func getRemoveFromAddObj(_ isRemove: Bool) {
+        if isRemove {
+            self.isLiked = false
+            self.view.unLikedVideoGame()
+        }
+    }
+    
+    func getIsLikedVideoGame(_ isLike: Bool) {
+        if isLike {
+            self.view.isLikedVideoGame(isLike)
+            self.isLiked = true
+        }
+    }
+    
     func getSuccessFromAddObj(_ success: Bool) {
         if success {
             self.view.likedActionSuccess()
+            self.isLiked = true
         } else {
             print("Error")
         }

@@ -14,6 +14,8 @@ protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
     func setMetacriticRate(_ metaCriticRate: String)
     func setDescription(_ description: String)
     func likedActionSuccess()
+    func isLikedVideoGame(_ isLiked: Bool)
+    func unLikedVideoGame()
 }
 // MARK: - Class DetailVideoGameViewController
 final class DetailVideoGameViewController: BaseViewController {
@@ -65,11 +67,31 @@ final class DetailVideoGameViewController: BaseViewController {
     }
     
     @objc private func liked() {
-        presenter.likeVideoGame()
+        if self.presenter.isLiked {
+            let okAction = {
+                self.presenter.likeVideoGame()
+            }
+            self.showPopUp("Are you sure?", "You are about to deregister the game", buttonAction: okAction)
+        } else {
+            presenter.likeVideoGame()
+        }
     }
 }
 // MARK: - Extension DetailVideoGameViewControllerProtocol
 extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func unLikedVideoGame() {
+        guard let image = likeButtonImageView.image else { return }
+        DispatchQueue.main.async {
+            self.setLikeImageView(image.isDark(.bottomRight))
+        }
+    }
+    
+    func isLikedVideoGame(_ isLiked: Bool) {
+        DispatchQueue.main.async {
+            self.likeButtonImageView.image = .likedicon
+        }
+    }
+    
     func likedActionSuccess() {
         DispatchQueue.main.async { [weak self] in
             self?.likeButtonImageView.image = .likedicon
@@ -78,13 +100,16 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     
     func setImageView(_ url: URL) {
         self.gameImageView.downloadedWithCompletion(from: url) {[weak self] image in
+            guard let self else { return }
             guard let image else {
-                self?.gameImageView.image = .noimage
+                self.gameImageView.image = .noimage
                 return
             }
-            self?.setLikeImageView(image.isDark(.bottomRight))
-            self?.setBackImageView(image.isDark(.leftTop))
-            self?.gameImageView.contentMode = .scaleAspectFill
+            if !self.presenter.isLiked {
+                self.setLikeImageView(image.isDark(.bottomRight))
+            }
+            self.setBackImageView(image.isDark(.leftTop))
+            self.gameImageView.contentMode = .scaleAspectFill
         }
     }
     
