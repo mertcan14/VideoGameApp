@@ -8,6 +8,10 @@
 import Foundation
 import VideoGameAPI
 import MyCoreData
+
+private let entityName = "SavedVideoGame"
+private let optinalErrorMessage = "Error"
+
 // MARK: - Protocol DetailVideoGameInteractorProtocol
 protocol DetailVideoGameInteractorProtocol {
     func fetchDetailVideoGameById(_ id: String)
@@ -33,13 +37,13 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
     func unLikedVideoGame(_ removeObj: [String: Any]) {
         guard let persistentContainer else { return }
         MyCoreDataService.shared.deleteObj(persistentContainer,
-                                           entityName: "SavedVideoGame",
-                                           removeObj) { result in
+                                           entityName: entityName,
+                                           removeObj) { [weak self] result in
             switch result {
             case .success(let isRemove):
-                self.output?.getRemoveFromAddObj(isRemove)
+                self?.output?.getRemoveFromAddObj(isRemove)
             case .failure(let error):
-                self.output?.getError(error.message ?? "Error")
+                self?.output?.getError(error.message ?? optinalErrorMessage)
             }
         }
     }
@@ -47,13 +51,13 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
     func isLikedVideoGame(_ addObj: [String: Any]) {
         guard let persistentContainer else { return }
         MyCoreDataService.shared.checkObject(persistentContainer,
-                                             entityName: "SavedVideoGame",
+                                             entityName: entityName,
                                              checkAttribute: addObj) { [weak self] result in
             switch result {
             case .success(let isLike):
                 self?.output?.getIsLikedVideoGame(isLike)
             case .failure(let error):
-                self?.output?.getError(error.message ?? "Error")
+                self?.output?.getError(error.message ?? optinalErrorMessage)
             }
         }
     }
@@ -61,13 +65,13 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
     func likedVideoGame(_ addObj: [String: Any]) {
         guard let persistentContainer else { return }
         MyCoreDataService.shared.addObj(persistentContainer: persistentContainer,
-                                        entityName: "SavedVideoGame",
+                                        entityName: entityName,
                                         addObj: addObj) { [weak self] result in
             switch result {
             case .success(let success):
                 self?.output?.getSuccessFromAddObj(success)
             case .failure(let error):
-                self?.output?.getError(error.message ?? "Error")
+                self?.output?.getError(error.message ?? optinalErrorMessage)
             }
         }
     }
@@ -79,7 +83,7 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
             case .success(let videoGame):
                 self.output?.getDetailVideoGame(videoGame)
             case .failure(let error):
-                self.output?.getError(error.message ?? "Error")
+                self.output?.getError(error.message ?? optinalErrorMessage)
             }
         }
     }

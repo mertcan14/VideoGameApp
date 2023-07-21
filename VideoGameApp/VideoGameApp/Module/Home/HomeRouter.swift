@@ -33,7 +33,6 @@ final class HomeRouter {
 // MARK: - Extension HomeRouterProtocol
 extension HomeRouter: HomeRouterProtocol {
     func navigate(_ route: HomeRoutes) {
-        guard let window = viewController?.view.window else { return }
         switch route {
         case .goDetailScreen(let idOfVideoGame):
             let sendVC = DetailVideoGameRouter.createModule()

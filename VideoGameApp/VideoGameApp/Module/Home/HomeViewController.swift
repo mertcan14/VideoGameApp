@@ -13,7 +13,10 @@ private let heightCellIsPortrait: Int = 110
 private let heightOfInnerViewIsLandscapeConstant: CGFloat = 200
 private let heightOfInnerViewIsPortrait: CGFloat = 0
 private let requiredWordToSearch: Int = 3
-
+private let titleOfEmptyView: String = "Sorry"
+private let messageOfEmptyView: String = "The game you were looking for was not found"
+private var numberOfItemPerRowPortrait: CGFloat = 1
+private var numberOfItemPerRowLandscape: CGFloat = 2
 // MARK: Protocol HomeViewControllerProtocol
 protocol HomeViewControllerProtocol: BaseViewControllerProtocol {
     func setSliderImages(_ videoGame: [VideoGame])
@@ -35,7 +38,7 @@ final class HomeViewController: BaseViewController {
     // MARK: - Variable Definitions
     public var presenter: HomePresenterProtocol!
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
-    private var numberOfItemPerRow: CGFloat = 1
+    private var numberOfItemPerRow: CGFloat = numberOfItemPerRowPortrait
     private var isSearching = false
     
     // MARK: - Lifecycle Methods
@@ -69,19 +72,19 @@ final class HomeViewController: BaseViewController {
         guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
             .windowScene?.interfaceOrientation else { return }
         if deviceOrientation.isLandscape {
-            self.numberOfItemPerRow = 2
+            self.numberOfItemPerRow = numberOfItemPerRowLandscape
             innerViewConstraint.constant = heightOfInnerViewIsLandscapeConstant
         } else {
-            self.numberOfItemPerRow = 1
+            self.numberOfItemPerRow = numberOfItemPerRowPortrait
             innerViewConstraint.constant = heightOfInnerViewIsPortrait
         }
     }
     
     private func updateCollectionViewItemSize() {
-        let width = self.view.safeAreaLayoutGuide.layoutFrame.width / self.numberOfItemPerRow
+        let width = (self.view.safeAreaLayoutGuide.layoutFrame.width - 24 - ((numberOfItemPerRow - 1) * 6)) / self.numberOfItemPerRow
         let height = self.numberOfItemPerRow == 1 ? heightCellIsPortrait : heightCellIsLandscape
         
-        collectionViewFlowLayout.itemSize = CGSize(width: Int(width - 24), height: height)
+        collectionViewFlowLayout.itemSize = CGSize(width: Int(width), height: height)
         collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
         collectionViewFlowLayout.scrollDirection = .vertical
         collectionViewFlowLayout.minimumLineSpacing = lineSpacingForCollectionView
@@ -124,14 +127,13 @@ extension HomeViewController: HomeViewControllerProtocol {
     }
     
     func collectionViewRegister() {
-        let uiNib = UINib(nibName: "VideoGameCollectionViewCell", bundle: nil)
-        gameCollectionView.register(uiNib, forCellWithReuseIdentifier: "VideoGameCollectionViewCell")
+        gameCollectionView.register(cellType: VideoGameCollectionViewCell.self)
     }
 }
 // MARK: - Extension UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presenter.goDetailScreen(indexPath.row)
+        self.presenter.goDetailScreen(indexPath.row, isSearching)
     }
 }
 // MARK: - Extension UICollectionViewDataSource
@@ -139,7 +141,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItem = isSearching ? self.presenter.numberOfSearchedVideoGames : self.presenter.numberOfVideoGames - presenter.numberOfSlide
         if numberOfItem == 0 {
-            collectionView.setEmptyView(title: "Sorry", message: "The game you were looking for was not found")
+            collectionView.setEmptyView(title: titleOfEmptyView, message: messageOfEmptyView)
         } else {
             collectionView.restore()
         }
@@ -147,8 +149,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let dequeueReusableCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoGameCollectionViewCell", for: indexPath)
-        guard let cell = dequeueReusableCell as? VideoGameCollectionViewCell else { return UICollectionViewCell()}
+        let cell = collectionView.dequeueReusableCell(indexPath: indexPath as NSIndexPath, cellType: VideoGameCollectionViewCell.self)
         guard let videoGameCell = isSearching ? presenter.getSearchedVideoGameByIndex(indexPath.row)
                 : presenter.getVideoGameByIndex(indexPath.row + presenter.numberOfSlide) else { return cell}
         cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController" customModule="VideoGameApp" customModuleProvider="target">
             <connections>
+                <outlet property="videoGamesCollectionView" destination="Goj-32-bry" id="19b-OE-7uu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,18 +19,24 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3n6-4g-NKc">
-                    <rect key="frame" x="162" y="428" width="69" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-32-bry">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="JWB-O3-WrZ">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="3n6-4g-NKc" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="JSo-yN-4hW"/>
-                <constraint firstItem="3n6-4g-NKc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Q3X-Yg-lhX"/>
+                <constraint firstItem="Goj-32-bry" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ap7-lO-xEF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Goj-32-bry" secondAttribute="bottom" id="JeC-zC-EWr"/>
+                <constraint firstItem="Goj-32-bry" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dYP-FO-2uZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Goj-32-bry" secondAttribute="trailing" id="kis-tf-tqe"/>
             </constraints>
             <point key="canvasLocation" x="140" y="21"/>
         </view>

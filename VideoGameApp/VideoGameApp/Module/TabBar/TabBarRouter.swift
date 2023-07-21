@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
+// MARK: Protocol TabBarRouterProtocol
 protocol TabBarRouterProtocol: AnyObject {
     static func tabs(usingSubModules subModules: VideoGameTabs) -> VideoGameTabs
 }
-
+// MARK: Class TabBarRouter
 final class TabBarRouter {
     var viewController: UIViewController
     
@@ -24,7 +24,7 @@ final class TabBarRouter {
         return tabBarController
     }
 }
-
+// MARK: Extension TabBarRouterProtocol
 extension TabBarRouter: TabBarRouterProtocol {
     static func tabs(usingSubModules subModules: VideoGameTabs) -> VideoGameTabs {
         let homeTabBarItem = UITabBarItem(title: "Home", image: .homeicon, tag: 11)

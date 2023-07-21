@@ -47,3 +47,23 @@ extension UICollectionView {
         self.backgroundView = nil
     }
 }
+
+public extension UICollectionView {
+    func register<T: UICollectionViewCell>(cellType: T.Type, bundle: Bundle? = nil) {
+        guard let className = NSStringFromClass(cellType).split(separator: ".").last else { return }
+        let nib = UINib(nibName: String(className), bundle: bundle)
+        register(nib, forCellWithReuseIdentifier: String(className))
+    }
+    
+    func register<T: UICollectionViewCell>(cellTypes: [T.Type], bundle: Bundle? = nil) {
+        cellTypes.forEach { register(cellType: $0, bundle: bundle) }
+    }
+    
+    func dequeueReusableCell<T: UICollectionViewCell>(indexPath: NSIndexPath, cellType: T.Type) -> T {
+        guard let className = NSStringFromClass(cellType).split(separator: ".").last else { return UICollectionViewCell() as! T }
+        guard let cell = dequeueReusableCell(withReuseIdentifier: String(className), for: indexPath as IndexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(String(className))")
+        }
+        return cell
+    }
+}

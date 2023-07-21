@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// MARK: - Protocol DetailVideoGamePresenterProtocol
 protocol DetailVideoGamePresenterProtocol: AnyObject {
     var isLiked: Bool { get }
     
@@ -15,14 +15,15 @@ protocol DetailVideoGamePresenterProtocol: AnyObject {
     func setIdOfVideoGame(_ id: String)
     func likeVideoGame()
 }
-
+// MARK: - Class DetailVideoGamePresenter
 final class DetailVideoGamePresenter {
-    unowned var view: DetailVideoGameViewControllerProtocol
-    let router: DetailVideoGameRouterProtocol
-    let interactor: DetailVideoGameInteractorProtocol
-    var idOfVideoGame: String?
-    var isLiked: Bool = false
-    var videoGame: DetailVideoGame? {
+    // MARK: - Variable Definitions
+    internal unowned var view: DetailVideoGameViewControllerProtocol
+    internal let router: DetailVideoGameRouterProtocol
+    internal let interactor: DetailVideoGameInteractorProtocol
+    private var idOfVideoGame: String?
+    internal var isLiked: Bool = false
+    private var videoGame: DetailVideoGame? {
         didSet {
             reloadData()
         }
@@ -36,7 +37,7 @@ final class DetailVideoGamePresenter {
         self.interactor = interactor
         self.router = router
     }
-    
+    // MARK: - Private Funcs
     private func reloadData() {
         self.view.hideLoading()
         setImages()
@@ -62,15 +63,15 @@ final class DetailVideoGamePresenter {
         guard let id = videoGame?.id else { return nil }
         let objDict: [String: Any] = [
             "id": id,
-            "name": videoGame?.name,
-            "background_image": videoGame?.backgroundImage,
-            "rating": videoGame?.rating,
-            "released": videoGame?.released
+            "name": videoGame?.name ?? "",
+            "background_image": videoGame?.backgroundImage ?? "",
+            "rating": videoGame?.rating ?? 0.0,
+            "released": videoGame?.released ?? ""
         ]
         return objDict
     }
 }
-
+// MARK: - Extension DetailVideoGamePresenterProtocol
 extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
     func likeVideoGame() {
         if !isLiked {
@@ -81,7 +82,6 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
                   let id = Int(idOfVideoGame) else { return }
             self.interactor.unLikedVideoGame(["id": id])
         }
-        
     }
     
     func viewDidLoad() {
@@ -99,7 +99,7 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
         router.navigate(.goPreviousScreen)
     }
 }
-
+// MARK: - Extension DetailVideoGameInteractorOutputProtocol
 extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
     func getRemoveFromAddObj(_ isRemove: Bool) {
         if isRemove {
@@ -117,10 +117,8 @@ extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
     
     func getSuccessFromAddObj(_ success: Bool) {
         if success {
-            self.view.likedActionSuccess()
+            self.view.isLikedVideoGame(true)
             self.isLiked = true
-        } else {
-            print("Error")
         }
     }
     

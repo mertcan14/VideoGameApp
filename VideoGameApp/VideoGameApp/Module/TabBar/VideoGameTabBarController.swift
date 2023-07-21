@@ -11,8 +11,8 @@ typealias VideoGameTabs = (
     home: UIViewController,
     favorites: UIViewController
 )
-
-final class VideoGameTabBarController: UITabBarController, LoadingShowable {
+// MARK: Class VideoGameTabBarController
+final class VideoGameTabBarController: UITabBarController {
     init(tabs: VideoGameTabs) {
         super.init(nibName: nil, bundle: nil)
         
@@ -29,6 +29,5 @@ final class VideoGameTabBarController: UITabBarController, LoadingShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showLoading()
     }
 }
