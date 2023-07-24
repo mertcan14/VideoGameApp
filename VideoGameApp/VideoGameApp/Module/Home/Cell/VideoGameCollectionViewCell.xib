@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -95,7 +94,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="jT7-JN-Dgw" secondAttribute="bottom" id="DGt-d2-iFs"/>
                                     <constraint firstItem="Iw8-eK-glO" firstAttribute="top" secondItem="ssx-by-Reh" secondAttribute="top" constant="4" id="TNl-ZX-WQ2"/>
@@ -112,7 +111,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ssx-by-Reh" firstAttribute="top" secondItem="PDO-PT-rAt" secondAttribute="top" constant="6" id="GhF-wN-qYO"/>
                             <constraint firstAttribute="trailing" secondItem="ssx-by-Reh" secondAttribute="trailing" constant="2" id="Sox-Gk-tnd"/>
@@ -123,6 +122,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="PDO-PT-rAt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2Wx-t2-grd"/>
                 <constraint firstItem="PDO-PT-rAt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Aty-A7-Oh3"/>
@@ -149,8 +149,5 @@
         <namedColor name="FieldColor">
             <color red="0.73725490196078436" green="0.22352941176470589" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

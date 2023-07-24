@@ -38,7 +38,7 @@ final class MockDetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
     
     var isInvokedIsLikedVideoGame = false
     var invokedIsLikedVideoGameCount = 0
-    var invokedSetAddObjIsLikedParameters: (addObj: [String: Any], Void)
+    var invokedSetAddObjIsLikedParameters: (addObj: [String: Any], Void)?
     func isLikedVideoGame(_ addObj: [String: Any]) {
         isInvokedIsLikedVideoGame = true
         invokedIsLikedVideoGameCount += 1

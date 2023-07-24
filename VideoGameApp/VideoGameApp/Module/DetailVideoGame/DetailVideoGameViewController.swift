@@ -20,11 +20,13 @@ private let notFoundImage: UIImage = .noimage
 protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
     func setImageView(_ url: URL)
     func setGameName(_ name: String)
-    func setRealesedDate(_ date: String)
+    func setReleasedDate(_ date: String)
     func setMetacriticRate(_ metaCriticRate: String)
     func setDescription(_ description: String)
     func isLikedVideoGame(_ isLiked: Bool)
     func unLikedVideoGame()
+    func configBackButton()
+    func configLikeButton()
 }
 // MARK: - Class DetailVideoGameViewController
 final class DetailVideoGameViewController: BaseViewController {
@@ -45,10 +47,7 @@ final class DetailVideoGameViewController: BaseViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        showLoading()
         presenter.viewDidLoad()
-        configBackButton()
-        configLikeButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,11 +58,6 @@ final class DetailVideoGameViewController: BaseViewController {
         checkDeviceOrientation()
     }
     // MARK: - Private Funcs
-    private func configBackButton() {
-        let backTap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
-        backButtonImageView.addGestureRecognizer(backTap)
-    }
-    
     private func checkDeviceOrientation() {
         guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
             .windowScene?.interfaceOrientation else { return }
@@ -104,11 +98,6 @@ final class DetailVideoGameViewController: BaseViewController {
         }
     }
     
-    private func configLikeButton() {
-        let likeButton = UITapGestureRecognizer(target: self, action: #selector(liked))
-        likeButtonImageView.addGestureRecognizer(likeButton)
-    }
-    
     private func setBackImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.backButtonImageView.image = isDark ? arrowImageIsDark : arrowImageNoDark
@@ -138,6 +127,16 @@ final class DetailVideoGameViewController: BaseViewController {
 }
 // MARK: - Extension DetailVideoGameViewControllerProtocol
 extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func configBackButton() {
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
+        backButtonImageView.addGestureRecognizer(backTap)
+    }
+    
+    func configLikeButton() {
+        let likeButton = UITapGestureRecognizer(target: self, action: #selector(liked))
+        likeButtonImageView.addGestureRecognizer(likeButton)
+    }
+    
     func unLikedVideoGame() {
         guard let image = gameImageView.image else { return }
         DispatchQueue.main.async {
@@ -173,7 +172,7 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         }
     }
     
-    func setRealesedDate(_ date: String) {
+    func setReleasedDate(_ date: String) {
         DispatchQueue.main.async { [weak self] in
             self?.realesedDateLabel.text = date
             self?.releasedOfGameFromUnderImageLabel.text = date

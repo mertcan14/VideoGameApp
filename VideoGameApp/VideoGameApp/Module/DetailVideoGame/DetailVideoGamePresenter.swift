@@ -23,7 +23,7 @@ final class DetailVideoGamePresenter {
     internal let interactor: DetailVideoGameInteractorProtocol
     private var idOfVideoGame: String?
     internal var isLiked: Bool = false
-    private var videoGame: DetailVideoGame? {
+    private(set) var videoGame: DetailVideoGame? {
         didSet {
             reloadData()
         }
@@ -49,7 +49,7 @@ final class DetailVideoGamePresenter {
         guard let nameOfGame = videoGame.name else { return }
         self.view.setGameName(nameOfGame)
         guard let realesedDate = videoGame.released else { return }
-        self.view.setRealesedDate(realesedDate)
+        self.view.setReleasedDate(realesedDate)
     }
     
     private func setImages() {
@@ -85,7 +85,10 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
     }
     
     func viewDidLoad() {
+        self.view.configBackButton()
+        self.view.configLikeButton()
         guard let idOfVideoGame else { return }
+        self.view.showLoading()
         self.interactor.fetchDetailVideoGameById(idOfVideoGame)
         guard let id = Int(idOfVideoGame) else { return }
         self.interactor.isLikedVideoGame(["id": id])
@@ -114,7 +117,7 @@ extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
             self.isLiked = true
         }
     }
-    
+    // TODO: getSuccessFromAddObj == getIsLikedVideoGame
     func getSuccessFromAddObj(_ success: Bool) {
         if success {
             self.view.isLikedVideoGame(true)
