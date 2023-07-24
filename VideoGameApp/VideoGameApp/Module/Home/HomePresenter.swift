@@ -47,10 +47,13 @@ final class HomePresenter {
     }
     
     private func setParseImageURL(_ urlString: String?) -> String? {
-        guard let url = urlString else { return nil }
-        var parseUrl = url.split(separator: "/")
-        parseUrl.insert("crop/600/400", at: 3)
-        return parseUrl.joined(separator: "/")
+        guard let urlString else { return nil }
+        let parsePath = urlString.split(separator: "//").last
+        guard let parsePath else { return nil }
+        var paths = parsePath.split(separator: "/")
+        paths.insert("crop/600/400", at: 2)
+        let url = "https:" + "//" + paths.joined(separator: "/")
+        return url
     }
 }
 // MARK: - Extension HomePresenterProtocol
@@ -88,7 +91,7 @@ extension HomePresenter: HomePresenterProtocol {
             }
         }
         self.view.reloadData()
-        self.view.hidePageView()    
+        self.view.hidePageView()
     }
     
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
