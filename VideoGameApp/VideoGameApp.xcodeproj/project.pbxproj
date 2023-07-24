@@ -35,6 +35,10 @@
 		E59FC4482A6EA550004B843C /* MockDetailVideoGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC4472A6EA550004B843C /* MockDetailVideoGameRouter.swift */; };
 		E59FC44A2A6EA60B004B843C /* MockDetailVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC4492A6EA60B004B843C /* MockDetailVideoGameViewController.swift */; };
 		E59FC44C2A6EAF13004B843C /* DetailVideoGamePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC44B2A6EAF13004B843C /* DetailVideoGamePresenterTests.swift */; };
+		E59FC4502A6EC11D004B843C /* MockFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC44F2A6EC11D004B843C /* MockFavoritesViewController.swift */; };
+		E59FC4522A6EC2BB004B843C /* MockFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC4512A6EC2BB004B843C /* MockFavoritesRouter.swift */; };
+		E59FC4542A6EC2CD004B843C /* MockFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC4532A6EC2CD004B843C /* MockFavoritesInteractor.swift */; };
+		E59FC4562A6EC3C0004B843C /* FavoritesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FC4552A6EC3C0004B843C /* FavoritesPresenterTests.swift */; };
 		E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679272A6123EC0036D886 /* SplashViewController.swift */; };
 		E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A679282A6123EC0036D886 /* SplashViewController.xib */; };
 		E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792B2A6124000036D886 /* SplashRouter.swift */; };
@@ -131,6 +135,10 @@
 		E59FC4472A6EA550004B843C /* MockDetailVideoGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailVideoGameRouter.swift; sourceTree = "<group>"; };
 		E59FC4492A6EA60B004B843C /* MockDetailVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailVideoGameViewController.swift; sourceTree = "<group>"; };
 		E59FC44B2A6EAF13004B843C /* DetailVideoGamePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGamePresenterTests.swift; sourceTree = "<group>"; };
+		E59FC44F2A6EC11D004B843C /* MockFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoritesViewController.swift; sourceTree = "<group>"; };
+		E59FC4512A6EC2BB004B843C /* MockFavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoritesRouter.swift; sourceTree = "<group>"; };
+		E59FC4532A6EC2CD004B843C /* MockFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoritesInteractor.swift; sourceTree = "<group>"; };
+		E59FC4552A6EC3C0004B843C /* FavoritesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterTests.swift; sourceTree = "<group>"; };
 		E5A679272A6123EC0036D886 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A679282A6123EC0036D886 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		E5A6792B2A6124000036D886 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -305,6 +313,25 @@
 				E59FC4452A6E9AC2004B843C /* MockDetailVideoGameInteractor.swift */,
 				E59FC4472A6EA550004B843C /* MockDetailVideoGameRouter.swift */,
 				E59FC4492A6EA60B004B843C /* MockDetailVideoGameViewController.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		E59FC44D2A6EC05D004B843C /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E59FC44E2A6EC104004B843C /* Mock */,
+				E59FC4552A6EC3C0004B843C /* FavoritesPresenterTests.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E59FC44E2A6EC104004B843C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E59FC44F2A6EC11D004B843C /* MockFavoritesViewController.swift */,
+				E59FC4512A6EC2BB004B843C /* MockFavoritesRouter.swift */,
+				E59FC4532A6EC2CD004B843C /* MockFavoritesInteractor.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -485,6 +512,7 @@
 		E5D3D2D52A5E983C00B98AD1 /* VideoGameAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				E59FC44D2A6EC05D004B843C /* Favorites */,
 				E59FC43F2A6E9854004B843C /* DetailVideoGame */,
 				E59FC4392A6E8FB2004B843C /* VideoGameCell */,
 				E5496E302A6C12B1009F12DA /* Home */,
@@ -793,13 +821,17 @@
 				E59FC44C2A6EAF13004B843C /* DetailVideoGamePresenterTests.swift in Sources */,
 				E5496E352A6C178D009F12DA /* MockHomeViewController.swift in Sources */,
 				E5D3D2D72A5E983C00B98AD1 /* VideoGameAppTests.swift in Sources */,
+				E59FC4562A6EC3C0004B843C /* FavoritesPresenterTests.swift in Sources */,
 				E59FC43C2A6E9057004B843C /* MockVideoGameCollectionViewCell.swift in Sources */,
+				E59FC4502A6EC11D004B843C /* MockFavoritesViewController.swift in Sources */,
 				E5496E332A6C1664009F12DA /* MockHomeInteractor.swift in Sources */,
 				E5496E3B2A6C22D5009F12DA /* HomePresenterTest.swift in Sources */,
 				E59FC44A2A6EA60B004B843C /* MockDetailVideoGameViewController.swift in Sources */,
 				E5496E392A6C21BD009F12DA /* MockHomeRouter.swift in Sources */,
 				E59FC43E2A6E949D004B843C /* VideoGameCellPresenterTests.swift in Sources */,
+				E59FC4542A6EC2CD004B843C /* MockFavoritesInteractor.swift in Sources */,
 				E59FC4462A6E9AC2004B843C /* MockDetailVideoGameInteractor.swift in Sources */,
+				E59FC4522A6EC2BB004B843C /* MockFavoritesRouter.swift in Sources */,
 				E59FC4482A6EA550004B843C /* MockDetailVideoGameRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
