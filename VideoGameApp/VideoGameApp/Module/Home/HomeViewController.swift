@@ -25,6 +25,7 @@ protocol HomeViewControllerProtocol: BaseViewControllerProtocol {
     func hidePageView()
     func showPageView()
     func setupCollectionViewLayout()
+    func setPageRefreshing()
 }
 // MARK: Class HomeViewController
 final class HomeViewController: BaseViewController {
@@ -40,6 +41,7 @@ final class HomeViewController: BaseViewController {
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
     private var numberOfItemPerRow: CGFloat = numberOfItemPerRowPortrait
     private var isSearching = false
+    private var isPageRefreshing: Bool = false
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -99,6 +101,10 @@ final class HomeViewController: BaseViewController {
 }
 // MARK: - Extension HomeViewControllerProtocol
 extension HomeViewController: HomeViewControllerProtocol {
+    func setPageRefreshing() {
+        self.isPageRefreshing = false
+    }
+    
     func hidePageView() {
         DispatchQueue.main.async {
             self.pageView.isHidden = true
@@ -134,6 +140,15 @@ extension HomeViewController: HomeViewControllerProtocol {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.presenter.goDetailScreen(indexPath.row, isSearching)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(self.gameCollectionView.contentOffset.y >= (self.gameCollectionView.contentSize.height - self.gameCollectionView.bounds.size.height)) {
+            if !isPageRefreshing {
+                isPageRefreshing = true
+                presenter.fetchNextPage()
+            }
+        }
     }
 }
 // MARK: - Extension UICollectionViewDataSource

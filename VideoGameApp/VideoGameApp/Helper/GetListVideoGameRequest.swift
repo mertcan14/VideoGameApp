@@ -11,6 +11,7 @@ import VideoGameAPI
 struct GetListVideoGameRequest: BaseRequestProtocol {
     typealias Response = VideoGameResult
     var headers: [String: String] = [:]
+    var urlConst: String?
     
     private let apiKey: String = "2b4634cc446c49fe81e0ad55b7ad042c"
 

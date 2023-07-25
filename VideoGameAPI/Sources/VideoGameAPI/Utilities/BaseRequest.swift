@@ -16,6 +16,7 @@ public protocol BaseRequestProtocol {
     associatedtype Response
     
     var url: String { get }
+    var urlConst: String? { get set }
     var method: HTTPMethod { get }
     var headers: [String : String] { get }
     var queryItems: [String : String] { get }

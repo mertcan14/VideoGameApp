@@ -11,10 +11,11 @@ import VideoGameAPI
 extension NetworkService {
     func getListVideoGame(
         params: [String: String]? = nil,
+        url: String? = nil,
         completion: @escaping ((Result<GetListVideoGameRequest.Response, NetworkError>) -> Void)
     ) {
         if ReachabilityService.isConnectedToNetwork() {
-            let request = GetListVideoGameRequest()
+            let request = GetListVideoGameRequest(urlConst: url)
             self.fetchFromAPI(request, completion: completion)
         } else {
             completion(.failure(.connectionError))

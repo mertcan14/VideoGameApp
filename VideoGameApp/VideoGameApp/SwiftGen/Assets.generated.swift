@@ -35,6 +35,8 @@ public extension UIImage {
 // MARK: - Colors
 public extension UIColor {
   static let accentColor: UIColor = UIColor(named: "AccentColor")!
+  static let cellBorderColor: UIColor = UIColor(named: "CellBorderColor")!
   static let fieldColor: UIColor = UIColor(named: "FieldColor")!
+  static let secondLabelColor: UIColor = UIColor(named: "SecondLabelColor")!
   static let tabBarColor: UIColor = UIColor(named: "TabBarColor")!
 }

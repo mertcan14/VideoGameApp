@@ -190,6 +190,9 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         DispatchQueue.main.async { [weak self] in
             self?.descriptionLabel.attributedText = description.htmlToAttributedString
             self?.descriptionLabel.font = self?.descriptionLabel.font.withSize(descriptionLabelFontSize)
+            if self?.traitCollection.userInterfaceStyle == .dark {
+                self?.descriptionLabel.textColor = .white
+            }
         }
     }
 }

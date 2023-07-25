@@ -9,7 +9,7 @@ import Foundation
 import VideoGameAPI
 // MARK: - Protocol HomeInteractorProtocol
 protocol HomeInteractorProtocol: AnyObject {
-    func fetchGames()
+    func fetchGames(_ url: String?)
 }
 // MARK: - Protocol HomeInteractorOutputProtocol
 protocol HomeInteractorOutputProtocol: AnyObject {
@@ -22,8 +22,8 @@ final class HomeInteractor {
 }
 // MARK: - Extension HomeInteractorProtocol
 extension HomeInteractor: HomeInteractorProtocol {
-    func fetchGames() {
-        NetworkService.shared.getListVideoGame { [weak self] result in
+    func fetchGames(_ url: String? = nil) {
+        NetworkService.shared.getListVideoGame(url: url) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let games):
