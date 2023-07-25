@@ -135,6 +135,7 @@ extension HomePresenter: HomePresenterProtocol {
         self.interactor.fetchGames(nil)
         self.view.collectionViewRegister()
         self.view.setupCollectionViewLayout()
+        self.view.configFiltersButton()
     }
 }
 // MARK: - Extension HomeInteractorOutputProtocol

@@ -26,6 +26,7 @@ protocol HomeViewControllerProtocol: BaseViewControllerProtocol {
     func showPageView()
     func setupCollectionViewLayout()
     func setPageRefreshing()
+    func configFiltersButton()
 }
 // MARK: Class HomeViewController
 final class HomeViewController: BaseViewController {
@@ -34,6 +35,7 @@ final class HomeViewController: BaseViewController {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var innerViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var filtersButtonImageView: UIImageView!
     @IBOutlet weak var searhTextField: UITextField!
     
     // MARK: - Variable Definitions
@@ -98,6 +100,16 @@ final class HomeViewController: BaseViewController {
             self.searchView.updateBottomBorderWithColor(color: .fieldColor, width: 2)
         }
     }
+    
+    @objc private func tapFilter() {
+        let vc = FiltersViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        navigationController?.present(navVC, animated: true)
+    }
 }
 // MARK: - Extension HomeViewControllerProtocol
 extension HomeViewController: HomeViewControllerProtocol {
@@ -134,6 +146,11 @@ extension HomeViewController: HomeViewControllerProtocol {
     
     func collectionViewRegister() {
         gameCollectionView.register(cellType: VideoGameCollectionViewCell.self)
+    }
+    
+    func configFiltersButton() {
+        let tapFilter = UITapGestureRecognizer(target: self, action: #selector(tapFilter))
+        filtersButtonImageView.addGestureRecognizer(tapFilter)
     }
 }
 // MARK: - Extension UICollectionViewDelegate

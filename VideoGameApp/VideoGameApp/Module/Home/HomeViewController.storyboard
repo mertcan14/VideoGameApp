@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,33 +12,28 @@
         <!--Home View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="VideoGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-kd-T8N">
-                                <rect key="frame" x="12" y="65" width="369" height="38"/>
+                                <rect key="frame" x="12" y="65" width="321" height="38"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-JC-EcO">
-                                        <rect key="frame" x="0.0" y="6" width="341" height="28"/>
-                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-JC-EcO">
+                                        <rect key="frame" x="30" y="6" width="289" height="28"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Pnu-b6-Qjp"/>
                                         </constraints>
-                                        <attributedString key="attributedText"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                <color key="value" red="0.73725490199999999" green="0.22352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="Q1Y-Oq-Nf6"/>
                                         </connections>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-O3-usT">
-                                        <rect key="frame" x="341" y="6.9999999999999964" width="28" height="26.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="6.9999999999999964" width="28" height="26.333333333333332"/>
                                         <color key="tintColor" red="0.73725490196078436" green="0.22352941176470587" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="CeO-rc-o7d"/>
@@ -47,9 +43,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="3DF-JC-EcO" secondAttribute="bottom" constant="4" id="012-xY-3If"/>
-                                    <constraint firstItem="3DF-JC-EcO" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="Jia-Bb-CJO"/>
-                                    <constraint firstItem="5Pv-O3-usT" firstAttribute="leading" secondItem="3DF-JC-EcO" secondAttribute="trailing" id="cWa-kX-bcc"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Pv-O3-usT" secondAttribute="trailing" id="hhb-dq-DL6"/>
+                                    <constraint firstItem="3DF-JC-EcO" firstAttribute="leading" secondItem="5Pv-O3-usT" secondAttribute="trailing" constant="2" id="5nM-52-VeD"/>
+                                    <constraint firstItem="5Pv-O3-usT" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="Cki-PS-4xj"/>
+                                    <constraint firstAttribute="trailing" secondItem="3DF-JC-EcO" secondAttribute="trailing" constant="2" id="WHx-zS-fMC"/>
                                     <constraint firstAttribute="height" constant="38" id="oEq-gp-B6D"/>
                                     <constraint firstAttribute="bottom" secondItem="5Pv-O3-usT" secondAttribute="bottom" constant="4" id="uoF-Oa-gwO"/>
                                 </constraints>
@@ -99,25 +95,34 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="uYZ-Ot-gxV"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="RaP-05-mGH"/>
                             </scrollView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oO9-ja-hFi">
+                                <rect key="frame" x="345" y="64" width="36" height="36.666666666666671"/>
+                                <color key="tintColor" name="TabBarColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Mnt-oS-FtZ"/>
+                                    <constraint firstAttribute="width" constant="36" id="Vg1-83-j2c"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2e7-UO-2Rn"/>
+                            <constraint firstItem="oO9-ja-hFi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="3ui-YS-uc2"/>
+                            <constraint firstItem="oO9-ja-hFi" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="trailing" constant="12" id="5YE-mM-USy"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6b5-YW-CsG"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="AIK-a8-RWk"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="B4b-bj-5jS"/>
-                            <constraint firstItem="a1l-kd-T8N" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="J7B-8z-MVo"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a1l-kd-T8N" secondAttribute="trailing" constant="12" id="c3r-qs-zPX"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="fVm-s5-DeN"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="jhE-yG-Ugf"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="top" secondItem="a1l-kd-T8N" secondAttribute="bottom" constant="8" id="qJS-qh-oX8"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.9" id="uDE-K9-4ZT"/>
-                            <constraint firstItem="kZg-H4-fMk" firstAttribute="trailing" secondItem="a1l-kd-T8N" secondAttribute="trailing" id="wH8-dr-5k8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oO9-ja-hFi" secondAttribute="trailing" constant="12" id="uY9-oE-PMR"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="xyX-OF-daa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filtersButtonImageView" destination="oO9-ja-hFi" id="6Ye-G7-cCV"/>
                         <outlet property="gameCollectionView" destination="Dh9-Oz-pcb" id="mYI-Nk-S7X"/>
                         <outlet property="innerViewConstraint" destination="uDE-K9-4ZT" id="vpd-dU-lIa"/>
                         <outlet property="pageView" destination="4gC-BF-lG6" id="wZC-qs-TuO"/>
@@ -132,7 +137,7 @@
         <!--Home Page View Controller-->
         <scene sceneID="Oh5-KV-qmE">
             <objects>
-                <pageViewController storyboardIdentifier="HomePageViewController" autoresizesArchivedViewToFullSize="NO" keyboardType="off" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="G78-Yy-VFj" customClass="HomePageViewController" customModule="VideoGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="HomePageViewController" autoresizesArchivedViewToFullSize="NO" keyboardType="off" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="G78-Yy-VFj" customClass="HomePageViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                 </pageViewController>
@@ -143,7 +148,7 @@
         <!--Page Detail View Controller-->
         <scene sceneID="S2R-Cw-TwN">
             <objects>
-                <viewController storyboardIdentifier="PageDetailViewController" id="CGG-TF-o53" customClass="PageDetailViewController" customModule="VideoGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageDetailViewController" id="CGG-TF-o53" customClass="PageDetailViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qmr-03-Fy3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,11 +239,12 @@
     <resources>
         <image name="loading" width="128" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="TabBarColor">
+            <color red="0.0039215686274509803" green="0.086274509803921567" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
