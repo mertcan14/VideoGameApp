@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 // MARK: - Enum DetailVideoGameRoutes
 enum DetailVideoGameRoutes {
     case goPreviousScreen
+    case goNoInternetScreen
 }
 // MARK: - Protocol DetailVideoGameRouterProtocol
 protocol DetailVideoGameRouterProtocol: AnyObject {
@@ -32,9 +34,18 @@ final class DetailVideoGameRouter {
 // MARK: - Extension DetailVideoGameRouterProtocol
 extension DetailVideoGameRouter: DetailVideoGameRouterProtocol {
     func navigate(_ route: DetailVideoGameRoutes) {
+        guard let window = viewController?.view.window else { return }
         switch route {
         case .goPreviousScreen:
             self.viewController?.navigationController?.popViewController(animated: true)
+        case .goNoInternetScreen:
+            let subModules = (
+                home: NoInternetRouter.createModule(),
+                favorites: FavoritesRouter.createModule()
+            )
+            let tabBarController = TabBarRouter.createModule(usingSubModules: subModules)
+            let navigationController = UINavigationController(rootViewController: tabBarController)
+            window.rootViewController = navigationController
         }
     }
 }

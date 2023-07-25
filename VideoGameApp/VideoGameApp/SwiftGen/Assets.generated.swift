@@ -6,6 +6,7 @@ import UIKit
 public extension UIImage {
   static let android: UIImage = UIImage(named: "android")!
   static let androidW: UIImage = UIImage(named: "androidW")!
+  static let appLogo: UIImage = UIImage(named: "appLogo")!
   static let apple: UIImage = UIImage(named: "apple")!
   static let appleW: UIImage = UIImage(named: "appleW")!
   static let arrow: UIImage = UIImage(named: "arrow")!
@@ -35,6 +36,8 @@ public extension UIImage {
 // MARK: - Colors
 public extension UIColor {
   static let accentColor: UIColor = UIColor(named: "AccentColor")!
+  static let cellBorderColor: UIColor = UIColor(named: "CellBorderColor")!
   static let fieldColor: UIColor = UIColor(named: "FieldColor")!
+  static let secondLabelColor: UIColor = UIColor(named: "SecondLabelColor")!
   static let tabBarColor: UIColor = UIColor(named: "TabBarColor")!
 }

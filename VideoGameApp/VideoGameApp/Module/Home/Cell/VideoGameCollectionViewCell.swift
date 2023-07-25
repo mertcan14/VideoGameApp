@@ -32,20 +32,12 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setShadow()
+        setBorder()
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        // TODO: Reset
-    }
-    
-    private func setShadow() {
-        outerView.layer.shadowColor = UIColor.black.cgColor
-        outerView.layer.shadowOpacity = 0.8
-        outerView.layer.shadowOffset = .zero
-        outerView.layer.shadowRadius = 1.5
+    private func setBorder() {
+        outerView.layer.borderWidth = 1
+        outerView.layer.borderColor = UIColor.cellBorderColor.cgColor
     }
 }
 // MARK: - Extension VideoGameCollectionViewCellProtocol

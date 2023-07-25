@@ -104,6 +104,12 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
 }
 // MARK: - Extension DetailVideoGameInteractorOutputProtocol
 extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
+    func goNoInternet(_ errorText: String) {
+        self.view.showAlert("Connection", errorText) {
+            self.router.navigate(.goNoInternetScreen)
+        }
+    }
+    
     func getRemoveFromAddObj(_ isRemove: Bool) {
         if isRemove {
             self.isLiked = false

@@ -43,8 +43,12 @@ extension SplashRouter: SplashRouterProtocol {
             let navigationController = UINavigationController(rootViewController: tabBarController)
             window.rootViewController = navigationController
         case .noInternetScreen:
-            let noInternetVC = NoInternetRouter.createModule()
-            let navigationController = UINavigationController(rootViewController: noInternetVC)
+            let subModules = (
+                home: NoInternetRouter.createModule(),
+                favorites: FavoritesRouter.createModule()
+            )
+            let tabBarController = TabBarRouter.createModule(usingSubModules: subModules)
+            let navigationController = UINavigationController(rootViewController: tabBarController)
             window.rootViewController = navigationController
         }
     }

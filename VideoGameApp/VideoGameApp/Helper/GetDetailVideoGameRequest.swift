@@ -13,7 +13,8 @@ struct GetDetailVideoGameRequest: BaseRequestProtocol {
     private let apiKey: String = "2b4634cc446c49fe81e0ad55b7ad042c"
     var headers: [String: String] = [:]
     var idOfGame: String
-
+    var urlConst: String?
+    
     var url: String {
         let baseURL: String = "https://api.rawg.io"
         let path: String = "/api/games/"

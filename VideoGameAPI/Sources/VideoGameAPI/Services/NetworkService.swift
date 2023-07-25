@@ -15,26 +15,32 @@ public class NetworkService: NetworkServiceProtocol {
     public static let shared = NetworkService()
     
     public func fetchFromAPI<T>(_ request: T, completion: @escaping (Result<T.Response, NetworkError>) -> Void) where T : BaseRequestProtocol {
-        guard var urlComponent = URLComponents(string: request.url) else {
-            return completion(.failure(NetworkError.notFoundPageError))
+        var urlRequest: URLRequest
+        
+        if let urlConst = request.urlConst, let url = URL(string: urlConst) {
+            urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = request.method.rawValue
+            urlRequest.allHTTPHeaderFields = request.headers
+        } else {
+            guard var urlComponent = URLComponents(string: request.url) else {
+                return completion(.failure(NetworkError.notFoundPageError))
+            }
+            
+            var queryItems: [URLQueryItem] = []
+            request.queryItems.forEach { key,value in
+                let urlQueryItem = URLQueryItem(name: key, value: value)
+                urlComponent.queryItems?.append(urlQueryItem)
+                queryItems.append(urlQueryItem)
+            }
+            urlComponent.queryItems = queryItems
+            
+            guard let url = urlComponent.url else {
+                return completion(.failure(NetworkError.notFoundPageError))
+            }
+            urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = request.method.rawValue
+            urlRequest.allHTTPHeaderFields = request.headers
         }
-        
-        var queryItems: [URLQueryItem] = []
-        request.queryItems.forEach { key,value in
-            let urlQueryItem = URLQueryItem(name: key, value: value)
-            urlComponent.queryItems?.append(urlQueryItem)
-            queryItems.append(urlQueryItem)
-        }
-        urlComponent.queryItems = queryItems
-        
-        guard let url = urlComponent.url else {
-            return completion(.failure(NetworkError.notFoundPageError))
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = request.method.rawValue
-        urlRequest.allHTTPHeaderFields = request.headers
-        
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if error != nil {
                 return completion(.failure(NetworkError.operationFailed))
