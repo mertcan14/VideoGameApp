@@ -179,7 +179,7 @@
 		E5D3482E2A6186D500322844 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E5D348302A6186E500322844 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		E5D348322A61871100322844 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		E5D3D2B92A5E983A00B98AD1 /* VideoGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D3D2B92A5E983A00B98AD1 /* Video Games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Games.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5D3D2C62A5E983A00B98AD1 /* VideoGameApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoGameApp.xcdatamodel; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 		E5D3D2BA2A5E983A00B98AD1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5D3D2B92A5E983A00B98AD1 /* VideoGameApp.app */,
+				E5D3D2B92A5E983A00B98AD1 /* Video Games.app */,
 				E5D3D2D22A5E983C00B98AD1 /* VideoGameAppTests.xctest */,
 				E5D3D2DC2A5E983C00B98AD1 /* VideoGameAppUITests.xctest */,
 			);
@@ -565,7 +565,7 @@
 				E5C9DB3F2A69507F0097FE0B /* MyCoreData */,
 			);
 			productName = VideoGameApp;
-			productReference = E5D3D2B92A5E983A00B98AD1 /* VideoGameApp.app */;
+			productReference = E5D3D2B92A5E983A00B98AD1 /* Video Games.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E5D3D2D12A5E983C00B98AD1 /* VideoGameAppTests */ = {
@@ -1005,7 +1005,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mertcanyaman.VideoGameApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Video Games";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1031,7 +1031,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mertcanyaman.VideoGameApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Video Games";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

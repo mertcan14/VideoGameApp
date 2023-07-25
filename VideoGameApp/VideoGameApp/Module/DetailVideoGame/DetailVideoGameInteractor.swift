@@ -26,11 +26,20 @@ protocol DetailVideoGameInteractorOutputProtocol {
     func getRemoveFromAddObj(_ isRemove: Bool)
     func getIsLikedVideoGame(_ isLike: Bool)
     func getError(_ errorText: String)
+    func goNoInternet(_ errorText: String)
 }
 // MARK: - Class DetailVideoGameInteractor
 final class DetailVideoGameInteractor {
     var output: DetailVideoGameInteractorOutputProtocol?
     var persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer
+    
+    private func checkError(_ error: String) {
+        if error == NetworkError.connectionError.message {
+            self.output?.goNoInternet(error)
+        } else {
+            self.output?.getError(error)
+        }
+    }
 }
 // MARK: - Extension DetailVideoGameInteractorProtocol
 extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
@@ -83,7 +92,7 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
             case .success(let videoGame):
                 self.output?.getDetailVideoGame(videoGame)
             case .failure(let error):
-                self.output?.getError(error.message ?? optinalErrorMessage)
+                self.checkError(error.message ?? optinalErrorMessage)
             }
         }
     }

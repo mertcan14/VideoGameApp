@@ -6,6 +6,7 @@ import UIKit
 public extension UIImage {
   static let android: UIImage = UIImage(named: "android")!
   static let androidW: UIImage = UIImage(named: "androidW")!
+  static let appLogo: UIImage = UIImage(named: "appLogo")!
   static let apple: UIImage = UIImage(named: "apple")!
   static let appleW: UIImage = UIImage(named: "appleW")!
   static let arrow: UIImage = UIImage(named: "arrow")!
