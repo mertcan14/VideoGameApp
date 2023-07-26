@@ -11,8 +11,11 @@ public extension UIImage {
   static let appleW: UIImage = UIImage(named: "appleW")!
   static let arrow: UIImage = UIImage(named: "arrow")!
   static let arrowW: UIImage = UIImage(named: "arrowW")!
+  static let check: UIImage = UIImage(named: "check")!
+  static let circle: UIImage = UIImage(named: "circle")!
   static let computer: UIImage = UIImage(named: "computer")!
   static let computerW: UIImage = UIImage(named: "computerW")!
+  static let filter: UIImage = UIImage(named: "filter")!
   static let hearticon: UIImage = UIImage(named: "hearticon")!
   static let homeicon: UIImage = UIImage(named: "homeicon")!
   static let likedicon: UIImage = UIImage(named: "likedicon")!

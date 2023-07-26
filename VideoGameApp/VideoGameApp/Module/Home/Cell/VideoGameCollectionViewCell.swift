@@ -6,6 +6,10 @@
 //
 
 import UIKit
+private let loadingImage: UIImage = .loading
+private let borderColor: UIColor = .cellBorderColor
+private let borderWidth: CGFloat = 1.0
+private let defaultNameOfGame: String = "No Name"
 // MARK: - Protocol VideoGameCollectionViewCellProtocol
 protocol VideoGameCollectionViewCellProtocol: AnyObject {
     func setImage(_ image: URL?)
@@ -30,14 +34,21 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imageOfGameView.image = loadingImage
+        self.relesedOfGameLabel.text = nil
+        self.ratingOfGameLabel.text = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setBorder()
     }
     
     private func setBorder() {
-        outerView.layer.borderWidth = 1
-        outerView.layer.borderColor = UIColor.cellBorderColor.cgColor
+        outerView.layer.borderWidth = borderWidth
+        outerView.layer.borderColor = borderColor.cgColor
     }
 }
 // MARK: - Extension VideoGameCollectionViewCellProtocol
@@ -52,6 +63,10 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
     }
     
     func setNameOfGame(_ text: String?) {
+        guard let text else {
+            self.nameOfGameLabel.text = defaultNameOfGame
+            return
+        }
         self.nameOfGameLabel.text = text
     }
     

@@ -41,22 +41,14 @@ final class DetailVideoGamePresenter {
     private func reloadData() {
         self.view.hideLoading()
         setImages()
-        guard let videoGame,
-              let description = videoGame.description else { return }
-        self.view.setDescription(description)
-        guard let metacriticRate = videoGame.metacritic else { return }
-        self.view.setMetacriticRate(String(metacriticRate))
-        guard let nameOfGame = videoGame.name else { return }
-        self.view.setGameName(nameOfGame)
-        guard let realesedDate = videoGame.released else { return }
-        self.view.setReleasedDate(realesedDate)
+        self.view.setDescription(videoGame?.description)
+        self.view.setMetacriticRate(String(videoGame?.metacritic ?? 0))
+        self.view.setGameName(videoGame?.name)
+        self.view.setReleasedDate(videoGame?.released)
     }
     
     private func setImages() {
-        guard let videoGame,
-              let image = videoGame.backgroundImage,
-              let imageURL = URL(string: image) else { return }
-        self.view.setImageView(imageURL)
+        self.view.setImageView(videoGame?.backgroundImage)
     }
     
     private func convertVideoGameToDict() -> [String: Any]? {

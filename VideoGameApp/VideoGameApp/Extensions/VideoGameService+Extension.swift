@@ -15,7 +15,10 @@ extension NetworkService {
         completion: @escaping ((Result<GetListVideoGameRequest.Response, NetworkError>) -> Void)
     ) {
         if ReachabilityService.isConnectedToNetwork() {
-            let request = GetListVideoGameRequest(urlConst: url)
+            var request = GetListVideoGameRequest(urlConst: url)
+            if let params {
+                request.params = params
+            }
             self.fetchFromAPI(request, completion: completion)
         } else {
             completion(.failure(.connectionError))

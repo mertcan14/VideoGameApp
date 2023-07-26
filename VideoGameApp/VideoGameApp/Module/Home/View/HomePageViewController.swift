@@ -27,6 +27,7 @@ final class HomePageViewController: UIPageViewController {
     
     // MARK: - Funcs For Configure
     private func configureViewControllers() {
+        individualPageViewControllerList = []
         DispatchQueue.main.async {
             self.videoGames.forEach {[weak self] videoGame in
                 self?.individualPageViewControllerList.append(

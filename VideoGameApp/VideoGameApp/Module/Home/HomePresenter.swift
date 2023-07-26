@@ -21,6 +21,7 @@ protocol HomePresenterProtocol: AnyObject {
     func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
     func searchVideoGame(_ searchText: String)
     func fetchNextPage()
+    func fetchWithFilters(_ params: [String: String])
 }
 // MARK: Class HomePresenter
 final class HomePresenter {
@@ -53,7 +54,7 @@ final class HomePresenter {
         guard let parsePath else { return nil }
         var paths = parsePath.split(separator: "/")
         paths.insert("crop/600/400", at: 2)
-        let url = "https:" + "//" + paths.joined(separator: "/")
+        let url = "https://" + paths.joined(separator: "/")
         return url
     }
     
@@ -73,7 +74,13 @@ final class HomePresenter {
 }
 // MARK: - Extension HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
+    func fetchWithFilters(_ params: [String: String]) {
+        self.view.showLoading()
+        interactor.fetchGamesWithParams(params)
+    }
+    
     func fetchNextPage() {
+        self.view.showLoading()
         self.interactor.fetchGames(nextPage)
     }
     
@@ -114,13 +121,12 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
-        guard let videoGame = self.videoGames[safe: index],
-              let nameOfGame = videoGame.name,
-              let ratingOfGame = videoGame.rating,
-              let releasedOfGame = videoGame.released,
-              let imageString = setParseImageURL(videoGame.backgroundImage),
-              let imageURL = URL(string: imageString) else { return nil }
-        return VideoGameCellModel(imageURL: imageURL, nameOfGame: nameOfGame, ratingOfGame: ratingOfGame, releasedOfGame: releasedOfGame)
+        guard let videoGame = self.videoGames[safe: index] else { return nil }
+        guard let image = setParseImageURL(videoGame.backgroundImage) else { return nil }
+        return VideoGameCellModel(imageURL: URL(string: image),
+                                  nameOfGame: videoGame.name,
+                                  ratingOfGame: videoGame.rating,
+                                  releasedOfGame: videoGame.released)
     }
     
     func setImagesForSlider() {
@@ -140,6 +146,12 @@ extension HomePresenter: HomePresenterProtocol {
 }
 // MARK: - Extension HomeInteractorOutputProtocol
 extension HomePresenter: HomeInteractorOutputProtocol {
+    func refreshGames(_ games: VideoGameResult) {
+        guard let results = games.results else { return }
+        self.videoGames = results
+        self.nextPage = games.next
+    }
+    
     func getError(_ errorText: String) {
         self.view.showAlert("Error", errorText, nil)
     }

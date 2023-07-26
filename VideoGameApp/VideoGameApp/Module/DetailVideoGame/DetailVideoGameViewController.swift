@@ -18,11 +18,11 @@ private let likeImageNoDark: UIImage = .likeicon
 private let notFoundImage: UIImage = .noimage
 // MARK: - Protocol DetailVideoGameViewControllerProtocol
 protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
-    func setImageView(_ url: URL)
-    func setGameName(_ name: String)
-    func setReleasedDate(_ date: String)
-    func setMetacriticRate(_ metaCriticRate: String)
-    func setDescription(_ description: String)
+    func setImageView(_ image: String?)
+    func setGameName(_ name: String?)
+    func setReleasedDate(_ date: String?)
+    func setMetacriticRate(_ metaCriticRate: String?)
+    func setDescription(_ description: String?)
     func isLikedVideoGame(_ isLiked: Bool)
     func unLikedVideoGame()
     func configBackButton()
@@ -150,7 +150,17 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         }
     }
     
-    func setImageView(_ url: URL) {
+    func setImageView(_ image: String?) {
+        guard let image, let url = URL(string: image) else {
+            gameImageView.image = .noimage
+            guard let noImage = gameImageView.image else { return }
+            if !self.presenter.isLiked {
+                self.setLikeImageView(noImage.isDark(.bottomRight))
+            }
+            self.setBackImageView(noImage.isDark(.leftTop))
+            self.gameImageView.contentMode = .scaleAspectFill
+            return
+        }
         self.gameImageView.downloadedWithCompletion(from: url) {[weak self] image in
             guard let self else { return }
             guard let image else {
@@ -165,28 +175,32 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         }
     }
     
-    func setGameName(_ name: String) {
+    func setGameName(_ name: String?) {
         DispatchQueue.main.async { [weak self] in
             self?.gameNameLabel.text = name
             self?.nameOfGameFromUnderImageLabel.text = name
         }
     }
     
-    func setReleasedDate(_ date: String) {
+    func setReleasedDate(_ date: String?) {
         DispatchQueue.main.async { [weak self] in
             self?.realesedDateLabel.text = date
             self?.releasedOfGameFromUnderImageLabel.text = date
         }
     }
     
-    func setMetacriticRate(_ metaCriticRate: String) {
+    func setMetacriticRate(_ metaCriticRate: String?) {
         DispatchQueue.main.async { [weak self] in
             self?.metacriticRateLabel.text = metaCriticRate
             self?.metacriticOfGameFromUnderImageLabel.text = metaCriticRate
         }
     }
     
-    func setDescription(_ description: String) {
+    func setDescription(_ description: String?) {
+        guard let description else {
+            self.descriptionLabel.text = "No description."
+            return
+        }
         DispatchQueue.main.async { [weak self] in
             self?.descriptionLabel.attributedText = description.htmlToAttributedString
             self?.descriptionLabel.font = self?.descriptionLabel.font.withSize(descriptionLabelFontSize)

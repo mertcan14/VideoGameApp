@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-kd-T8N">
-                                <rect key="frame" x="12" y="65" width="321" height="38"/>
+                                <rect key="frame" x="12" y="65" width="327" height="38"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-JC-EcO">
-                                        <rect key="frame" x="30" y="6" width="289" height="28"/>
+                                        <rect key="frame" x="30" y="6" width="295" height="28"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Pnu-b6-Qjp"/>
@@ -95,12 +95,12 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="uYZ-Ot-gxV"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="RaP-05-mGH"/>
                             </scrollView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oO9-ja-hFi">
-                                <rect key="frame" x="345" y="64" width="36" height="36.666666666666671"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter" translatesAutoresizingMaskIntoConstraints="NO" id="oO9-ja-hFi">
+                                <rect key="frame" x="351" y="71" width="30" height="30"/>
                                 <color key="tintColor" name="TabBarColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Mnt-oS-FtZ"/>
-                                    <constraint firstAttribute="width" constant="36" id="Vg1-83-j2c"/>
+                                    <constraint firstAttribute="height" constant="30" id="Mnt-oS-FtZ"/>
+                                    <constraint firstAttribute="width" constant="30" id="Vg1-83-j2c"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -108,11 +108,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2e7-UO-2Rn"/>
-                            <constraint firstItem="oO9-ja-hFi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="3ui-YS-uc2"/>
                             <constraint firstItem="oO9-ja-hFi" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="trailing" constant="12" id="5YE-mM-USy"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6b5-YW-CsG"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="AIK-a8-RWk"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="B4b-bj-5jS"/>
+                            <constraint firstItem="faM-cG-Cg8" firstAttribute="top" secondItem="oO9-ja-hFi" secondAttribute="bottom" constant="10" id="SYU-L5-nwR"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="fVm-s5-DeN"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="jhE-yG-Ugf"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="top" secondItem="a1l-kd-T8N" secondAttribute="bottom" constant="8" id="qJS-qh-oX8"/>
@@ -237,9 +237,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="filter" width="64" height="64"/>
         <image name="loading" width="128" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="TabBarColor">
             <color red="0.0039215686274509803" green="0.086274509803921567" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

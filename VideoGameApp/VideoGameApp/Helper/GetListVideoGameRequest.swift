@@ -12,6 +12,7 @@ struct GetListVideoGameRequest: BaseRequestProtocol {
     typealias Response = VideoGameResult
     var headers: [String: String] = [:]
     var urlConst: String?
+    var params: [String: String]?
     
     private let apiKey: String = "2b4634cc446c49fe81e0ad55b7ad042c"
 
@@ -22,9 +23,14 @@ struct GetListVideoGameRequest: BaseRequestProtocol {
     }
     
     var queryItems: [String: String] {
-        [
-            "key": apiKey
-        ]
+        if var params {
+            params["key"] = apiKey
+            return params
+        } else {
+            return [
+                "key": apiKey
+            ]
+        }
     }
     
     var method: HTTPMethod {

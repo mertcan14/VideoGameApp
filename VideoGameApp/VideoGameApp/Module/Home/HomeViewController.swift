@@ -103,10 +103,13 @@ final class HomeViewController: BaseViewController {
     
     @objc private func tapFilter() {
         let vc = FiltersViewController()
+        vc.presenter = self.presenter
         let navVC = UINavigationController(rootViewController: vc)
         
         if let sheet = navVC.sheetPresentationController {
-            sheet.detents = [.medium()]
+            sheet.detents = [.custom(resolver: { context in
+                return context.maximumDetentValue * 0.4
+            })]
         }
         navigationController?.present(navVC, animated: true)
     }
@@ -160,7 +163,8 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if(self.gameCollectionView.contentOffset.y >= (self.gameCollectionView.contentSize.height - self.gameCollectionView.bounds.size.height)) {
+        let height = self.gameCollectionView.contentSize.height - self.gameCollectionView.bounds.size.height
+        if self.gameCollectionView.contentOffset.y >= height {
             if !isPageRefreshing {
                 isPageRefreshing = true
                 presenter.fetchNextPage()
@@ -183,7 +187,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(indexPath: indexPath as NSIndexPath, cellType: VideoGameCollectionViewCell.self)
         guard let videoGameCell = isSearching ? presenter.getSearchedVideoGameByIndex(indexPath.row)
-                : presenter.getVideoGameByIndex(indexPath.row + presenter.numberOfSlide) else { return cell}
+                : presenter.getVideoGameByIndex(indexPath.row + presenter.numberOfSlide) else { return cell }
         cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)
         return cell
     }
