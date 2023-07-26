@@ -21,6 +21,7 @@ enum OrderEnum: String {
 // MARK: - Protocol FiltersViewControllerProtocol
 protocol FiltersViewControllerProtocol: BaseViewControllerProtocol {
     func closeScreen()
+    func checkTextFieldsForMetacritic() -> String?
 }
 // MARK: - Class FiltersViewController
 final class FiltersViewController: BaseViewController {
@@ -31,14 +32,16 @@ final class FiltersViewController: BaseViewController {
     @IBOutlet weak var releasedOlderToNewButton: UIButton!
     @IBOutlet weak var releasedNewToOlderButton: UIButton!
     @IBOutlet weak var ratingLowToHighButton: UIButton!
+    @IBOutlet weak var metacriticMinTextField: UITextField!
+    @IBOutlet weak var metacriticMaxTextField: UITextField!
     @IBOutlet weak var ratingHighToLowButton: UIButton!
     // MARK: - Variable Definitions
-    private var isSelectedTag = 0
-    public var presenter: HomePresenterProtocol!
+    public var presenter: FiltersPresenterProtocol!
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         configButtons()
+        configTextField()
     }
     // MARK: - IBAction Methods
     @IBAction func sortedButtonClicked(_ sender: Any) {
@@ -46,14 +49,11 @@ final class FiltersViewController: BaseViewController {
         deselectAllButtons()
         button.tintColor = .systemBlue
         button.isSelected = true
-        isSelectedTag = button.tag
+        presenter.setSortButtonTag(button.tag)
     }
     
     @IBAction func searchButtonClicked(_ sender: Any) {
-        let params: [String: String] = [
-            "ordering": getByTag()
-        ]
-        presenter.fetchWithFilters(params)
+        presenter.fetchWithFilters()
         closeScreen()
     }
     // MARK: - Private Methods
@@ -63,22 +63,6 @@ final class FiltersViewController: BaseViewController {
                 button.isSelected = false
                 button.tintColor = .lightGray
             }
-        }
-    }
-    
-    private func getByTag() -> String {
-        if isSelectedTag == 1 {
-            return OrderEnum.ratingHighToLow.rawValue
-        } else if isSelectedTag == 2 {
-            return OrderEnum.ratingLowToHigh.rawValue
-        } else if isSelectedTag == 3 {
-            return OrderEnum.releasedNewToOlder.rawValue
-        } else if isSelectedTag == 4 {
-            return OrderEnum.releasedOlderToNew.rawValue
-        } else if isSelectedTag == 5 {
-            return OrderEnum.metacriticHighToLow.rawValue
-        } else {
-            return OrderEnum.metacriticLowToHigh.rawValue
         }
     }
     
@@ -96,10 +80,42 @@ final class FiltersViewController: BaseViewController {
         ratingHighToLowButton.setImage(selectedOrderImage, for: .selected)
         ratingHighToLowButton.setImage(unselectedOrderImage, for: .normal)
     }
+    
+    private func configTextField() {
+        metacriticMinTextField.layer.borderWidth = 0.7
+        metacriticMaxTextField.layer.borderWidth = 0.7
+    }
 }
 // MARK: - Extension FiltersViewControllerProtocol
 extension FiltersViewController: FiltersViewControllerProtocol {
     func closeScreen() {
         dismiss(animated: true)
+    }
+    
+    func checkTextFieldsForMetacritic() -> String? {
+        if metacriticMinTextField.text != "" || metacriticMaxTextField.text != "" {
+            let minPoint = metacriticMinTextField.text == "" ? "1" : metacriticMinTextField.text
+            let maxPoint = metacriticMaxTextField.text == "" ? "100" : metacriticMaxTextField.text
+            let value = "\(minPoint!),\(maxPoint!)"
+            return value
+        }
+        return nil
+    }
+}
+// MARK: - Extension UITextFieldDelegate
+extension FiltersViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        guard let text = textField.text else { return false }
+        if string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && text.count < 2 {
+            return true
+        } else {
+            return false
+        }
     }
 }

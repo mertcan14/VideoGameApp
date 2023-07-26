@@ -22,7 +22,6 @@ protocol DetailVideoGameInteractorProtocol {
 // MARK: - Protocol DetailVideoGameInteractorOutputProtocol
 protocol DetailVideoGameInteractorOutputProtocol {
     func getDetailVideoGame(_ detailVideoGame: DetailVideoGame)
-    func getSuccessFromAddObj(_ success: Bool)
     func getRemoveFromAddObj(_ isRemove: Bool)
     func getIsLikedVideoGame(_ isLike: Bool)
     func getError(_ errorText: String)
@@ -78,7 +77,7 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
                                         addObj: addObj) { [weak self] result in
             switch result {
             case .success(let success):
-                self?.output?.getSuccessFromAddObj(success)
+                self?.output?.getIsLikedVideoGame(success)
             case .failure(let error):
                 self?.output?.getError(error.message ?? optinalErrorMessage)
             }

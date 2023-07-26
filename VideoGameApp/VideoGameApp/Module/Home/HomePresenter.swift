@@ -21,7 +21,7 @@ protocol HomePresenterProtocol: AnyObject {
     func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel?
     func searchVideoGame(_ searchText: String)
     func fetchNextPage()
-    func fetchWithFilters(_ params: [String: String])
+    func getInteractor() -> HomeInteractorProtocol
 }
 // MARK: Class HomePresenter
 final class HomePresenter {
@@ -74,9 +74,8 @@ final class HomePresenter {
 }
 // MARK: - Extension HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
-    func fetchWithFilters(_ params: [String: String]) {
-        self.view.showLoading()
-        interactor.fetchGamesWithParams(params)
+    func getInteractor() -> HomeInteractorProtocol {
+        self.interactor
     }
     
     func fetchNextPage() {
@@ -99,13 +98,11 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
-        guard let videoGame = self.searchedVideoGame[safe: index],
-              let nameOfGame = videoGame.name,
-              let ratingOfGame = videoGame.rating,
-              let releasedOfGame = videoGame.released,
-              let imageString = setParseImageURL(videoGame.backgroundImage),
-              let imageURL = URL(string: imageString) else { return nil }
-        return VideoGameCellModel(imageURL: imageURL, nameOfGame: nameOfGame, ratingOfGame: ratingOfGame, releasedOfGame: releasedOfGame)
+        guard let videoGame = self.searchedVideoGame[safe: index] else { return nil }
+        return VideoGameCellModel(imageURL: setParseImageURL(videoGame.backgroundImage),
+                                  nameOfGame: videoGame.name,
+                                  ratingOfGame: videoGame.rating,
+                                  releasedOfGame: videoGame.released)
     }
     
     func searchVideoGame(_ searchText: String) {
@@ -122,8 +119,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
         guard let videoGame = self.videoGames[safe: index] else { return nil }
-        guard let image = setParseImageURL(videoGame.backgroundImage) else { return nil }
-        return VideoGameCellModel(imageURL: URL(string: image),
+        return VideoGameCellModel(imageURL: setParseImageURL(videoGame.backgroundImage),
                                   nameOfGame: videoGame.name,
                                   ratingOfGame: videoGame.rating,
                                   releasedOfGame: videoGame.released)

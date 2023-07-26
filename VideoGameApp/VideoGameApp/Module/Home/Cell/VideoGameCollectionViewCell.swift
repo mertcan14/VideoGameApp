@@ -6,13 +6,14 @@
 //
 
 import UIKit
+
 private let loadingImage: UIImage = .loading
 private let borderColor: UIColor = .cellBorderColor
 private let borderWidth: CGFloat = 1.0
 private let defaultNameOfGame: String = "No Name"
 // MARK: - Protocol VideoGameCollectionViewCellProtocol
 protocol VideoGameCollectionViewCellProtocol: AnyObject {
-    func setImage(_ image: URL?)
+    func setImage(_ image: String?)
     func setNameOfGame(_ text: String?)
     func setRatingOfGame(_ text: Double?)
     func setReleasedOfGame(_ text: String?)
@@ -53,12 +54,12 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
 }
 // MARK: - Extension VideoGameCollectionViewCellProtocol
 extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
-    func setImage(_ image: URL?) {
-        guard let image else {
+    func setImage(_ image: String?) {
+        guard let image, let url = URL(string: image) else {
             self.imageOfGameView.image = .noimage
             return
         }
-        self.imageOfGameView.downloaded(from: image)
+        self.imageOfGameView.downloaded(from: url)
         self.imageOfGameView.contentMode = .scaleAspectFill
     }
     
@@ -75,6 +76,11 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             self.ratingView.isHidden = true
             return
         }
+        if text == 0.0 {
+            self.ratingView.isHidden = true
+            return
+        }
+        self.ratingView.isHidden = false
         self.ratingOfGameLabel.text = "\(text)"
     }
     
@@ -83,6 +89,7 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             self.realesedView.isHidden = true
             return
         }
+        self.realesedView.isHidden = false
         self.relesedOfGameLabel.text = text
     }
 }

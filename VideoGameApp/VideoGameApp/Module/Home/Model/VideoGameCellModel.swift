@@ -8,7 +8,7 @@
 import Foundation
 
 struct VideoGameCellModel {
-    let imageURL: URL?
+    let imageURL: String?
     let nameOfGame: String?
     let ratingOfGame: Double?
     let releasedOfGame: String?

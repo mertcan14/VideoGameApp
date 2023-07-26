@@ -152,13 +152,15 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     
     func setImageView(_ image: String?) {
         guard let image, let url = URL(string: image) else {
-            gameImageView.image = .noimage
-            guard let noImage = gameImageView.image else { return }
-            if !self.presenter.isLiked {
-                self.setLikeImageView(noImage.isDark(.bottomRight))
+            DispatchQueue.main.async {
+                self.gameImageView.image = .noimage
+                guard let noImage = self.gameImageView.image else { return }
+                if !self.presenter.isLiked {
+                    self.setLikeImageView(false)
+                }
+                self.setBackImageView(false)
+                self.gameImageView.contentMode = .scaleAspectFill
             }
-            self.setBackImageView(noImage.isDark(.leftTop))
-            self.gameImageView.contentMode = .scaleAspectFill
             return
         }
         self.gameImageView.downloadedWithCompletion(from: url) {[weak self] image in

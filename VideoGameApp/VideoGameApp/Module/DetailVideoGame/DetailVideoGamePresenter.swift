@@ -115,13 +115,6 @@ extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
             self.isLiked = true
         }
     }
-    // TODO: getSuccessFromAddObj == getIsLikedVideoGame
-    func getSuccessFromAddObj(_ success: Bool) {
-        if success {
-            self.view.isLikedVideoGame(true)
-            self.isLiked = true
-        }
-    }
     
     func getDetailVideoGame(_ detailVideoGame: DetailVideoGame) {
         self.videoGame = detailVideoGame

@@ -52,13 +52,11 @@ extension FavoritesPresenter: FavoritesPresenterProtocol {
     }
     
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
-        guard let videoGame = self.videoGames[safe: index],
-              let nameOfGame = videoGame.name,
-              let ratingOfGame = videoGame.rating,
-              let releasedOfGame = videoGame.released,
-              let imageString = setParseImageURL(videoGame.backgroundImage),
-              let imageURL = URL(string: imageString) else { return nil }
-        return VideoGameCellModel(imageURL: imageURL, nameOfGame: nameOfGame, ratingOfGame: ratingOfGame, releasedOfGame: releasedOfGame)
+        guard let videoGame = self.videoGames[safe: index] else { return nil }
+        return VideoGameCellModel(imageURL: setParseImageURL(videoGame.backgroundImage),
+                                  nameOfGame: videoGame.name,
+                                  ratingOfGame: videoGame.rating,
+                                  releasedOfGame: videoGame.released)
     }
     
     var numberOfVideoGame: Int {

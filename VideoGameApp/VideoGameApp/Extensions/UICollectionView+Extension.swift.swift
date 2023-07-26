@@ -15,7 +15,7 @@ extension UICollectionView {
                                              height: self.bounds.size.height))
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textColor = .black
+        titleLabel.textColor = .secondLabelColor
         titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         titleLabel.text = title
         titleLabel.numberOfLines = 0
@@ -23,7 +23,7 @@ extension UICollectionView {
         
         let messageLabel = UILabel()
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.textColor = .black
+        messageLabel.textColor = .secondLabelColor
         messageLabel.font = .systemFont(ofSize: 17, weight: .medium)
         messageLabel.text = message
         messageLabel.numberOfLines = 0

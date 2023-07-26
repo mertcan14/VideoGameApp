@@ -103,13 +103,16 @@ final class HomeViewController: BaseViewController {
     
     @objc private func tapFilter() {
         let vc = FiltersViewController()
-        vc.presenter = self.presenter
+        vc.presenter = FiltersPresenter(view: vc, interactor: presenter.getInteractor())
         let navVC = UINavigationController(rootViewController: vc)
-        
+
         if let sheet = navVC.sheetPresentationController {
             sheet.detents = [.custom(resolver: { context in
                 return context.maximumDetentValue * 0.4
+            }), .custom(resolver: { context in
+                return context.maximumDetentValue * 0.6
             })]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
         }
         navigationController?.present(navVC, animated: true)
     }
@@ -164,7 +167,7 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = self.gameCollectionView.contentSize.height - self.gameCollectionView.bounds.size.height
-        if self.gameCollectionView.contentOffset.y >= height {
+        if self.gameCollectionView.contentOffset.y >= height && isSearching == false {
             if !isPageRefreshing {
                 isPageRefreshing = true
                 presenter.fetchNextPage()
