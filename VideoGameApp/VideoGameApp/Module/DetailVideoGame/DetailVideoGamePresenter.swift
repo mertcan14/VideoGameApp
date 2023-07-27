@@ -14,6 +14,7 @@ protocol DetailVideoGamePresenterProtocol: AnyObject {
     func viewDidLoad()
     func setIdOfVideoGame(_ id: String)
     func likeVideoGame()
+    func goWebsite()
 }
 // MARK: - Class DetailVideoGamePresenter
 final class DetailVideoGamePresenter {
@@ -39,16 +40,21 @@ final class DetailVideoGamePresenter {
     }
     // MARK: - Private Funcs
     private func reloadData() {
-        self.view.hideLoading()
         setImages()
+        checkWebOfGame()
         self.view.setDescription(videoGame?.description)
-        self.view.setMetacriticRate(String(videoGame?.metacritic ?? 0))
+        self.view.setMetacriticRate(videoGame?.metacritic)
         self.view.setGameName(videoGame?.name)
         self.view.setReleasedDate(videoGame?.released)
+        self.view.hideLoading()
     }
     
     private func setImages() {
         self.view.setImageView(videoGame?.backgroundImage)
+    }
+    
+    private func checkWebOfGame() {
+        self.view.hideWebOfGameImageView(videoGame?.website == "")
     }
     
     private func convertVideoGameToDict() -> [String: Any]? {
@@ -65,6 +71,12 @@ final class DetailVideoGamePresenter {
 }
 // MARK: - Extension DetailVideoGamePresenterProtocol
 extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
+    func goWebsite() {
+        guard let web = videoGame?.website,
+              let url = URL(string: web) else { return }
+        router.navigate(.goMetacriticSite(url: url))
+    }
+    
     func likeVideoGame() {
         if !isLiked {
             guard let objDict = convertVideoGameToDict() else { return }
@@ -77,10 +89,11 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
     }
     
     func viewDidLoad() {
+        self.view.showLoading()
         self.view.configBackButton()
         self.view.configLikeButton()
+        self.view.configureWebOfGameImageView()
         guard let idOfVideoGame else { return }
-        self.view.showLoading()
         self.interactor.fetchDetailVideoGameById(idOfVideoGame)
         guard let id = Int(idOfVideoGame) else { return }
         self.interactor.isLikedVideoGame(["id": id])
@@ -97,8 +110,8 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
 // MARK: - Extension DetailVideoGameInteractorOutputProtocol
 extension DetailVideoGamePresenter: DetailVideoGameInteractorOutputProtocol {
     func goNoInternet(_ errorText: String) {
-        self.view.showAlert("Connection", errorText) {
-            self.router.navigate(.goNoInternetScreen)
+        self.view.showAlert("Connection", errorText) { [weak self] in
+            self?.router.navigate(.goNoInternetScreen)
         }
     }
     

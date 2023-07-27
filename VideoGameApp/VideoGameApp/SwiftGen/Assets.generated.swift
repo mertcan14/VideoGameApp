@@ -24,6 +24,7 @@ public extension UIImage {
   static let linux: UIImage = UIImage(named: "linux")!
   static let linuxW: UIImage = UIImage(named: "linuxW")!
   static let loading: UIImage = UIImage(named: "loading")!
+  static let metacritic: UIImage = UIImage(named: "metacritic")!
   static let nintendo: UIImage = UIImage(named: "nintendo")!
   static let nintendoW: UIImage = UIImage(named: "nintendoW")!
   static let noimage: UIImage = UIImage(named: "noimage")!
@@ -31,6 +32,7 @@ public extension UIImage {
   static let other: UIImage = UIImage(named: "other")!
   static let playstation: UIImage = UIImage(named: "playstation")!
   static let playstationW: UIImage = UIImage(named: "playstationW")!
+  static let releasedgame: UIImage = UIImage(named: "releasedgame")!
   static let star: UIImage = UIImage(named: "star")!
   static let xbox: UIImage = UIImage(named: "xbox")!
   static let xboxW: UIImage = UIImage(named: "xboxW")!

@@ -9,6 +9,14 @@ import Foundation
 @testable import Video_Games
 
 final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func configureWebOfGameImageView() {
+        
+    }
+    
+    func hideWebOfGameImageView(_ isHide: Bool) {
+        
+    }
+    
     var isInvokedSetImageView = false
     var invokedSetImageViewCount = 0
     var invokedSetURLParameters: (url: String?, Void)?

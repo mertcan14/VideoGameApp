@@ -199,6 +199,9 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
+        if string.charIsSpace() && !string.charIsBackSpace() && text.isEmpty {
+            return false
+        }
         let currentText = (text as NSString).replacingCharacters(in: range, with: string)
         if currentText.count >= requiredWordToSearch {
             performSearch(currentText)

@@ -57,20 +57,6 @@ final class HomePresenter {
         let url = "https://" + paths.joined(separator: "/")
         return url
     }
-    
-    private func getParamsUrl() -> [String: String]? {
-        guard let nextPage else { return nil }
-        var params: [String: String] = [:]
-        let nextPageParams = nextPage.split(separator: "&")
-        for index in 1..<nextPageParams.count {
-            if let param = nextPageParams[safe: index]?.split(separator: "=") {
-                if let key = param.first, let value = param.last {
-                    params[String(key)] = String(value)
-                }
-            }
-        }
-        return params
-    }
 }
 // MARK: - Extension HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {

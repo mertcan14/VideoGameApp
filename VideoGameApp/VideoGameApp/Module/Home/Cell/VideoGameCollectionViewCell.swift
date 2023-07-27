@@ -59,8 +59,10 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             self.imageOfGameView.image = .noimage
             return
         }
-        self.imageOfGameView.downloaded(from: url)
-        self.imageOfGameView.contentMode = .scaleAspectFill
+        DispatchQueue.main.async { [weak self] in
+            self?.imageOfGameView.downloaded(from: url)
+            self?.imageOfGameView.contentMode = .scaleAspectFill
+        }
     }
     
     func setNameOfGame(_ text: String?) {
@@ -68,7 +70,9 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             self.nameOfGameLabel.text = defaultNameOfGame
             return
         }
-        self.nameOfGameLabel.text = text
+        DispatchQueue.main.async { [weak self] in
+            self?.nameOfGameLabel.text = text
+        }
     }
     
     func setRatingOfGame(_ text: Double?) {
@@ -80,8 +84,10 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             self.ratingView.isHidden = true
             return
         }
-        self.ratingView.isHidden = false
-        self.ratingOfGameLabel.text = "\(text)"
+        DispatchQueue.main.async { [weak self] in
+            self?.ratingView.isHidden = false
+            self?.ratingOfGameLabel.text = "\(text)"
+        }
     }
     
     func setReleasedOfGame(_ text: String?) {
@@ -89,7 +95,9 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             self.realesedView.isHidden = true
             return
         }
-        self.realesedView.isHidden = false
-        self.relesedOfGameLabel.text = text
+        DispatchQueue.main.async { [weak self] in
+            self?.realesedView.isHidden = false
+            self?.relesedOfGameLabel.text = text
+        }
     }
 }

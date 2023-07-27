@@ -105,11 +105,8 @@ extension FiltersViewController: FiltersViewControllerProtocol {
 // MARK: - Extension UITextFieldDelegate
 extension FiltersViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let char = string.cString(using: String.Encoding.utf8) {
-            let isBackSpace = strcmp(char, "\\b")
-            if isBackSpace == -92 {
-                return true
-            }
+        if string.charIsBackSpace() {
+            return true
         }
         guard let text = textField.text else { return false }
         if string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && text.count < 2 {

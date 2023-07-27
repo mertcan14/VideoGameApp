@@ -74,8 +74,8 @@ final class FavoritesViewController: BaseViewController {
 // MARK: - Extension FavoritesViewControllerProtocol
 extension FavoritesViewController: FavoritesViewControllerProtocol {
     func reloadData() {
-        DispatchQueue.main.async {
-            self.videoGamesCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.videoGamesCollectionView.reloadData()
         }
     }
     

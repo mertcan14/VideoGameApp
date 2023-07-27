@@ -23,3 +23,22 @@ extension String {
         return htmlToAttributedString?.string ?? ""
     }
 }
+
+extension String {
+    func charIsBackSpace() -> Bool {
+        if let char = self.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func charIsSpace() -> Bool {
+        if self == " " {
+            return true
+        }
+        return false
+    }
+}

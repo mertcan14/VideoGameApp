@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 private let titleOfPopUpForUnLike = "Are you sure?"
 private let contentOfPopUpForUnLike = "You are about to deregister the game"
@@ -21,21 +22,26 @@ protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
     func setImageView(_ image: String?)
     func setGameName(_ name: String?)
     func setReleasedDate(_ date: String?)
-    func setMetacriticRate(_ metaCriticRate: String?)
+    func setMetacriticRate(_ metaCriticRate: Int?)
     func setDescription(_ description: String?)
     func isLikedVideoGame(_ isLiked: Bool)
     func unLikedVideoGame()
     func configBackButton()
     func configLikeButton()
+    func configureWebOfGameImageView()
+    func hideWebOfGameImageView(_ isHide: Bool)
 }
 // MARK: - Class DetailVideoGameViewController
 final class DetailVideoGameViewController: BaseViewController {
     // MARK: - IBOutlet Definitions
     @IBOutlet weak var backButtonImageView: UIImageView!
     @IBOutlet weak var likeButtonImageView: UIImageView!
+    @IBOutlet weak var metacriticView: UIView!
+    @IBOutlet weak var webOfGameImageView: UIImageView!
     @IBOutlet weak var realesedDateLabel: UILabel!
     @IBOutlet weak var metacriticRateLabel: UILabel!
     @IBOutlet weak var gameNameLabel: UILabel!
+    @IBOutlet weak var releasedView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var nameOfGameFromUnderImageLabel: UILabel!
     @IBOutlet weak var viewFromUnderView: UIView!
@@ -71,30 +77,44 @@ final class DetailVideoGameViewController: BaseViewController {
     }
     
     private func hideInfoOfGame() {
-        DispatchQueue.main.async {
-            self.gameNameLabel.isHidden = true
-            self.realesedDateLabel.isHidden = true
-            self.metacriticRateLabel.isHidden = true
-        }
+        hideMetacriticView(true)
+        hideGameNameLabel(true)
+        hideReleasedView(true)
     }
     
     private func showInfoOfGame() {
-        DispatchQueue.main.async {
-            self.gameNameLabel.isHidden = false
-            self.realesedDateLabel.isHidden = false
-            self.metacriticRateLabel.isHidden = false
+        hideMetacriticView(false)
+        hideGameNameLabel(false)
+        hideReleasedView(false)
+    }
+    
+    private func hideMetacriticView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.metacriticView.isHidden = isHide
+        }
+    }
+    
+    private func hideGameNameLabel(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.gameNameLabel.isHidden = isHide
+        }
+    }
+    
+    private func hideReleasedView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.releasedView.isHidden = isHide
         }
     }
     
     private func showViewFromUnderView() {
-        DispatchQueue.main.async {
-            self.viewFromUnderView.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            self?.viewFromUnderView.isHidden = false
         }
     }
     
     private func hideViewFromUnderView() {
-        DispatchQueue.main.async {
-            self.viewFromUnderView.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.viewFromUnderView.isHidden = true
         }
     }
     
@@ -114,6 +134,10 @@ final class DetailVideoGameViewController: BaseViewController {
         presenter.goBackScreen()
     }
     
+    @objc private func goWeb() {
+        presenter.goWebsite()
+    }
+    
     @objc private func liked() {
         if self.presenter.isLiked {
             let okAction = {
@@ -127,9 +151,20 @@ final class DetailVideoGameViewController: BaseViewController {
 }
 // MARK: - Extension DetailVideoGameViewControllerProtocol
 extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func hideWebOfGameImageView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.webOfGameImageView.isHidden = isHide
+        }
+    }
+    
     func configBackButton() {
         let backTap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
         backButtonImageView.addGestureRecognizer(backTap)
+    }
+    
+    func configureWebOfGameImageView() {
+        let goWeb = UITapGestureRecognizer(target: self, action: #selector(goWeb))
+        webOfGameImageView.addGestureRecognizer(goWeb)
     }
     
     func configLikeButton() {
@@ -139,22 +174,22 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     
     func unLikedVideoGame() {
         guard let image = gameImageView.image else { return }
-        DispatchQueue.main.async {
-            self.setLikeImageView(image.isDark(.bottomRight))
+        DispatchQueue.main.async { [weak self] in
+            self?.setLikeImageView(image.isDark(.bottomRight))
         }
     }
     
     func isLikedVideoGame(_ isLiked: Bool) {
-        DispatchQueue.main.async {
-            self.likeButtonImageView.image = likedImage
+        DispatchQueue.main.async { [weak self] in
+            self?.likeButtonImageView.image = likedImage
         }
     }
     
     func setImageView(_ image: String?) {
         guard let image, let url = URL(string: image) else {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 self.gameImageView.image = .noimage
-                guard let noImage = self.gameImageView.image else { return }
                 if !self.presenter.isLiked {
                     self.setLikeImageView(false)
                 }
@@ -185,16 +220,24 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     }
     
     func setReleasedDate(_ date: String?) {
+        guard let date else {
+            hideReleasedView(true)
+            return
+        }
         DispatchQueue.main.async { [weak self] in
             self?.realesedDateLabel.text = date
             self?.releasedOfGameFromUnderImageLabel.text = date
         }
     }
     
-    func setMetacriticRate(_ metaCriticRate: String?) {
+    func setMetacriticRate(_ metaCriticRate: Int?) {
+        guard let point = metaCriticRate else {
+            hideMetacriticView(true)
+            return
+        }
         DispatchQueue.main.async { [weak self] in
-            self?.metacriticRateLabel.text = metaCriticRate
-            self?.metacriticOfGameFromUnderImageLabel.text = metaCriticRate
+            self?.metacriticRateLabel.text = "\(point)"
+            self?.metacriticOfGameFromUnderImageLabel.text = "\(point)"
         }
     }
     
@@ -211,4 +254,8 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
             }
         }
     }
+}
+// MARK: - Extension SFSafariViewControllerDelegate
+extension DetailVideoGameViewController: SFSafariViewControllerDelegate {
+    
 }

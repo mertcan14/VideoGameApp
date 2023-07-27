@@ -33,26 +33,26 @@ final class NoInternetViewController: BaseViewController {
 // MARK: - Extension NoInternetViewControllerProtocol
 extension NoInternetViewController: NoInternetViewControllerProtocol {
     func showTimeLabel() {
-        DispatchQueue.main.async {
-            self.timeLabel.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            self?.timeLabel.isHidden = false
         }
     }
 
     func enabledBtn(_ enabled: Bool) {
-        DispatchQueue.main.async {
-            self.tryAgainBtn.isEnabled = enabled
+        DispatchQueue.main.async { [weak self] in
+            self?.tryAgainBtn.isEnabled = enabled
         }
     }
     
     func setTimeLabel(_ label: String) {
-        DispatchQueue.main.async {
-            self.timeLabel.text = label
+        DispatchQueue.main.async { [weak self] in
+            self?.timeLabel.text = label
         }
     }
     
     func hiddenTimeLabel() {
-        DispatchQueue.main.async {
-            self.timeLabel.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.timeLabel.isHidden = true
         }
     }
 }
