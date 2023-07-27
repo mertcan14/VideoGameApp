@@ -939,8 +939,8 @@
             filePath = "VideoGameApp/VideoGameAppTests/Home/HomePresenterTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "test_goDetailScreen()"
             landmarkType = "7">
          </BreakpointContent>

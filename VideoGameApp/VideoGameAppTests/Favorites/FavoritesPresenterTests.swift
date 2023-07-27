@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class FavoritesPresenterTests: XCTestCase {
     var presenter: FavoritesPresenter!

@@ -6,13 +6,13 @@
 //
 
 import Foundation
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class MockVideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
     var isInvokedSetImage = false
     var invokedSetImageCount = 0
-    var invokedSetImageParameters: (image: URL?, Void)?
-    func setImage(_ image: URL?) {
+    var invokedSetImageParameters: (image: String?, Void)?
+    func setImage(_ image: String?) {
         isInvokedSetImage = true
         invokedSetImageCount += 1
         invokedSetImageParameters = (image, ())

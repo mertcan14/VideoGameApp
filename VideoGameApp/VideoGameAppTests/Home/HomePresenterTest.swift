@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class HomePresenterTest: XCTestCase {
     var presenter: HomePresenter!
@@ -14,7 +14,7 @@ final class HomePresenterTest: XCTestCase {
     var router: MockHomeRouter!
     var interactor: MockHomeInteractor!
     let videoGameCell: VideoGameCellModel = VideoGameCellModel(
-        imageURL: URL(string: "https://media.rawg.io/media/crop/600/400/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"),
+        imageURL: "https://media.rawg.io/media/crop/600/400/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
         nameOfGame: "Grand Theft Auto V",
         ratingOfGame: 4.47,
         releasedOfGame: "2013-09-17")
@@ -39,6 +39,8 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(view.invokedCollectionViewRegisterCount, 0)
         XCTAssertFalse(view.isInvokedSetupCollectionViewLayout)
         XCTAssertEqual(view.invokedSetupCollectionViewLayoutCount, 0)
+        XCTAssertFalse(view.isInvokedConfigFiltersButton)
+        XCTAssertEqual(view.invokedConfigFiltersButtonCount, 0)
         
         presenter.viewDidLoad()
         
@@ -46,16 +48,20 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(view.invokedCollectionViewRegisterCount, 1)
         XCTAssertTrue(view.isInvokedSetupCollectionViewLayout)
         XCTAssertEqual(view.invokedSetupCollectionViewLayoutCount, 1)
+        XCTAssertTrue(view.isInvokedConfigFiltersButton)
+        XCTAssertEqual(view.invokedConfigFiltersButtonCount, 1)
     }
     
     func test_viewDidLoad_InvokesRequiredInteractorMethods() {
         XCTAssertFalse(interactor.isInvokedFetchGames)
         XCTAssertEqual(interactor.invokedFetchGamesCount, 0)
+        XCTAssertNil(interactor.invokedSetUrlParameters)
         
         presenter.viewDidLoad()
         
         XCTAssertTrue(interactor.isInvokedFetchGames)
         XCTAssertEqual(interactor.invokedFetchGamesCount, 1)
+        XCTAssertNil(interactor.invokedSetUrlParameters?.url)
     }
     
     func test_searchVideoGame_InvokesRequiredViewMethods() {
@@ -91,6 +97,48 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(view.invokedSetSliderCount, 1)
         XCTAssertTrue(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 1)
+        XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
+        
+        presenter.getGames(.response)
+        
+        XCTAssertEqual(presenter.numberOfVideoGames, 40)
+        XCTAssertNotNil(presenter.getVideoGameByIndex(0))
+        XCTAssertTrue(view.isInvokedSetSliderImages)
+        XCTAssertEqual(view.invokedSetSliderCount, 2)
+        XCTAssertTrue(view.isInvokedReloadData)
+        XCTAssertEqual(view.invokedReloadDataCount, 2)
+        XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
+    }
+    
+    func test_refreshGames() {
+        XCTAssertEqual(presenter.numberOfVideoGames, 0)
+        XCTAssertNil(presenter.getVideoGameByIndex(0))
+        XCTAssertNil(presenter.nextPage)
+        XCTAssertFalse(view.isInvokedSetSliderImages)
+        XCTAssertEqual(view.invokedSetSliderCount, 0)
+        XCTAssertFalse(view.isInvokedReloadData)
+        XCTAssertEqual(view.invokedReloadDataCount, 0)
+        XCTAssertNil(presenter.getVideoGameByIndex(0))
+        
+        presenter.refreshGames(.response)
+        
+        XCTAssertEqual(presenter.nextPage, "https://api.rawg.io/api/games?key=<key>&page=2")
+        XCTAssertEqual(presenter.numberOfVideoGames, 20)
+        XCTAssertNotNil(presenter.getVideoGameByIndex(0))
+        XCTAssertTrue(view.isInvokedSetSliderImages)
+        XCTAssertEqual(view.invokedSetSliderCount, 1)
+        XCTAssertTrue(view.isInvokedReloadData)
+        XCTAssertEqual(view.invokedReloadDataCount, 1)
+        XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
+        
+        presenter.refreshGames(.response)
+        
+        XCTAssertEqual(presenter.numberOfVideoGames, 20)
+        XCTAssertNotNil(presenter.getVideoGameByIndex(0))
+        XCTAssertTrue(view.isInvokedSetSliderImages)
+        XCTAssertEqual(view.invokedSetSliderCount, 2)
+        XCTAssertTrue(view.isInvokedReloadData)
+        XCTAssertEqual(view.invokedReloadDataCount, 2)
         XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
     }
     

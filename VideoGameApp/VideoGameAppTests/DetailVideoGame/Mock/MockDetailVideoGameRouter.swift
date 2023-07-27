@@ -6,13 +6,13 @@
 //
 
 import Foundation
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class MockDetailVideoGameRouter: DetailVideoGameRouterProtocol {
     var isInvokedNavigate = false
     var invokedNavigateCount = 0
     var invokedSetRoute: (route: DetailVideoGameRoutes, Void)?
-    func navigate(_ route: VideoGameApp.DetailVideoGameRoutes) {
+    func navigate(_ route: DetailVideoGameRoutes) {
         isInvokedNavigate = true
         invokedNavigateCount += 1
         invokedSetRoute = (route, ())

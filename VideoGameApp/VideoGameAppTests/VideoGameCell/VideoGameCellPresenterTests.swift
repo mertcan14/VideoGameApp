@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class VideoGameCellPresenterTests: XCTestCase {
     var presenter: VideoGameCellPresenter!
@@ -16,7 +16,7 @@ final class VideoGameCellPresenterTests: XCTestCase {
     override func setUp() {
         super.setUp()
         view = .init()
-        videoGameCell = .init(imageURL: URL(string: "https://media.rawg.io/media/crop/600/400/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"),
+        videoGameCell = .init(imageURL: "https://media.rawg.io/media/crop/600/400/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
             nameOfGame: "Grand Theft Auto V",
             ratingOfGame: 4.47,
             releasedOfGame: "2013-09-17")
@@ -48,7 +48,7 @@ final class VideoGameCellPresenterTests: XCTestCase {
         XCTAssertTrue(view.isInvokedSetImage)
         XCTAssertEqual(view.invokedSetImageCount, 1)
         XCTAssertEqual(view.invokedSetImageParameters?.image,
-                       URL(string: "https://media.rawg.io/media/crop/600/400/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"))
+                       "https://media.rawg.io/media/crop/600/400/games/456/456dea5e1c7e3cd07060c14e96612001.jpg")
         XCTAssertTrue(view.isInvokedSetNameOfGame)
         XCTAssertEqual(view.invokedSetNameOfGameCount, 1)
         XCTAssertEqual(view.invokedSetTextParameters?.text, "Grand Theft Auto V")

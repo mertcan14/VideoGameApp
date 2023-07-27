@@ -6,9 +6,54 @@
 //
 
 import Foundation
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    var isInvokedSetImageView = false
+    var invokedSetImageViewCount = 0
+    var invokedSetURLParameters: (url: String?, Void)?
+    func setImageView(_ image: String?) {
+        isInvokedSetImageView = true
+        invokedSetImageViewCount += 1
+        invokedSetURLParameters = (image, ())
+    }
+    
+    var isInvokedSetGameName = false
+    var invokedSetGameNameCount = 0
+    var invokedSetNameParameters: (name: String?, Void)?
+    func setGameName(_ name: String?) {
+        isInvokedSetGameName = true
+        invokedSetGameNameCount += 1
+        invokedSetNameParameters = (name, ())
+    }
+    
+    var isInvokedSetReleasedDate = false
+    var invokedSetReleasedDateCount = 0
+    var invokedSetDateParameters: (date: String?, Void)?
+    func setReleasedDate(_ date: String?) {
+        isInvokedSetReleasedDate = true
+        invokedSetReleasedDateCount += 1
+        invokedSetDateParameters = (date, ())
+    }
+    
+    var isInvokedSetMetacriticRate = false
+    var invokedSetMetacriticRateCount = 0
+    var invokedSetMetaCriticRateParameters: (metaCriticRate: String?, Void)?
+    func setMetacriticRate(_ metaCriticRate: String?) {
+        isInvokedSetMetacriticRate = true
+        invokedSetMetacriticRateCount += 1
+        invokedSetMetaCriticRateParameters = (metaCriticRate, ())
+    }
+    
+    var isInvokedSetDescription = false
+    var invokedSetDescriptionCount = 0
+    var invokedSetDescriptionParameters: (description: String?, Void)?
+    func setDescription(_ description: String?) {
+        isInvokedSetDescription = true
+        invokedSetDescriptionCount += 1
+        invokedSetDescriptionParameters = (description, ())
+    }
+    
     var isInvokedConfigBackButton = false
     var invokedConfigBackButtonCount = 0
     func configBackButton() {
@@ -21,51 +66,6 @@ final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProt
     func configLikeButton() {
         isInvokedConfigLikeButton = true
         invokedConfigLikeButtonCount += 1
-    }
-    
-    var isInvokedSetImageView = false
-    var invokedSetImageViewCount = 0
-    var invokedSetURLParameters: (url: URL, Void)?
-    func setImageView(_ url: URL) {
-        isInvokedSetImageView = true
-        invokedSetImageViewCount += 1
-        invokedSetURLParameters = (url, ())
-    }
-    
-    var isInvokedSetGameName = false
-    var invokedSetGameNameCount = 0
-    var invokedSetNameParameters: (name: String, Void)?
-    func setGameName(_ name: String) {
-        isInvokedSetGameName = true
-        invokedSetGameNameCount += 1
-        invokedSetNameParameters = (name, ())
-    }
-    
-    var isInvokedSetReleasedDate = false
-    var invokedSetReleasedDateCount = 0
-    var invokedSetDateParameters: (date: String, Void)?
-    func setReleasedDate(_ date: String) {
-        isInvokedSetReleasedDate = true
-        invokedSetReleasedDateCount += 1
-        invokedSetDateParameters = (date, ())
-    }
-    
-    var isInvokedSetMetacriticRate = false
-    var invokedSetMetacriticRateCount = 0
-    var invokedSetMetaCriticRateParameters: (metaCriticRate: String, Void)?
-    func setMetacriticRate(_ metaCriticRate: String) {
-        isInvokedSetMetacriticRate = true
-        invokedSetMetacriticRateCount += 1
-        invokedSetMetaCriticRateParameters = (metaCriticRate, ())
-    }
-    
-    var isInvokedSetDescription = false
-    var invokedSetDescriptionCount = 0
-    var invokedSetDescriptionParameters: (description: String, Void)?
-    func setDescription(_ description: String) {
-        isInvokedSetDescription = true
-        invokedSetDescriptionCount += 1
-        invokedSetDescriptionParameters = (description, ())
     }
     
     var isInvokedIsLikedVideoGame = false

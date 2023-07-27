@@ -6,13 +6,13 @@
 //
 
 import Foundation
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class MockFavoritesRouter: FavoritesRouterProtocol {
     var isInvokedNavigate = false
     var invokedNavigateCount = 0
     var invokedSetRouteParameters: (route: FavoritesRoutes, Void)?
-    func navigate(_ route: VideoGameApp.FavoritesRoutes) {
+    func navigate(_ route: Video_Games.FavoritesRoutes) {
         isInvokedNavigate = true
         invokedNavigateCount += 1
         invokedSetRouteParameters = (route, ())

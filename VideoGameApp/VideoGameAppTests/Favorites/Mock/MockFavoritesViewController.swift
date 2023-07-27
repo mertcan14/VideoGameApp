@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import VideoGameApp
+@testable import Video_Games
 
 final class MockFavoritesViewController: FavoritesViewControllerProtocol {
     var isInvokedReloadData = false
