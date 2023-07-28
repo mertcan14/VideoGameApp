@@ -9,6 +9,10 @@ import Foundation
 @testable import Video_Games
 
 final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func setMetacriticRate(_ metaCriticRate: Int?) {
+        
+    }
+    
     func configureWebOfGameImageView() {
         
     }
