@@ -32,9 +32,10 @@ final class HomePresenter {
     var searchedVideoGame: [VideoGame] = []
     var videoGames: [VideoGame] = [] {
         didSet {
-            self.view.hideLoading()
             setImagesForSlider()
             self.view.reloadData()
+            self.view.hideLoading(0.5)
+            
         }
     }
     

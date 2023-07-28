@@ -9,6 +9,8 @@ import Foundation
 // MARK: - Protocol DetailVideoGamePresenterProtocol
 protocol DetailVideoGamePresenterProtocol: AnyObject {
     var isLiked: Bool { get }
+    var checkReleased: Bool { get }
+    var checkMetacritic: Bool { get }
     
     func goBackScreen()
     func viewDidLoad()
@@ -71,6 +73,16 @@ final class DetailVideoGamePresenter {
 }
 // MARK: - Extension DetailVideoGamePresenterProtocol
 extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
+    var checkReleased: Bool {
+        if videoGame?.released == nil { return false }
+        return true
+    }
+    
+    var checkMetacritic: Bool {
+        if videoGame?.metacritic == nil { return false }
+        return true
+    }
+    
     func goWebsite() {
         guard let web = videoGame?.website,
               let url = URL(string: web) else { return }

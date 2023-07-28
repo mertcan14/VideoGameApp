@@ -42,6 +42,8 @@ final class DetailVideoGameViewController: BaseViewController {
     @IBOutlet weak var metacriticRateLabel: UILabel!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var releasedView: UIView!
+    @IBOutlet weak var releasedViewFromUnderImage: UIStackView!
+    @IBOutlet weak var metacriticViewFromUnderImage: UIStackView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var nameOfGameFromUnderImageLabel: UILabel!
     @IBOutlet weak var viewFromUnderView: UIView!
@@ -56,36 +58,26 @@ final class DetailVideoGameViewController: BaseViewController {
         presenter.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        checkDeviceOrientation()
-    }
-    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         checkDeviceOrientation()
     }
     // MARK: - Private Funcs
-    private func checkDeviceOrientation() {
+    func checkDeviceOrientation() {
         guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
             .windowScene?.interfaceOrientation else { return }
         if deviceOrientation.isLandscape {
-            hideInfoOfGame()
-            showViewFromUnderView()
+            hideInfoOfGame(true)
+            hideViewFromUnderView(false)
         } else {
-            showInfoOfGame()
-            hideViewFromUnderView()
+            hideInfoOfGame(false)
+            hideViewFromUnderView(true)
         }
     }
     
-    private func hideInfoOfGame() {
-        hideMetacriticView(true)
-        hideGameNameLabel(true)
-        hideReleasedView(true)
-    }
-    
-    private func showInfoOfGame() {
-        hideMetacriticView(false)
-        hideGameNameLabel(false)
-        hideReleasedView(false)
+    private func hideInfoOfGame(_ isHide: Bool) {
+        hideMetacriticView(isHide ? isHide : !presenter.checkMetacritic)
+        hideGameNameLabel(isHide)
+        hideReleasedView(isHide ? isHide : !presenter.checkReleased)
     }
     
     private func hideMetacriticView(_ isHide: Bool) {
@@ -106,15 +98,21 @@ final class DetailVideoGameViewController: BaseViewController {
         }
     }
     
-    private func showViewFromUnderView() {
+    private func hideMetacriticUnderImage(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.viewFromUnderView.isHidden = false
+            self?.metacriticViewFromUnderImage.isHidden = isHide
         }
     }
     
-    private func hideViewFromUnderView() {
+    private func hideReleasedUnderImage(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.viewFromUnderView.isHidden = true
+            self?.releasedViewFromUnderImage.isHidden = isHide
+        }
+    }
+    
+    private func hideViewFromUnderView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewFromUnderView.isHidden = isHide
         }
     }
     
@@ -214,6 +212,7 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     
     func setGameName(_ name: String?) {
         DispatchQueue.main.async { [weak self] in
+            self?.checkDeviceOrientation()
             self?.gameNameLabel.text = name
             self?.nameOfGameFromUnderImageLabel.text = name
         }
@@ -222,6 +221,7 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     func setReleasedDate(_ date: String?) {
         guard let date else {
             hideReleasedView(true)
+            hideReleasedUnderImage(true)
             return
         }
         DispatchQueue.main.async { [weak self] in
@@ -233,6 +233,7 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     func setMetacriticRate(_ metaCriticRate: Int?) {
         guard let point = metaCriticRate else {
             hideMetacriticView(true)
+            hideMetacriticUnderImage(true)
             return
         }
         DispatchQueue.main.async { [weak self] in
