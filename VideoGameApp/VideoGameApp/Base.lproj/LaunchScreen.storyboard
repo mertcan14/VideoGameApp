@@ -17,16 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ujb-yc-G3b">
-                                <rect key="frame" x="36" y="278" width="321" height="321"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ujb-yc-G3b" secondAttribute="height" multiplier="1:1" id="9Yc-Ia-pkh"/>
-                                </constraints>
+                                <rect key="frame" x="36" y="95" width="321" height="687"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ujb-yc-G3b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="1DM-N2-36e"/>
                             <constraint firstItem="ujb-yc-G3b" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="MMH-3G-SdX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ujb-yc-G3b" secondAttribute="bottom" constant="36" id="ROm-q3-67M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ujb-yc-G3b" secondAttribute="trailing" constant="36" id="pEV-fR-K5P"/>
                             <constraint firstItem="ujb-yc-G3b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="sqh-rl-Ga4"/>
                         </constraints>

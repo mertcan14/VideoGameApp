@@ -46,8 +46,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "setImagesForSlider()"
             landmarkType = "7">
          </BreakpointContent>
@@ -66,54 +66,6 @@
             endingLineNumber = "24"
             landmarkName = "createModule()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51B023B4-53B4-44E9-9B3A-B87AB1235A37"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "setParseImageURL(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51B023B4-53B4-44E9-9B3A-B87AB1235A37 - e8bf45aa0bdf2474"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VideoGameApp.HomePresenter.getVideoGameByIndex(Swift.Int) -&gt; Swift.Optional&lt;VideoGameApp.VideoGameCellModel&gt;"
-                  moduleName = "VideoGameApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/VideoGameApp/VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "256">
-               </Location>
-               <Location
-                  uuid = "51B023B4-53B4-44E9-9B3A-B87AB1235A37 - 3d136989d47f952"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VideoGameApp.HomePresenter.setParseImageURL(Swift.String) -&gt; ()"
-                  moduleName = "VideoGameApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/VideoGameApp/VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -779,8 +731,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "goDetailScreen(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -875,8 +827,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "searchVideoGame(_:)"
             landmarkType = "7">
             <Locations>
@@ -987,8 +939,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "fetchNextPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1003,8 +955,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "getGames(_:)"
             landmarkType = "7">
             <Locations>
@@ -1371,6 +1323,22 @@
                   offsetFromSymbolStart = "80">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8299C7B-42DD-4211-BAD9-49B990529673"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "setParseImageURL(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
