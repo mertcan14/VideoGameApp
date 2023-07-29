@@ -6,6 +6,8 @@
 //
 
 import Foundation
+private let titleOfPopUpForUnLike = "Are you sure?"
+private let contentOfPopUpForUnLike = "You are about to deregister the game"
 // MARK: - Protocol DetailVideoGamePresenterProtocol
 protocol DetailVideoGamePresenterProtocol: AnyObject {
     var isLiked: Bool { get }
@@ -94,9 +96,12 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
             guard let objDict = convertVideoGameToDict() else { return }
             self.interactor.likedVideoGame(objDict)
         } else {
-            guard let idOfVideoGame,
-                  let id = Int(idOfVideoGame) else { return }
-            self.interactor.unLikedVideoGame(["id": id])
+            let okAction = {
+                guard let idVideoGame = self.idOfVideoGame,
+                      let id = Int(idVideoGame) else { return }
+                self.interactor.unLikedVideoGame(["id": id])
+            }
+            self.view.showPopUp(titleOfPopUpForUnLike, contentOfPopUpForUnLike, buttonTitle: "Remove", buttonAction: okAction, cancelAction: nil)
         }
     }
     

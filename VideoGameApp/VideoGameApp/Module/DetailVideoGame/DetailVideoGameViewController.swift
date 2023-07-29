@@ -8,8 +8,6 @@
 import UIKit
 import SafariServices
 
-private let titleOfPopUpForUnLike = "Are you sure?"
-private let contentOfPopUpForUnLike = "You are about to deregister the game"
 private let descriptionLabelFontSize: CGFloat = 16
 private let arrowImageIsDark: UIImage = .arrowW
 private let arrowImageNoDark: UIImage = .arrow
@@ -34,6 +32,8 @@ protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
 // MARK: - Class DetailVideoGameViewController
 final class DetailVideoGameViewController: BaseViewController {
     // MARK: - IBOutlet Definitions
+    @IBOutlet weak var lowerStackView: UIStackView!
+    @IBOutlet weak var upperStackView: UIStackView!
     @IBOutlet weak var backButtonImageView: UIImageView!
     @IBOutlet weak var likeButtonImageView: UIImageView!
     @IBOutlet weak var metacriticView: UIView!
@@ -42,14 +42,9 @@ final class DetailVideoGameViewController: BaseViewController {
     @IBOutlet weak var metacriticRateLabel: UILabel!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var releasedView: UIView!
-    @IBOutlet weak var releasedViewFromUnderImage: UIStackView!
-    @IBOutlet weak var metacriticViewFromUnderImage: UIStackView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var nameOfGameFromUnderImageLabel: UILabel!
-    @IBOutlet weak var viewFromUnderView: UIView!
-    @IBOutlet weak var releasedOfGameFromUnderImageLabel: UILabel!
-    @IBOutlet weak var metacriticOfGameFromUnderImageLabel: UILabel!
     @IBOutlet weak var gameImageView: UIImageView!
+    @IBOutlet weak var infoStackView: UIStackView!
     // MARK: - Variable Definitions
     var presenter: DetailVideoGamePresenterProtocol!
     // MARK: - Lifecycle Methods
@@ -66,18 +61,18 @@ final class DetailVideoGameViewController: BaseViewController {
         guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
             .windowScene?.interfaceOrientation else { return }
         if deviceOrientation.isLandscape {
-            hideInfoOfGame(true)
-            hideViewFromUnderView(false)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.infoStackView.removeFromSuperview()
+                self.upperStackView.insertArrangedSubview(infoStackView, at: 1)
+            }
         } else {
-            hideInfoOfGame(false)
-            hideViewFromUnderView(true)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.infoStackView.removeFromSuperview()
+                self.lowerStackView.insertArrangedSubview(infoStackView, at: 0)
+            }
         }
-    }
-    
-    private func hideInfoOfGame(_ isHide: Bool) {
-        hideMetacriticView(isHide ? isHide : !presenter.checkMetacritic)
-        hideGameNameLabel(isHide)
-        hideReleasedView(isHide ? isHide : !presenter.checkReleased)
     }
     
     private func hideMetacriticView(_ isHide: Bool) {
@@ -86,33 +81,9 @@ final class DetailVideoGameViewController: BaseViewController {
         }
     }
     
-    private func hideGameNameLabel(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.gameNameLabel.isHidden = isHide
-        }
-    }
-    
     private func hideReleasedView(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.releasedView.isHidden = isHide
-        }
-    }
-    
-    private func hideMetacriticUnderImage(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.metacriticViewFromUnderImage.isHidden = isHide
-        }
-    }
-    
-    private func hideReleasedUnderImage(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.releasedViewFromUnderImage.isHidden = isHide
-        }
-    }
-    
-    private func hideViewFromUnderView(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.viewFromUnderView.isHidden = isHide
         }
     }
     
@@ -137,14 +108,7 @@ final class DetailVideoGameViewController: BaseViewController {
     }
     
     @objc private func liked() {
-        if self.presenter.isLiked {
-            let okAction = {
-                self.presenter.likeVideoGame()
-            }
-            self.showPopUp(titleOfPopUpForUnLike, contentOfPopUpForUnLike, buttonAction: okAction)
-        } else {
-            presenter.likeVideoGame()
-        }
+        presenter.likeVideoGame()
     }
 }
 // MARK: - Extension DetailVideoGameViewControllerProtocol
@@ -214,31 +178,26 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         DispatchQueue.main.async { [weak self] in
             self?.checkDeviceOrientation()
             self?.gameNameLabel.text = name
-            self?.nameOfGameFromUnderImageLabel.text = name
         }
     }
     
     func setReleasedDate(_ date: String?) {
         guard let date else {
             hideReleasedView(true)
-            hideReleasedUnderImage(true)
             return
         }
         DispatchQueue.main.async { [weak self] in
             self?.realesedDateLabel.text = date
-            self?.releasedOfGameFromUnderImageLabel.text = date
         }
     }
     
     func setMetacriticRate(_ metaCriticRate: Int?) {
         guard let point = metaCriticRate else {
             hideMetacriticView(true)
-            hideMetacriticUnderImage(true)
             return
         }
         DispatchQueue.main.async { [weak self] in
             self?.metacriticRateLabel.text = "\(point)"
-            self?.metacriticOfGameFromUnderImageLabel.text = "\(point)"
         }
     }
     
