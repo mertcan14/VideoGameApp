@@ -41,13 +41,23 @@ final class VideoGameAppUITests: XCTestCase {
         XCUIDevice.shared.orientation = .portrait
         searchTextFieldElement.tap()
         app.keyboards.keys["t"].tap()
-        sleep(1)
         app.keyboards.keys["h"].tap()
-        sleep(1)
         app.keyboards.keys["e"].tap()
-        sleep(1)
         searchTextFieldElement.clearAndEnterText(text: "")
-        sleep(1)
+    }
+    
+    func test_favoritesscreen() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        XCUIDevice.shared.orientation = .portrait
+        let favoritesTabItem = app.tabBars["Tab Bar"].buttons["Favorites"]
+        let collectionView = app.collectionViews.children(matching: .cell).element(boundBy: 5)
+        favoritesTabItem.tap()
+        XCUIDevice.shared.orientation = .landscapeLeft
+        collectionView.swipeUp()
+        XCUIDevice.shared.orientation = .portrait
+        collectionView.tap()
     }
     
     func testLaunchPerformance() throws {
