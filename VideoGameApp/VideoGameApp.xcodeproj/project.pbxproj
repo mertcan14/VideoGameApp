@@ -53,6 +53,7 @@
 		E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679402A6143D20036D886 /* NoInternetInteractor.swift */; };
 		E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679422A6143E10036D886 /* NoInternetRouter.swift */; };
 		E5AE20982A6679F40022B4A9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */; };
+		E5BD9E332A766EC4005E7472 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD9E322A766EC4005E7472 /* XCUIElement+Extension.swift */; };
 		E5C015592A7156CC00F1F73F /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C015582A7156CC00F1F73F /* FiltersPresenter.swift */; };
 		E5C0155B2A71623D00F1F73F /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */; };
 		E5C18DEE2A64349500856941 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C18DED2A64349500856941 /* HomeViewController.storyboard */; };
@@ -157,6 +158,7 @@
 		E5A679402A6143D20036D886 /* NoInternetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetInteractor.swift; sourceTree = "<group>"; };
 		E5A679422A6143E10036D886 /* NoInternetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetRouter.swift; sourceTree = "<group>"; };
 		E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		E5BD9E322A766EC4005E7472 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		E5C015582A7156CC00F1F73F /* FiltersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
 		E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		E5C18DED2A64349500856941 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
@@ -399,6 +401,14 @@
 			path = NoInternet;
 			sourceTree = "<group>";
 		};
+		E5BD9E312A766EAB005E7472 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E5BD9E322A766EC4005E7472 /* XCUIElement+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		E5C19CB72A6FF537004C0929 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +554,7 @@
 		E5D3D2DF2A5E983C00B98AD1 /* VideoGameAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E5BD9E312A766EAB005E7472 /* Extension */,
 				E5D3D2E02A5E983C00B98AD1 /* VideoGameAppUITests.swift */,
 				E5D3D2E22A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift */,
 			);
@@ -864,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BD9E332A766EC4005E7472 /* XCUIElement+Extension.swift in Sources */,
 				E5D3D2E32A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift in Sources */,
 				E5D3D2E12A5E983C00B98AD1 /* VideoGameAppUITests.swift in Sources */,
 			);

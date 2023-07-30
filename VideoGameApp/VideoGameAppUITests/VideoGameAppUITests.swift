@@ -8,23 +8,6 @@
 import XCTest
 
 final class VideoGameAppUITests: XCTestCase {
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-    }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testExample() throws {
-        let app = XCUIApplication()
-        app.launch()
-    }
-    
     func test_homescreen() throws {
         let app = XCUIApplication()
         app.launch()
@@ -33,48 +16,38 @@ final class VideoGameAppUITests: XCTestCase {
         let filterImage = app.images["filter"]
         let searchButtonElement = app.buttons["Search"]
         let searchTextFieldElement = app.textFields["SEARCH"]
-        let element2 = scrollViewsQuery.otherElements.scrollViews.children(matching: .other).element.children(matching: .other).element
-        let element = element2.children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 2)
-        let element3 = app.scrollViews.otherElements.collectionViews.children(matching: .cell)
+        let slider = scrollViewsQuery.otherElements.scrollViews.children(matching: .other).element.children(matching: .other).element
+        let collectionCell = app.scrollViews.otherElements.collectionViews.children(matching: .cell)
             .element(boundBy: 2).children(matching: .other).element.children(matching: .other)
             .element.children(matching: .other).element.children(matching: .other)
             .element.children(matching: .other).element
         
-        element.swipeLeft()
-        element.swipeLeft()
-        element.swipeRight()
-        element.swipeRight()
-        element3.swipeUp()
+        slider.swipeLeft()
+        slider.swipeLeft()
+        slider.swipeRight()
+        slider.swipeRight()
+        collectionCell.swipeUp()
         
         XCUIDevice.shared.orientation = .landscapeLeft
-        element.swipeLeft()
-        element.swipeLeft()
-        element.swipeUp()
-        element3.swipeUp()
-        element3.swipeUp()
-        element3.swipeUp()
+        slider.swipeLeft()
+        slider.swipeLeft()
+        slider.swipeUp()
+        collectionCell.swipeUp()
+        collectionCell.swipeUp()
+        collectionCell.swipeUp()
         filterImage.tap()
         searchButtonElement.tap()
-                
+        
         XCUIDevice.shared.orientation = .portrait
         searchTextFieldElement.tap()
-        app/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.keys["h"]/*[[".keyboards.keys[\"h\"]",".keys[\"h\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.keys["e"]/*[[".keyboards.keys[\"e\"]",".keys[\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.keys["space"]/*[[".keyboards.keys[\"space\"]",".keys[\"space\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.keys["m"].tap()
-        app.keys["e"].tap()
-        app.keys["r"].tap()
-        app.keys["t"].tap()
-        let deleteKey = app.keys["delete"]
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
+        app.keyboards.keys["t"].tap()
+        sleep(1)
+        app.keyboards.keys["h"].tap()
+        sleep(1)
+        app.keyboards.keys["e"].tap()
+        sleep(1)
+        searchTextFieldElement.clearAndEnterText(text: "")
+        sleep(1)
     }
     
     func testLaunchPerformance() throws {

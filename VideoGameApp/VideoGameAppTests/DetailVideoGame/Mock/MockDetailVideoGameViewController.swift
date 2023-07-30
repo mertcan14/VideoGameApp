@@ -9,6 +9,10 @@ import Foundation
 @testable import Video_Games
 
 final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
+    func showPopUp(_ title: String, _ message: String, buttonTitle: String?, buttonAction: (() -> Void)?, cancelAction: (() -> Void)?) {
+        
+    }
+    
     func setMetacriticRate(_ metaCriticRate: Int?) {
         
     }

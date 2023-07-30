@@ -9,6 +9,10 @@ import Foundation
 @testable import Video_Games
 
 final class MockFavoritesViewController: FavoritesViewControllerProtocol {
+    func showPopUp(_ title: String, _ message: String, buttonTitle: String?, buttonAction: (() -> Void)?, cancelAction: (() -> Void)?) {
+        
+    }
+    
     var isInvokedReloadData = false
     var invokedReloadDataCount = 0
     func reloadData() {
