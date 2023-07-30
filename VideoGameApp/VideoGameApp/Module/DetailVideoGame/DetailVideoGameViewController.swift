@@ -8,8 +8,6 @@
 import UIKit
 import SafariServices
 
-private let titleOfPopUpForUnLike = "Are you sure?"
-private let contentOfPopUpForUnLike = "You are about to deregister the game"
 private let descriptionLabelFontSize: CGFloat = 16
 private let arrowImageIsDark: UIImage = .arrowW
 private let arrowImageNoDark: UIImage = .arrow
@@ -34,6 +32,8 @@ protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
 // MARK: - Class DetailVideoGameViewController
 final class DetailVideoGameViewController: BaseViewController {
     // MARK: - IBOutlet Definitions
+    @IBOutlet weak var lowerStackView: UIStackView!
+    @IBOutlet weak var upperStackView: UIStackView!
     @IBOutlet weak var backButtonImageView: UIImageView!
     @IBOutlet weak var likeButtonImageView: UIImageView!
     @IBOutlet weak var metacriticView: UIView!
@@ -43,11 +43,8 @@ final class DetailVideoGameViewController: BaseViewController {
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var releasedView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var nameOfGameFromUnderImageLabel: UILabel!
-    @IBOutlet weak var viewFromUnderView: UIView!
-    @IBOutlet weak var releasedOfGameFromUnderImageLabel: UILabel!
-    @IBOutlet weak var metacriticOfGameFromUnderImageLabel: UILabel!
     @IBOutlet weak var gameImageView: UIImageView!
+    @IBOutlet weak var infoStackView: UIStackView!
     // MARK: - Variable Definitions
     var presenter: DetailVideoGamePresenterProtocol!
     // MARK: - Lifecycle Methods
@@ -56,36 +53,26 @@ final class DetailVideoGameViewController: BaseViewController {
         presenter.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        checkDeviceOrientation()
-    }
-    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         checkDeviceOrientation()
     }
     // MARK: - Private Funcs
-    private func checkDeviceOrientation() {
+    func checkDeviceOrientation() {
         guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
             .windowScene?.interfaceOrientation else { return }
         if deviceOrientation.isLandscape {
-            hideInfoOfGame()
-            showViewFromUnderView()
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.infoStackView.removeFromSuperview()
+                self.upperStackView.insertArrangedSubview(infoStackView, at: 1)
+            }
         } else {
-            showInfoOfGame()
-            hideViewFromUnderView()
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.infoStackView.removeFromSuperview()
+                self.lowerStackView.insertArrangedSubview(infoStackView, at: 0)
+            }
         }
-    }
-    
-    private func hideInfoOfGame() {
-        hideMetacriticView(true)
-        hideGameNameLabel(true)
-        hideReleasedView(true)
-    }
-    
-    private func showInfoOfGame() {
-        hideMetacriticView(false)
-        hideGameNameLabel(false)
-        hideReleasedView(false)
     }
     
     private func hideMetacriticView(_ isHide: Bool) {
@@ -94,27 +81,9 @@ final class DetailVideoGameViewController: BaseViewController {
         }
     }
     
-    private func hideGameNameLabel(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.gameNameLabel.isHidden = isHide
-        }
-    }
-    
     private func hideReleasedView(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.releasedView.isHidden = isHide
-        }
-    }
-    
-    private func showViewFromUnderView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.viewFromUnderView.isHidden = false
-        }
-    }
-    
-    private func hideViewFromUnderView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.viewFromUnderView.isHidden = true
         }
     }
     
@@ -139,14 +108,7 @@ final class DetailVideoGameViewController: BaseViewController {
     }
     
     @objc private func liked() {
-        if self.presenter.isLiked {
-            let okAction = {
-                self.presenter.likeVideoGame()
-            }
-            self.showPopUp(titleOfPopUpForUnLike, contentOfPopUpForUnLike, buttonAction: okAction)
-        } else {
-            presenter.likeVideoGame()
-        }
+        presenter.likeVideoGame()
     }
 }
 // MARK: - Extension DetailVideoGameViewControllerProtocol
@@ -214,8 +176,8 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     
     func setGameName(_ name: String?) {
         DispatchQueue.main.async { [weak self] in
+            self?.checkDeviceOrientation()
             self?.gameNameLabel.text = name
-            self?.nameOfGameFromUnderImageLabel.text = name
         }
     }
     
@@ -226,7 +188,6 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         }
         DispatchQueue.main.async { [weak self] in
             self?.realesedDateLabel.text = date
-            self?.releasedOfGameFromUnderImageLabel.text = date
         }
     }
     
@@ -237,7 +198,6 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
         }
         DispatchQueue.main.async { [weak self] in
             self?.metacriticRateLabel.text = "\(point)"
-            self?.metacriticOfGameFromUnderImageLabel.text = "\(point)"
         }
     }
     

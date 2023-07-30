@@ -10,22 +10,20 @@ import UIKit
 final class LoadingView {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     static let shared = LoadingView()
-    var blurView: UIVisualEffectView = UIVisualEffectView()
+    var blurView: UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     
     private init() {
         configure()
     }
     
     func configure() {
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         blurView.translatesAutoresizingMaskIntoConstraints = false
-        blurView.frame = UIWindow(frame: UIScreen.main.bounds).frame
-        activityIndicator.center = blurView.center
         activityIndicator.hidesWhenStopped = true
         blurView.contentView.addSubview(activityIndicator)
     }
     
     func startLoading() {
+        setFrame()
         UIApplication.shared.currentUIWindow()?.addSubview(blurView)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
@@ -36,5 +34,11 @@ final class LoadingView {
             self.blurView.removeFromSuperview()
             self.activityIndicator.stopAnimating()
         }
+    }
+    
+    private func setFrame() {
+        guard let currentWindow = UIApplication.shared.currentUIWindow() else { return }
+        blurView.frame = currentWindow.frame
+        activityIndicator.center = blurView.center
     }
 }

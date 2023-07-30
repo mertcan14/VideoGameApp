@@ -17,10 +17,19 @@ final class VideoGameTabBarController: UITabBarController {
         super.init(nibName: nil, bundle: nil)
         
         viewControllers = [tabs.home, tabs.favorites]
+        tabBar.barTintColor = .tabBarColor
         tabBar.backgroundColor = .tabBarColor
-        tabBar.unselectedItemTintColor = .white
         tabBar.tintColor = .fieldColor
         tabBar.unselectedItemTintColor = .lightGray
+        tabBar.isTranslucent = true
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .tabBarColor
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = UITabBar.appearance().standardAppearance
+        }
     }
     
     required init?(coder: NSCoder) {
