@@ -8,8 +8,16 @@
 import XCTest
 
 final class VideoGameAppUITests: XCTestCase {
+    
+    private var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+    }
+    
     func test_homescreen() throws {
-        let app = XCUIApplication()
         app.launch()
         XCUIDevice.shared.orientation = .portrait
         let scrollViewsQuery = app.scrollViews
@@ -47,7 +55,6 @@ final class VideoGameAppUITests: XCTestCase {
     }
     
     func test_favoritesscreen() {
-        let app = XCUIApplication()
         app.launch()
         
         XCUIDevice.shared.orientation = .portrait
@@ -58,6 +65,43 @@ final class VideoGameAppUITests: XCTestCase {
         collectionView.swipeUp()
         XCUIDevice.shared.orientation = .portrait
         collectionView.tap()
+    }
+    
+    func test_detailscreen() throws {
+        app.launch()
+        let scrollViewsQuery = app.scrollViews
+        let alert = app.alerts["Are you sure?"]
+        let scrollViewsQueryDetail = XCUIApplication().scrollViews
+        let element = scrollViewsQuery.children(matching: .other)
+            .element.children(matching: .other).element(boundBy: 1).children(matching: .other).element
+        let image = scrollViewsQuery.children(matching: .other).element.children(matching: .other)
+            .element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .image).element(boundBy: 2)
+        let slider = scrollViewsQuery.otherElements.scrollViews.children(matching: .other).element.children(matching: .other).element
+        let collectionCell = app.scrollViews.otherElements.collectionViews.children(matching: .cell)
+            .element(boundBy: 2).children(matching: .other).element.children(matching: .other)
+            .element.children(matching: .other).element.children(matching: .other)
+            .element.children(matching: .other).element
+        
+        XCUIDevice.shared.orientation = .portrait
+        slider.tap()
+        
+        element.swipeUp()
+        element.swipeUp()
+        element.swipeDown()
+        element.swipeDown()
+        image.tap()
+        if alert.exists {
+            alert.scrollViews.otherElements.buttons["Remove"].tap()
+        }
+        image.tap()
+        if alert.exists {
+            alert.scrollViews.otherElements.buttons["Cancel"].tap()
+        }
+        
+        XCUIDevice.shared.orientation = .landscapeLeft
+        element.swipeUp()
+        app.scrollViews.otherElements/*@START_MENU_TOKEN@*/.images["globe"]/*[[".images[\"Globe\"]",".images[\"globe\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.buttons["Done"].tap()
     }
     
     func testLaunchPerformance() throws {
