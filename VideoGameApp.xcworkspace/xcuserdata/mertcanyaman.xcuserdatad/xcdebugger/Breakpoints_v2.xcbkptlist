@@ -192,7 +192,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
             endingLineNumber = "138"
-            landmarkName = "getError(_:)"
+            landmarkName = "getRemoveFromAddObj(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -254,7 +254,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
-            endingLineNumber = "142">
+            endingLineNumber = "142"
+            landmarkName = "getIsLikedVideoGame(_:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "F183A348-966A-4276-A61F-87E05F50B170 - a249f61b79f196d4"

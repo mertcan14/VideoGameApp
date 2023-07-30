@@ -13,6 +13,13 @@ protocol BaseViewControllerProtocol: AnyObject, LoadingShowable {
         _ message: String,
         _ action: (() -> Void)?
     )
+    func showPopUp(
+        _ title: String,
+        _ message: String,
+        buttonTitle: String?,
+        buttonAction: (() -> Void)?,
+        cancelAction: (() -> Void)?
+    )
     func delay(_ delay: Double, closure: @escaping () -> Void)
 }
 // MARK: - Class BaseViewController

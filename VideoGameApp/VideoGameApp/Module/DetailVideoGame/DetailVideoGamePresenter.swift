@@ -6,9 +6,13 @@
 //
 
 import Foundation
+private let titleOfPopUpForUnLike = "Are you sure?"
+private let contentOfPopUpForUnLike = "You are about to deregister the game"
 // MARK: - Protocol DetailVideoGamePresenterProtocol
 protocol DetailVideoGamePresenterProtocol: AnyObject {
     var isLiked: Bool { get }
+    var checkReleased: Bool { get }
+    var checkMetacritic: Bool { get }
     
     func goBackScreen()
     func viewDidLoad()
@@ -71,6 +75,16 @@ final class DetailVideoGamePresenter {
 }
 // MARK: - Extension DetailVideoGamePresenterProtocol
 extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
+    var checkReleased: Bool {
+        if videoGame?.released == nil { return false }
+        return true
+    }
+    
+    var checkMetacritic: Bool {
+        if videoGame?.metacritic == nil { return false }
+        return true
+    }
+    
     func goWebsite() {
         guard let web = videoGame?.website,
               let url = URL(string: web) else { return }
@@ -82,9 +96,12 @@ extension DetailVideoGamePresenter: DetailVideoGamePresenterProtocol {
             guard let objDict = convertVideoGameToDict() else { return }
             self.interactor.likedVideoGame(objDict)
         } else {
-            guard let idOfVideoGame,
-                  let id = Int(idOfVideoGame) else { return }
-            self.interactor.unLikedVideoGame(["id": id])
+            let okAction = {
+                guard let idVideoGame = self.idOfVideoGame,
+                      let id = Int(idVideoGame) else { return }
+                self.interactor.unLikedVideoGame(["id": id])
+            }
+            self.view.showPopUp(titleOfPopUpForUnLike, contentOfPopUpForUnLike, buttonTitle: "Remove", buttonAction: okAction, cancelAction: nil)
         }
     }
     

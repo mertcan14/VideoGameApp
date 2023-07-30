@@ -32,9 +32,10 @@ final class HomePresenter {
     var searchedVideoGame: [VideoGame] = []
     var videoGames: [VideoGame] = [] {
         didSet {
-            self.view.hideLoading()
             setImagesForSlider()
             self.view.reloadData()
+            self.view.hideLoading(0.5)
+            
         }
     }
     
@@ -50,12 +51,10 @@ final class HomePresenter {
     
     private func setParseImageURL(_ urlString: String?) -> String? {
         guard let urlString else { return nil }
-        let parsePath = urlString.split(separator: "//").last
-        guard let parsePath else { return nil }
-        var paths = parsePath.split(separator: "/")
-        paths.insert("crop/600/400", at: 2)
-        let url = "https://" + paths.joined(separator: "/")
-        return url
+        var parsePath = urlString.split(separator: "/")
+        parsePath.insert("crop/600/400", at: 3)
+        parsePath[0] = "https:/"
+        return parsePath.joined(separator: "/")
     }
 }
 // MARK: - Extension HomePresenterProtocol
