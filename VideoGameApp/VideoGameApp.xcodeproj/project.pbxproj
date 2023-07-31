@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E53EE7952A77CBC1008FF5A6 /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E53EE7942A77CBC1008FF5A6 /* MyCoreData */; };
 		E5495BBD2A5EE4CA000CED59 /* Assets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5495BBA2A5EE4CA000CED59 /* Assets.generated.swift */; };
 		E5495BBE2A5EE4CA000CED59 /* swiftgen.config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E5495BBB2A5EE4CA000CED59 /* swiftgen.config.yml */; };
 		E5495BBF2A5EE4CA000CED59 /* template.stencil in Resources */ = {isa = PBXBuildFile; fileRef = E5495BBC2A5EE4CA000CED59 /* template.stencil */; };
@@ -55,7 +56,6 @@
 		E5C9DB392A691F3B0097FE0B /* VideoGameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */; };
 		E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */; };
 		E5C9DB3E2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */; };
-		E5C9DB402A69507F0097FE0B /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E5C9DB3F2A69507F0097FE0B /* MyCoreData */; };
 		E5C9DB422A6952350097FE0B /* MyCoreDataService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
 		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
@@ -96,6 +96,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E53EE7932A77CB18008FF5A6 /* CoreDataSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoreDataSPM; path = ../CoreDataSPM; sourceTree = "<group>"; };
 		E5495BBA2A5EE4CA000CED59 /* Assets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.generated.swift; sourceTree = "<group>"; };
 		E5495BBB2A5EE4CA000CED59 /* swiftgen.config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.config.yml; sourceTree = "<group>"; };
 		E5495BBC2A5EE4CA000CED59 /* template.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = template.stencil; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameTabBarController.swift; sourceTree = "<group>"; };
 		E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
-		E5C9DB3C2A6941EE0097FE0B /* MyCoreData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoreData; path = ../MyCoreData; sourceTree = "<group>"; };
 		E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
 		E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCoreDataService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */,
-				E5C9DB402A69507F0097FE0B /* MyCoreData in Frameworks */,
+				E53EE7952A77CBC1008FF5A6 /* MyCoreData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +387,7 @@
 		E5D3D2B02A5E983A00B98AD1 = {
 			isa = PBXGroup;
 			children = (
-				E5C9DB3C2A6941EE0097FE0B /* MyCoreData */,
+				E53EE7932A77CB18008FF5A6 /* CoreDataSPM */,
 				E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */,
 				E5D3D2BB2A5E983A00B98AD1 /* VideoGameApp */,
 				E5D3D2D52A5E983C00B98AD1 /* VideoGameAppTests */,
@@ -473,7 +473,7 @@
 			name = VideoGameApp;
 			packageProductDependencies = (
 				E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */,
-				E5C9DB3F2A69507F0097FE0B /* MyCoreData */,
+				E53EE7942A77CBC1008FF5A6 /* MyCoreData */,
 			);
 			productName = VideoGameApp;
 			productReference = E5D3D2B92A5E983A00B98AD1 /* Video Games.app */;
@@ -1052,7 +1052,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E5C9DB3F2A69507F0097FE0B /* MyCoreData */ = {
+		E53EE7942A77CBC1008FF5A6 /* MyCoreData */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MyCoreData;
 		};
