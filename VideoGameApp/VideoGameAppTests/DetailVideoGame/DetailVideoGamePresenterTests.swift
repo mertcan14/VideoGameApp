@@ -34,6 +34,8 @@ final class DetailVideoGamePresenterTests: XCTestCase {
         XCTAssertEqual(view.invokedConfigBackButtonCount, 0)
         XCTAssertFalse(view.isInvokedConfigLikeButton)
         XCTAssertEqual(view.invokedConfigLikeButtonCount, 0)
+        XCTAssertFalse(view.isInvokedConfigureWebOfGameImageView)
+        XCTAssertEqual(view.invokedConfigureWebOfGameImageViewCount, 0)
         
         presenter.viewDidLoad()
         
@@ -41,6 +43,8 @@ final class DetailVideoGamePresenterTests: XCTestCase {
         XCTAssertEqual(view.invokedConfigBackButtonCount, 1)
         XCTAssertTrue(view.isInvokedConfigLikeButton)
         XCTAssertEqual(view.invokedConfigLikeButtonCount, 1)
+        XCTAssertTrue(view.isInvokedConfigureWebOfGameImageView)
+        XCTAssertEqual(view.invokedConfigureWebOfGameImageViewCount, 1)
     }
     
     func test_getDetailVideoGame() {
@@ -66,7 +70,7 @@ final class DetailVideoGamePresenterTests: XCTestCase {
         XCTAssertNotNil(view.invokedSetDescriptionParameters)
         XCTAssertTrue(view.isInvokedSetMetacriticRate)
         XCTAssertEqual(view.invokedSetMetacriticRateCount, 1)
-        XCTAssertNotNil(view.invokedSetMetaCriticRateParameters?.metaCriticRate, "92")
+        XCTAssertEqual(view.invokedSetMetaCriticRateParameters?.metaCriticRate, 92)
         XCTAssertTrue(view.isInvokedSetGameName)
         XCTAssertEqual(view.invokedSetGameNameCount, 1)
         XCTAssertEqual(view.invokedSetNameParameters?.name, "The Witcher 3: Wild Hunt")

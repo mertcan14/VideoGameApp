@@ -9,12 +9,36 @@ import Foundation
 @testable import Video_Games
 
 final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
-    func configureWebOfGameImageView() {
-        
+    var isInvokedSetMetacriticRate = false
+    var invokedSetMetacriticRateCount = 0
+    var invokedSetMetaCriticRateParameters: (metaCriticRate: Int?, Void)?
+    func setMetacriticRate(_ metaCriticRate: Int?) {
+        isInvokedSetMetacriticRate = true
+        invokedSetMetacriticRateCount += 1
+        invokedSetMetaCriticRateParameters = (metaCriticRate, ())
     }
     
+    var isInvokedShowPopUp = false
+    var invokedShowPopUpCount = 0
+    func showPopUp(_ title: String, _ message: String, buttonTitle: String?, buttonAction: (() -> Void)?, cancelAction: (() -> Void)?) {
+        isInvokedShowPopUp = true
+        invokedShowPopUpCount += 1
+    }
+    
+    var isInvokedConfigureWebOfGameImageView = false
+    var invokedConfigureWebOfGameImageViewCount = 0
+    func configureWebOfGameImageView() {
+        isInvokedConfigureWebOfGameImageView = true
+        invokedConfigureWebOfGameImageViewCount += 1
+    }
+    
+    var isInvokedHideWebOfGameImageView = false
+    var invokedHideWebOfGameImageViewCount = 0
+    var invokedSetisHideParameters: (isHide: Bool?, Void)?
     func hideWebOfGameImageView(_ isHide: Bool) {
-        
+        isInvokedHideWebOfGameImageView = true
+        invokedHideWebOfGameImageViewCount += 1
+        invokedSetisHideParameters = (isHide, ())
     }
     
     var isInvokedSetImageView = false
@@ -42,15 +66,6 @@ final class MockDetailVideoGameViewController: DetailVideoGameViewControllerProt
         isInvokedSetReleasedDate = true
         invokedSetReleasedDateCount += 1
         invokedSetDateParameters = (date, ())
-    }
-    
-    var isInvokedSetMetacriticRate = false
-    var invokedSetMetacriticRateCount = 0
-    var invokedSetMetaCriticRateParameters: (metaCriticRate: String?, Void)?
-    func setMetacriticRate(_ metaCriticRate: String?) {
-        isInvokedSetMetacriticRate = true
-        invokedSetMetacriticRateCount += 1
-        invokedSetMetaCriticRateParameters = (metaCriticRate, ())
     }
     
     var isInvokedSetDescription = false
