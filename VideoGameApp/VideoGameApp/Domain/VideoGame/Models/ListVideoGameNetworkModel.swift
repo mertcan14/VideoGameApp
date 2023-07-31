@@ -1,18 +1,18 @@
 //
-//  VideoGameModel.swift
+//  ListVideoGameNetworkModel.swift
 //  VideoGameApp
 //
-//  Created by mertcan YAMAN on 13.07.2023.
+//  Created by mertcan YAMAN on 31.07.2023.
 //
 
 import Foundation
 
 // MARK: - VideoGameResult
-struct VideoGameResult: Decodable {
+struct ListVideoGameNetworkModel: Decodable {
     let count: Int?
     let next: String?
     let previous: String?
-    let results: [VideoGame]?
+    let results: [VideoGameNetworkModel]?
 
     enum CodingKeys: String, CodingKey {
         case count, next, previous, results
@@ -20,13 +20,13 @@ struct VideoGameResult: Decodable {
 }
 
 // MARK: - VideoGame
-struct VideoGame: Decodable {
+struct VideoGameNetworkModel: Decodable {
     let id: Int?
     let name, released: String?
     let backgroundImage: String?
     let rating: Double?
     let metacritic: Int?
-    let parentPlatforms: [ParentPlatform]?
+    let parentPlatforms: [ParentPlatformNetworkModel]?
 
     enum CodingKeys: String, CodingKey {
         case id, name, released
@@ -38,12 +38,12 @@ struct VideoGame: Decodable {
 }
 
 // MARK: - Platform
-struct Platform: Decodable {
+struct PlatformNetworkModel: Decodable {
     let id: Int?
     let name, slug: String?
 }
 
 // MARK: - ParentPlatform
-struct ParentPlatform: Decodable {
-    let platform: Platform?
+struct ParentPlatformNetworkModel: Decodable {
+    let platform: PlatformNetworkModel?
 }
