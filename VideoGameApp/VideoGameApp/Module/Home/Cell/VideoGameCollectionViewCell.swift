@@ -60,7 +60,7 @@ extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
             return
         }
         DispatchQueue.main.async { [weak self] in
-            self?.imageOfGameView.downloaded(from: url)
+            self?.imageOfGameView.downloaded(from: image, contentMode: .scaleAspectFit)
             self?.imageOfGameView.contentMode = .scaleAspectFill
         }
     }

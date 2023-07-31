@@ -141,6 +141,7 @@ extension HomePresenter: HomePresenterProtocol {
 extension HomePresenter: HomeInteractorOutputProtocol {
     func refreshGames(_ games: VideoGameResult) {
         guard let results = games.results else { return }
+        ImageProvider.shared.refreshCache()
         self.videoGames = results
         self.nextPage = games.next
     }
