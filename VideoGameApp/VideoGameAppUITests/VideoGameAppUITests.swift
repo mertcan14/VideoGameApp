@@ -58,6 +58,7 @@ final class VideoGameAppUITests: XCTestCase {
         XCUIDevice.shared.orientation = .portrait
         let favoritesTabItem = app.tabBars["Tab Bar"].buttons["Favorites"]
         let collectionView = app.collectionViews.children(matching: .cell).element(boundBy: 2)
+        
         favoritesTabItem.tap()
         if collectionView.exists {
             XCUIDevice.shared.orientation = .landscapeLeft
@@ -83,7 +84,6 @@ final class VideoGameAppUITests: XCTestCase {
         
         XCUIDevice.shared.orientation = .portrait
         slider.tap()
-        
         element.swipeUp()
         element.swipeUp()
         element.swipeDown()
