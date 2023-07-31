@@ -55,6 +55,7 @@
 		E5AE20982A6679F40022B4A9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */; };
 		E5C015592A7156CC00F1F73F /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C015582A7156CC00F1F73F /* FiltersPresenter.swift */; };
 		E5C0155B2A71623D00F1F73F /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */; };
+		E5C0A6422A77974B00E99346 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */; };
 		E5C18DEE2A64349500856941 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C18DED2A64349500856941 /* HomeViewController.storyboard */; };
 		E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DEF2A64387300856941 /* HomePageViewController.swift */; };
 		E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */; };
@@ -159,6 +160,7 @@
 		E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		E5C015582A7156CC00F1F73F /* FiltersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
 		E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
+		E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		E5C18DED2A64349500856941 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		E5C18DEF2A64387300856941 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 			children = (
 				E5D3D2E02A5E983C00B98AD1 /* VideoGameAppUITests.swift */,
 				E5D3D2E22A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift */,
+				E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */,
 			);
 			path = VideoGameAppUITests;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C0A6422A77974B00E99346 /* XCUIElement+Extension.swift in Sources */,
 				E5D3D2E32A5E983C00B98AD1 /* VideoGameAppUITestsLaunchTests.swift in Sources */,
 				E5D3D2E12A5E983C00B98AD1 /* VideoGameAppUITests.swift in Sources */,
 			);

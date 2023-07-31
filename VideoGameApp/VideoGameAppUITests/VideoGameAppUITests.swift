@@ -75,7 +75,6 @@ final class VideoGameAppUITests: XCTestCase {
         app.launch()
         let scrollViewsQuery = app.scrollViews
         let alert = app.alerts["Are you sure?"]
-        let scrollViewsQueryDetail = XCUIApplication().scrollViews
         let element = scrollViewsQuery.children(matching: .other)
             .element.children(matching: .other).element(boundBy: 1).children(matching: .other).element
         let image = scrollViewsQuery.children(matching: .other).element.children(matching: .other)
