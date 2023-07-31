@@ -18,7 +18,6 @@
 		E53EE7B22A77E1D5008FF5A6 /* MockDetailVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EE7A32A77E1D5008FF5A6 /* MockDetailVideoGameViewController.swift */; };
 		E53EE7B32A77E1D5008FF5A6 /* MockDetailVideoGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EE7A42A77E1D5008FF5A6 /* MockDetailVideoGameRouter.swift */; };
 		E53EE7B42A77E1D5008FF5A6 /* MockDetailVideoGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EE7A52A77E1D5008FF5A6 /* MockDetailVideoGameInteractor.swift */; };
-		E53EE7B52A77E1D5008FF5A6 /* DetailVideoGame.json in Resources */ = {isa = PBXBuildFile; fileRef = E53EE7A62A77E1D5008FF5A6 /* DetailVideoGame.json */; };
 		E53EE7B62A77E1D5008FF5A6 /* ListVideoGame.json in Resources */ = {isa = PBXBuildFile; fileRef = E53EE7A92A77E1D5008FF5A6 /* ListVideoGame.json */; };
 		E53EE7B72A77E1D5008FF5A6 /* HomePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EE7AA2A77E1D5008FF5A6 /* HomePresenterTest.swift */; };
 		E53EE7B92A77E32F008FF5A6 /* MockHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EE7B82A77E32F008FF5A6 /* MockHomeViewController.swift */; };
@@ -124,7 +123,6 @@
 		E53EE7A32A77E1D5008FF5A6 /* MockDetailVideoGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDetailVideoGameViewController.swift; sourceTree = "<group>"; };
 		E53EE7A42A77E1D5008FF5A6 /* MockDetailVideoGameRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDetailVideoGameRouter.swift; sourceTree = "<group>"; };
 		E53EE7A52A77E1D5008FF5A6 /* MockDetailVideoGameInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDetailVideoGameInteractor.swift; sourceTree = "<group>"; };
-		E53EE7A62A77E1D5008FF5A6 /* DetailVideoGame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DetailVideoGame.json; sourceTree = "<group>"; };
 		E53EE7A92A77E1D5008FF5A6 /* ListVideoGame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ListVideoGame.json; sourceTree = "<group>"; };
 		E53EE7AA2A77E1D5008FF5A6 /* HomePresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenterTest.swift; sourceTree = "<group>"; };
 		E53EE7B82A77E32F008FF5A6 /* MockHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewController.swift; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 				E53EE7A32A77E1D5008FF5A6 /* MockDetailVideoGameViewController.swift */,
 				E53EE7A42A77E1D5008FF5A6 /* MockDetailVideoGameRouter.swift */,
 				E53EE7A52A77E1D5008FF5A6 /* MockDetailVideoGameInteractor.swift */,
-				E53EE7A62A77E1D5008FF5A6 /* DetailVideoGame.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -699,7 +696,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E53EE7B52A77E1D5008FF5A6 /* DetailVideoGame.json in Resources */,
 				E53EE7B62A77E1D5008FF5A6 /* ListVideoGame.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
