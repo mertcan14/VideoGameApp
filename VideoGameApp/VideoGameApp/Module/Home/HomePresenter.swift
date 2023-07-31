@@ -8,6 +8,7 @@
 import Foundation
 
 private let slideCount: Int = 3
+private let limitNextPage: Int = 5
 // MARK: Protocol HomePresenterProtocol
 protocol HomePresenterProtocol: AnyObject {
     var numberOfVideoGames: Int { get }
@@ -30,6 +31,7 @@ final class HomePresenter {
     let interactor: HomeInteractorProtocol
     var nextPage: String?
     var searchedVideoGame: [VideoGame] = []
+    var totalNextPage: Int = 0
     var videoGames: [VideoGame] = [] {
         didSet {
             setImagesForSlider()
@@ -65,7 +67,12 @@ extension HomePresenter: HomePresenterProtocol {
     
     func fetchNextPage() {
         self.view.showLoading()
-        self.interactor.fetchGames(nextPage)
+        if self.totalNextPage < limitNextPage && nextPage != nil {
+            self.totalNextPage += 1
+            self.interactor.fetchGames(nextPage)
+        } else {
+            self.view.hideLoading()
+        }
     }
     
     func goDetailScreen(_ index: Int, _ isSearching: Bool) {
@@ -111,7 +118,12 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func setImagesForSlider() {
-        self.view.setSliderImages(Array(self.videoGames.prefix(upTo: slideCount)))
+        if videoGames.count > slideCount {
+            self.view.showPageView()
+            self.view.setSliderImages(Array(self.videoGames.prefix(upTo: slideCount)))
+        } else {
+            self.view.hidePageView()
+        }
     }
     
     var numberOfVideoGames: Int {

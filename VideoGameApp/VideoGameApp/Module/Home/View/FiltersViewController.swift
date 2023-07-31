@@ -7,6 +7,8 @@
 
 import UIKit
 
+private let alertTitle: String = "Error"
+private let alertContentForMinMax: String = "The minimum value cannot be greater than the maximum."
 private let selectedOrderImage: UIImage? = UIImage(systemName: "checkmark.circle.fill")
 private let unselectedOrderImage: UIImage? = UIImage(systemName: "circle.fill")
 // MARK: - Enum OrderEnum
@@ -85,6 +87,21 @@ final class FiltersViewController: BaseViewController {
         metacriticMinTextField.layer.borderWidth = 0.7
         metacriticMaxTextField.layer.borderWidth = 0.7
     }
+    
+    private func checkTextFields() -> Bool {
+        if metacriticMinTextField.text != "" && metacriticMaxTextField.text != "" {
+            let max = Int(metacriticMaxTextField.text ?? "100") ?? 100
+            let min = Int(metacriticMinTextField.text ?? "0") ?? 0
+            if min > max {
+                self.showAlert(alertTitle, alertContentForMinMax, nil)
+                return false
+            }
+            return true
+        } else if metacriticMinTextField.text != "" || metacriticMaxTextField.text != "" {
+            return true
+        }
+        return false
+    }
 }
 // MARK: - Extension FiltersViewControllerProtocol
 extension FiltersViewController: FiltersViewControllerProtocol {
@@ -93,7 +110,7 @@ extension FiltersViewController: FiltersViewControllerProtocol {
     }
     
     func checkTextFieldsForMetacritic() -> String? {
-        if metacriticMinTextField.text != "" || metacriticMaxTextField.text != "" {
+        if checkTextFields() {
             let minPoint = metacriticMinTextField.text == "" ? "1" : metacriticMinTextField.text
             let maxPoint = metacriticMaxTextField.text == "" ? "100" : metacriticMaxTextField.text
             let value = "\(minPoint!),\(maxPoint!)"
