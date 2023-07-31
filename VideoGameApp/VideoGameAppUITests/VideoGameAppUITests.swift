@@ -8,7 +8,6 @@
 import XCTest
 
 final class VideoGameAppUITests: XCTestCase {
-    
     private var app: XCUIApplication!
     
     override func setUp() {
