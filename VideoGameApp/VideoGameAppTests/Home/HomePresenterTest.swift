@@ -53,15 +53,15 @@ final class HomePresenterTest: XCTestCase {
     }
     
     func test_viewDidLoad_InvokesRequiredInteractorMethods() {
-        XCTAssertFalse(interactor.isInvokedFetchGames)
-        XCTAssertEqual(interactor.invokedFetchGamesCount, 0)
-        XCTAssertNil(interactor.invokedSetUrlParameters)
+        XCTAssertFalse(interactor.isInvokedfetchGames)
+        XCTAssertEqual(interactor.invokedfetchGamesCount, 0)
+        XCTAssertNil(interactor.invokedSetURLParameter)
         
         presenter.viewDidLoad()
         
-        XCTAssertTrue(interactor.isInvokedFetchGames)
-        XCTAssertEqual(interactor.invokedFetchGamesCount, 1)
-        XCTAssertNil(interactor.invokedSetUrlParameters?.url)
+        XCTAssertTrue(interactor.isInvokedfetchGames)
+        XCTAssertEqual(interactor.invokedfetchGamesCount, 1)
+        XCTAssertNil(interactor.invokedSetURLParameter?.url)
     }
     
     func test_searchVideoGame_InvokesRequiredViewMethods() {
@@ -83,7 +83,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertNil(presenter.getVideoGameByIndex(0))
         XCTAssertNil(presenter.nextPage)
         XCTAssertFalse(view.isInvokedSetSliderImages)
-        XCTAssertEqual(view.invokedSetSliderCount, 0)
+        XCTAssertEqual(view.invokedSetSliderImagesCount, 0)
         XCTAssertFalse(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 0)
         XCTAssertNil(presenter.getVideoGameByIndex(0))
@@ -94,7 +94,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(presenter.numberOfVideoGames, 20)
         XCTAssertNotNil(presenter.getVideoGameByIndex(0))
         XCTAssertTrue(view.isInvokedSetSliderImages)
-        XCTAssertEqual(view.invokedSetSliderCount, 1)
+        XCTAssertEqual(view.invokedSetSliderImagesCount, 1)
         XCTAssertTrue(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 1)
         XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
@@ -104,7 +104,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(presenter.numberOfVideoGames, 40)
         XCTAssertNotNil(presenter.getVideoGameByIndex(0))
         XCTAssertTrue(view.isInvokedSetSliderImages)
-        XCTAssertEqual(view.invokedSetSliderCount, 2)
+        XCTAssertEqual(view.invokedSetSliderImagesCount, 2)
         XCTAssertTrue(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 2)
         XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
@@ -115,7 +115,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertNil(presenter.getVideoGameByIndex(0))
         XCTAssertNil(presenter.nextPage)
         XCTAssertFalse(view.isInvokedSetSliderImages)
-        XCTAssertEqual(view.invokedSetSliderCount, 0)
+        XCTAssertEqual(view.invokedSetSliderImagesCount, 0)
         XCTAssertFalse(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 0)
         XCTAssertNil(presenter.getVideoGameByIndex(0))
@@ -126,7 +126,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(presenter.numberOfVideoGames, 20)
         XCTAssertNotNil(presenter.getVideoGameByIndex(0))
         XCTAssertTrue(view.isInvokedSetSliderImages)
-        XCTAssertEqual(view.invokedSetSliderCount, 1)
+        XCTAssertEqual(view.invokedSetSliderImagesCount, 1)
         XCTAssertTrue(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 1)
         XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
@@ -136,7 +136,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(presenter.numberOfVideoGames, 20)
         XCTAssertNotNil(presenter.getVideoGameByIndex(0))
         XCTAssertTrue(view.isInvokedSetSliderImages)
-        XCTAssertEqual(view.invokedSetSliderCount, 2)
+        XCTAssertEqual(view.invokedSetSliderImagesCount, 2)
         XCTAssertTrue(view.isInvokedReloadData)
         XCTAssertEqual(view.invokedReloadDataCount, 2)
         XCTAssertEqual(presenter.getVideoGameByIndex(0)?.imageURL, videoGameCell.imageURL)
