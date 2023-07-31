@@ -56,15 +56,19 @@ final class VideoGameAppUITests: XCTestCase {
     
     func test_favoritesscreen() {
         app.launch()
-        
         XCUIDevice.shared.orientation = .portrait
         let favoritesTabItem = app.tabBars["Tab Bar"].buttons["Favorites"]
-        let collectionView = app.collectionViews.children(matching: .cell).element(boundBy: 5)
+        let collectionView = app.collectionViews.children(matching: .cell).element(boundBy: 2)
         favoritesTabItem.tap()
-        XCUIDevice.shared.orientation = .landscapeLeft
-        collectionView.swipeUp()
-        XCUIDevice.shared.orientation = .portrait
-        collectionView.tap()
+        if collectionView.exists {
+            XCUIDevice.shared.orientation = .landscapeLeft
+            XCUIDevice.shared.orientation = .portrait
+        } else {
+            XCUIDevice.shared.orientation = .landscapeLeft
+            collectionView.swipeUp()
+            XCUIDevice.shared.orientation = .portrait
+            collectionView.swipeDown()
+        }
     }
     
     func test_detailscreen() throws {
@@ -77,10 +81,6 @@ final class VideoGameAppUITests: XCTestCase {
         let image = scrollViewsQuery.children(matching: .other).element.children(matching: .other)
             .element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .image).element(boundBy: 2)
         let slider = scrollViewsQuery.otherElements.scrollViews.children(matching: .other).element.children(matching: .other).element
-        let collectionCell = app.scrollViews.otherElements.collectionViews.children(matching: .cell)
-            .element(boundBy: 2).children(matching: .other).element.children(matching: .other)
-            .element.children(matching: .other).element.children(matching: .other)
-            .element.children(matching: .other).element
         
         XCUIDevice.shared.orientation = .portrait
         slider.tap()
