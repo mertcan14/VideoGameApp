@@ -25,13 +25,13 @@ final class FavoritesViewController: BaseViewController {
     // MARK: - IBOutlet Definitions
     @IBOutlet weak var videoGamesCollectionView: UICollectionView!
     // MARK: - Variable Definitions
-    public var presenter: FavoritesPresenterProtocol!
+    //public var presenter: FavoritesPresenterProtocol!
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
     private var numberOfItemPerRow: CGFloat = numberItemPerRowPortrait
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        //presenter.viewDidLoad()
         
         videoGamesCollectionView.dataSource = self
         videoGamesCollectionView.delegate = self
@@ -39,7 +39,7 @@ final class FavoritesViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         checkDeviceOrientation()
-        presenter.viewWillAppear()
+        //presenter.viewWillAppear()
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,25 +91,25 @@ extension FavoritesViewController: FavoritesViewControllerProtocol {
 // MARK: - Extension UICollectionViewDelegate
 extension FavoritesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presenter.goDetailScreen(indexPath.row)
+        //self.presenter.goDetailScreen(indexPath.row)
     }
 }
 // MARK: - Extension UICollectionViewDataSource
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItem = presenter.numberOfVideoGame
-        if numberOfItem == 0 {
+        //let numberOfItem = presenter.numberOfVideoGame
+        if true {
             collectionView.setEmptyView(title: titleOfEmptyView, message: messageOfEmptyView)
         } else {
             collectionView.restore()
         }
-        return numberOfItem
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(indexPath: indexPath as NSIndexPath, cellType: VideoGameCollectionViewCell.self)
-        guard let videoGameCell = presenter.getVideoGameByIndex(indexPath.row) else { return cell}
-        cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)
+        //guard let videoGameCell = presenter.getVideoGameByIndex(indexPath.row) else { return cell}
+        //cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)
         return cell
     }
 }

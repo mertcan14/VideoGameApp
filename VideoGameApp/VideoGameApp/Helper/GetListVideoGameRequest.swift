@@ -9,7 +9,7 @@ import Foundation
 import VideoGameAPI
 
 struct GetListVideoGameRequest: BaseRequestProtocol {
-    typealias Response = VideoGameResult
+    typealias Response = ListVideoGameNetworkModel
     var headers: [String: String] = [:]
     var urlConst: String?
     var params: [String: String]?
@@ -37,9 +37,9 @@ struct GetListVideoGameRequest: BaseRequestProtocol {
         .get
     }
     
-    func decode(_ data: Data) throws -> VideoGameResult {
+    func decode(_ data: Data) throws -> ListVideoGameNetworkModel {
         let decoder = JSONDecoder()        
-        let response = try decoder.decode(VideoGameResult.self, from: data)
+        let response = try decoder.decode(ListVideoGameNetworkModel.self, from: data)
         return response
     }
 }

@@ -37,7 +37,7 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.imageOfGameView.image = loadingImage
+        self.imageOfGameView.image = nil
         self.relesedOfGameLabel.text = nil
         self.ratingOfGameLabel.text = nil
     }

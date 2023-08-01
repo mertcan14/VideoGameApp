@@ -192,7 +192,7 @@ extension HomeViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(indexPath: indexPath as NSIndexPath, cellType: VideoGameCollectionViewCell.self)
         guard let videoGameCell = isSearching ? presenter.getSearchedVideoGameByIndex(indexPath.row)
                 : presenter.getVideoGameByIndex(indexPath.row + presenter.numberOfSlide) else { return cell }
-        cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)
+        //cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)
         return cell
     }
 }

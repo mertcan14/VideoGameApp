@@ -13,9 +13,9 @@ protocol VideoGameCellPresenterProtocol {
 // MARK: class VideoGameCellPresenter
 final class VideoGameCellPresenter {
     weak var view: VideoGameCollectionViewCellProtocol?
-    private let videoGame: VideoGameCellModel
+    private let videoGame: VideoGameNetworkModel
     
-    init(view: VideoGameCollectionViewCellProtocol?, videoGame: VideoGameCellModel) {
+    init(view: VideoGameCollectionViewCellProtocol?, videoGame: VideoGameNetworkModel) {
         self.view = view
         self.videoGame = videoGame
     }
@@ -23,9 +23,9 @@ final class VideoGameCellPresenter {
 // MARK: Extension VideoGameCellPresenterProtocol
 extension VideoGameCellPresenter: VideoGameCellPresenterProtocol {
     func load() {
-        self.view?.setImage(self.videoGame.imageURL)
-        self.view?.setNameOfGame(self.videoGame.nameOfGame)
-        self.view?.setRatingOfGame(self.videoGame.ratingOfGame)
-        self.view?.setReleasedOfGame(self.videoGame.releasedOfGame)
+        self.view?.setImage(self.videoGame.backgroundImage)
+        self.view?.setNameOfGame(self.videoGame.name)
+        self.view?.setRatingOfGame(self.videoGame.rating)
+        self.view?.setReleasedOfGame(self.videoGame.released)
     }
 }

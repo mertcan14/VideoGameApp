@@ -23,7 +23,7 @@ final class FavoritesRouter {
         let interactor = FavoritesInteractor()
         let router = FavoritesRouter()
         let presenter = FavoritesPresenter(view, router, interactor)
-        view.presenter = presenter
+        //view.presenter = presenter
         interactor.output = presenter
         router.viewController = view
         return view

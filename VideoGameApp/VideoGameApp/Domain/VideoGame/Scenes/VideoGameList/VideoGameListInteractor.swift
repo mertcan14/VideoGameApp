@@ -5,4 +5,34 @@
 //  Created by mertcan YAMAN on 31.07.2023.
 //
 
-import Foundation
+import UIKit
+import VideoGameAPI
+
+protocol VideoGameListBusinessLogic {
+    func fetchVideoGameList()
+}
+
+protocol VideoGameListDataStore {
+
+}
+
+final class VideoGameListInteractor: VideoGameListDataStore {
+    var presenter: VideoGameListPresentationLogic?
+    var videoGames: VideoGameResult?
+    lazy var request = GetListVideoGameRequest(urlConst: nil)
+}
+
+extension VideoGameListInteractor: VideoGameListBusinessLogic {
+    func fetchVideoGameList() {
+        NetworkService.shared.fetchFromAPI(request) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let games):
+                let response = VideoGameList.FetchVideoGameList.Response(videoGameResult: games)
+                self.presenter?.presentVideoGameList(response: response)
+            case .failure(let error):
+                print(error ?? "Error")
+            }
+        }
+    }
+}

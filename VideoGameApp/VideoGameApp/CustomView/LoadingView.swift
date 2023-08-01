@@ -24,7 +24,7 @@ final class LoadingView {
     
     func startLoading() {
         setFrame()
-        UIApplication.shared.currentUIWindow()?.addSubview(blurView)
+        UIApplication.shared.windows.first?.addSubview(blurView)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
     }
@@ -37,7 +37,7 @@ final class LoadingView {
     }
     
     private func setFrame() {
-        guard let currentWindow = UIApplication.shared.currentUIWindow() else { return }
+        guard let currentWindow = UIApplication.shared.windows.first else { return }
         blurView.frame = currentWindow.frame
         activityIndicator.center = blurView.center
     }

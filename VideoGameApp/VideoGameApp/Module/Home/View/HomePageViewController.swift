@@ -10,7 +10,7 @@ import UIKit
 final class HomePageViewController: UIPageViewController {
     // MARK: - Variable Definitions
     private var individualPageViewControllerList = [UIViewController]()
-    private var videoGames: [VideoGame] = [] {
+    private var videoGames: [VideoGameNetworkModel] = [] {
         didSet {
             configureViewControllers()
         }
@@ -59,7 +59,7 @@ final class HomePageViewController: UIPageViewController {
     
     @objc func getvideoGames(notification: Notification) {
         guard let imagesAny = notification.userInfo?["videoGame"],
-              let videoGames = imagesAny as? [VideoGame] else { return }
+              let videoGames = imagesAny as? [VideoGameNetworkModel] else { return }
         self.videoGames = videoGames
     }
 }

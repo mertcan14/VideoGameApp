@@ -9,21 +9,21 @@ import Foundation
 import VideoGameAPI
 
 extension NetworkService {
-    func getListVideoGame(
-        params: [String: String]? = nil,
-        url: String? = nil,
-        completion: @escaping ((Result<GetListVideoGameRequest.Response, NetworkError>) -> Void)
-    ) {
-        if ReachabilityService.isConnectedToNetwork() {
-            var request = GetListVideoGameRequest(urlConst: url)
-            if let params {
-                request.params = params
-            }
-            self.fetchFromAPI(request, completion: completion)
-        } else {
-            completion(.failure(.connectionError))
-        }
-    }
+//    func getListVideoGame(
+//        params: [String: String]? = nil,
+//        url: String? = nil,
+//        completion: @escaping ((Result<VideoGameResult, NetworkError>) -> Void)
+//    ) {
+//        if ReachabilityService.isConnectedToNetwork() {
+//            var request = GetListVideoGameRequest(urlConst: url)
+//            if let params {
+//                request.params = params
+//            }
+//            self.fetchFromAPI(request, completion: completion)
+//        } else {
+//            completion(.failure(.connectionError))
+//        }
+//    }
     
     func getDetailVideoGame(
         idOfGame: String,

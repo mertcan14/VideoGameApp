@@ -12,7 +12,7 @@ struct ListVideoGameNetworkModel: Decodable {
     let count: Int?
     let next: String?
     let previous: String?
-    let results: [VideoGameNetworkModel]?
+    var results: [VideoGameNetworkModel]?
 
     enum CodingKeys: String, CodingKey {
         case count, next, previous, results
@@ -23,7 +23,7 @@ struct ListVideoGameNetworkModel: Decodable {
 struct VideoGameNetworkModel: Decodable {
     let id: Int?
     let name, released: String?
-    let backgroundImage: String?
+    var backgroundImage: String?
     let rating: Double?
     let metacritic: Int?
     let parentPlatforms: [ParentPlatformNetworkModel]?

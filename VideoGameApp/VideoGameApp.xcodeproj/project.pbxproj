@@ -83,7 +83,6 @@
 		E5FE74752A78401D002D355F /* VideoGameListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE74742A78401D002D355F /* VideoGameListPresenter.swift */; };
 		E5FE74772A784032002D355F /* VideoGameListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE74762A784032002D355F /* VideoGameListModels.swift */; };
 		E5FE74792A784056002D355F /* VideoGameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE74782A784056002D355F /* VideoGameListRouter.swift */; };
-		E5FE747B2A78406A002D355F /* VideoGameListNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE747A2A78406A002D355F /* VideoGameListNetworkWorker.swift */; };
 		E5FE747D2A784094002D355F /* VideoGameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE747C2A784094002D355F /* VideoGameListViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -185,7 +184,6 @@
 		E5FE74742A78401D002D355F /* VideoGameListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameListPresenter.swift; sourceTree = "<group>"; };
 		E5FE74762A784032002D355F /* VideoGameListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameListModels.swift; sourceTree = "<group>"; };
 		E5FE74782A784056002D355F /* VideoGameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameListRouter.swift; sourceTree = "<group>"; };
-		E5FE747A2A78406A002D355F /* VideoGameListNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameListNetworkWorker.swift; sourceTree = "<group>"; };
 		E5FE747C2A784094002D355F /* VideoGameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -514,7 +512,6 @@
 				E5FE74742A78401D002D355F /* VideoGameListPresenter.swift */,
 				E5FE74762A784032002D355F /* VideoGameListModels.swift */,
 				E5FE74782A784056002D355F /* VideoGameListRouter.swift */,
-				E5FE747A2A78406A002D355F /* VideoGameListNetworkWorker.swift */,
 				E5FE747C2A784094002D355F /* VideoGameListViewController.swift */,
 			);
 			path = VideoGameList;
@@ -744,7 +741,6 @@
 				E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */,
 				E59AFE5A2A6522FB0060CA62 /* Collection+Extension.swift in Sources */,
 				E5D3482F2A6186D500322844 /* HomeInteractor.swift in Sources */,
-				E5FE747B2A78406A002D355F /* VideoGameListNetworkWorker.swift in Sources */,
 				E5C015592A7156CC00F1F73F /* FiltersPresenter.swift in Sources */,
 				E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */,
 				E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */,
@@ -973,6 +969,7 @@
 				INFOPLIST_FILE = VideoGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = VideoGame;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -999,6 +996,7 @@
 				INFOPLIST_FILE = VideoGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = VideoGame;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

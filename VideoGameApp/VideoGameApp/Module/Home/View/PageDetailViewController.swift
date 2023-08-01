@@ -69,7 +69,7 @@ final class PageDetailViewController: BaseViewController {
     @IBOutlet weak var platformSWWidth: NSLayoutConstraint!
     
     // MARK: - Variable Definitions
-    private var videoGame: VideoGame?
+    private var videoGame: VideoGameNetworkModel?
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -135,8 +135,8 @@ final class PageDetailViewController: BaseViewController {
         sendVC.presenter.setIdOfVideoGame(String(idOfVideoGame))
     }
     // MARK: - Funcs For Instance
-    static func getInstance(videoGame: VideoGame?) -> PageDetailViewController {
-        let storyboard = UIStoryboard(name: "HomeViewController", bundle: nil)
+    static func getInstance(videoGame: VideoGameNetworkModel?) -> PageDetailViewController {
+        let storyboard = UIStoryboard(name: "VideoGame", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "PageDetailViewController")
                 as? PageDetailViewController else { return PageDetailViewController() }
         vc.videoGame = videoGame

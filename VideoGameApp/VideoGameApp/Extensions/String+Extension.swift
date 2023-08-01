@@ -42,3 +42,12 @@ extension String {
         return false
     }
 }
+
+extension String {
+    func setParseImageURL() -> String? {
+        var parsePath = self.split(separator: "/")
+        parsePath.insert("crop/600/400", at: 3)
+        parsePath[0] = "https:/"
+        return parsePath.joined(separator: "/")
+    }
+}

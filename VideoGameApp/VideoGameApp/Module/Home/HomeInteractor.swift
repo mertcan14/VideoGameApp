@@ -25,26 +25,26 @@ final class HomeInteractor {
 // MARK: - Extension HomeInteractorProtocol
 extension HomeInteractor: HomeInteractorProtocol {
     func fetchGamesWithParams(_ params: [String: String]) {
-        NetworkService.shared.getListVideoGame(params: params) { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let games):
-                self.output?.refreshGames(games)
-            case .failure(let error):
-                self.output?.getError(error.message ?? "Error")
-            }
-        }
+//        NetworkService.shared.getListVideoGame(params: params) { [weak self] result in
+//            guard let self else { return }
+//            switch result {
+//            case .success(let games):
+//                self.output?.refreshGames(games)
+//            case .failure(let error):
+//                self.output?.getError(error.message ?? "Error")
+//            }
+//        }
     }
     
     func fetchGames(_ url: String? = nil) {
-        NetworkService.shared.getListVideoGame(url: url) { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let games):
-                self.output?.getGames(games)
-            case .failure(let error):
-                self.output?.getError(error.message ?? "Error")
-            }
-        }
+//        NetworkService.shared.getListVideoGame(url: url) { [weak self] result in
+//            guard let self else { return }
+//            switch result {
+//            case .success(let games):
+//                self.output?.getGames(games)
+//            case .failure(let error):
+//                self.output?.getError(error.message ?? "Error")
+//            }
+//        }
     }
 }

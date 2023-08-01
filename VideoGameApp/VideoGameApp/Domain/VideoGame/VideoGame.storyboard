@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kcG-WL-RQ8">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="VideoGameListViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -50,11 +50,11 @@
                                     <constraint firstAttribute="bottom" secondItem="5Pv-O3-usT" secondAttribute="bottom" constant="4" id="uoF-Oa-gwO"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="faM-cG-Cg8">
-                                <rect key="frame" x="0.0" y="111" width="393" height="707"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="faM-cG-Cg8">
+                                <rect key="frame" x="0.0" y="111" width="393" height="658"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kZg-H4-fMk">
-                                        <rect key="frame" x="12" y="0.0" width="369" height="682"/>
+                                        <rect key="frame" x="12" y="0.0" width="369" height="660"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4gC-BF-lG6">
                                                 <rect key="frame" x="0.0" y="0.0" width="369" height="220"/>
@@ -66,11 +66,8 @@
                                                 </connections>
                                             </containerView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dh9-Oz-pcb">
-                                                <rect key="frame" x="0.0" y="232" width="369" height="450"/>
+                                                <rect key="frame" x="0.0" y="232" width="369" height="428"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="450" id="Qmk-mL-7hH"/>
-                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HuK-z7-3cQ">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -116,11 +113,14 @@
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="fVm-s5-DeN"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="jhE-yG-Ugf"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="top" secondItem="a1l-kd-T8N" secondAttribute="bottom" constant="8" id="qJS-qh-oX8"/>
-                            <constraint firstItem="kZg-H4-fMk" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.9" id="uDE-K9-4ZT"/>
+                            <constraint firstItem="kZg-H4-fMk" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" constant="-50" id="uDE-K9-4ZT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oO9-ja-hFi" secondAttribute="trailing" constant="12" id="uY9-oE-PMR"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="xyX-OF-daa"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeicon" id="mOy-mE-VBA">
+                        <color key="badgeColor" name="FieldColor"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="filtersButtonImageView" destination="oO9-ja-hFi" id="6Ye-G7-cCV"/>
                         <outlet property="gameCollectionView" destination="Dh9-Oz-pcb" id="mYI-Nk-S7X"/>
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="1063" y="-304"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="Oh5-KV-qmE">
@@ -143,7 +143,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyD-GM-LMA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="5"/>
+            <point key="canvasLocation" x="1859" y="-304"/>
         </scene>
         <!--Page Detail View Controller-->
         <scene sceneID="S2R-Cw-TwN">
@@ -233,13 +233,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlT-wt-Zzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649.6183206106869" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="2573" y="-304"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IRQ-9t-kv0">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kcG-WL-RQ8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9sK-3G-QQ2">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="TabBarColor"/>
+                        <color key="barTintColor" name="TabBarColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="f46-8M-rfY"/>
+                        <segue destination="EcQ-FV-Cf6" kind="relationship" relationship="viewControllers" id="dcP-cc-lFK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ioR-cH-TTo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="kKl-9C-OVV">
+            <objects>
+                <viewController id="EcQ-FV-Cf6" customClass="FavoritesViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="FRl-Wq-ygx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryh-sq-RjB">
+                                <rect key="frame" x="0.0" y="59" width="393" height="698"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Cq-PC-51b">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="698"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tQn-8y-sOe">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1Cq-PC-51b" firstAttribute="top" secondItem="Ryh-sq-RjB" secondAttribute="top" id="2G9-Nq-GNZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Cq-PC-51b" secondAttribute="trailing" id="Wq0-t4-Ouz"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Cq-PC-51b" secondAttribute="bottom" id="rZ7-vq-PFB"/>
+                                    <constraint firstItem="1Cq-PC-51b" firstAttribute="leading" secondItem="Ryh-sq-RjB" secondAttribute="leading" id="wfF-3N-l1B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="V5v-Dd-akI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ryh-sq-RjB" firstAttribute="top" secondItem="V5v-Dd-akI" secondAttribute="top" id="2qO-TF-uW1"/>
+                            <constraint firstItem="V5v-Dd-akI" firstAttribute="bottom" secondItem="Ryh-sq-RjB" secondAttribute="bottom" constant="12" id="HYR-te-6bL"/>
+                            <constraint firstItem="Ryh-sq-RjB" firstAttribute="leading" secondItem="V5v-Dd-akI" secondAttribute="leading" id="O0P-jo-mkK"/>
+                            <constraint firstItem="V5v-Dd-akI" firstAttribute="trailing" secondItem="Ryh-sq-RjB" secondAttribute="trailing" id="cCt-qy-yYM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="star" id="90S-dq-wS8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ob-0b-Db5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079" y="422"/>
         </scene>
     </scenes>
     <resources>
         <image name="filter" width="64" height="64"/>
+        <image name="homeicon" width="32" height="32"/>
         <image name="loading" width="128" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="star" width="32" height="32"/>
+        <namedColor name="FieldColor">
+            <color red="0.73725490196078436" green="0.22352941176470589" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TabBarColor">
             <color red="0.0039215686274509803" green="0.086274509803921567" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

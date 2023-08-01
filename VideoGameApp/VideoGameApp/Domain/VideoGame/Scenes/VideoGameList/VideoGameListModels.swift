@@ -11,7 +11,7 @@ enum VideoGameList {
     enum FetchVideoGameList {
         struct Request {}
         struct Response {
-            let videoGameResult: ListVideoGameNetworkModel
+            var videoGameResult: ListVideoGameNetworkModel
         }
         struct ViewModel {
             let next: String?
