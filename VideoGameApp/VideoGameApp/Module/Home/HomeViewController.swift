@@ -7,16 +7,6 @@
 
 import UIKit
 
-private let lineSpacingForCollectionView: CGFloat = 0
-private let heightCellIsLandscape: Int = 100
-private let heightCellIsPortrait: Int = 110
-private let heightOfInnerViewIsLandscapeConstant: CGFloat = 200
-private let heightOfInnerViewIsPortrait: CGFloat = 0
-private let requiredWordToSearch: Int = 3
-private let titleOfEmptyView: String = "Sorry"
-private let messageOfEmptyView: String = "The game you were looking for was not found"
-private var numberOfItemPerRowPortrait: CGFloat = 1
-private var numberOfItemPerRowLandscape: CGFloat = 2
 // MARK: Protocol HomeViewControllerProtocol
 protocol HomeViewControllerProtocol: BaseViewControllerProtocol {
     func setSliderImages(_ videoGame: [VideoGame])
@@ -39,9 +29,19 @@ final class HomeViewController: BaseViewController {
     @IBOutlet weak var searhTextField: UITextField!
     
     // MARK: - Variable Definitions
+    private let lineSpacingForCollectionView: CGFloat = 0
+    private let heightCellIsLandscape: Int = 100
+    private let heightCellIsPortrait: Int = 110
+    private let heightOfInnerViewIsLandscapeConstant: CGFloat = 200
+    private let heightOfInnerViewIsPortrait: CGFloat = 0
+    private let requiredWordToSearch: Int = 3
+    private let titleOfEmptyView: String = "Sorry"
+    private let messageOfEmptyView: String = "The game you were looking for was not found"
+    private var numberOfItemPerRowPortrait: CGFloat = 1
+    private var numberOfItemPerRowLandscape: CGFloat = 2
     public var presenter: HomePresenterProtocol!
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
-    private var numberOfItemPerRow: CGFloat = numberOfItemPerRowPortrait
+    private var numberOfItemPerRow: CGFloat = 2
     private var isSearching = false
     private var isPageRefreshing: Bool = false
     
@@ -89,7 +89,7 @@ final class HomeViewController: BaseViewController {
         let height = self.numberOfItemPerRow == 1 ? heightCellIsPortrait : heightCellIsLandscape
         
         collectionViewFlowLayout.itemSize = CGSize(width: Int(width), height: height)
-        collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
+        collectionViewFlowLayout.sectionInset = .zero
         collectionViewFlowLayout.scrollDirection = .vertical
         collectionViewFlowLayout.minimumLineSpacing = lineSpacingForCollectionView
         collectionViewFlowLayout.minimumInteritemSpacing = lineSpacingForCollectionView
@@ -178,7 +178,8 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK: - Extension UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItem = isSearching ? self.presenter.numberOfSearchedVideoGames : self.presenter.numberOfVideoGames - presenter.numberOfSlide
+        let numberOfItem = isSearching ? self.presenter.numberOfSearchedVideoGames
+        : self.presenter.numberOfVideoGames - presenter.numberOfSlide
         if numberOfItem < 0 {
             collectionView.setEmptyView(title: titleOfEmptyView, message: messageOfEmptyView)
         } else {
@@ -199,7 +200,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
-        if string.charIsSpace() && !string.charIsBackSpace() && text.isEmpty {
+        if string.charIsSpace(), !string.charIsBackSpace(), text.isEmpty {
             return false
         }
         let currentText = (text as NSString).replacingCharacters(in: range, with: string)

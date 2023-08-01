@@ -12,7 +12,7 @@ protocol VideoGameListDisplayLogic: AnyObject {
 }
 
 final class VideoGameListViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

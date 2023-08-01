@@ -6,8 +6,7 @@
 //
 
 import Foundation
-
-private let slideCount: Int = 3
+private let slideCount: Int = 4
 private let limitNextPage: Int = 5
 // MARK: Protocol HomePresenterProtocol
 protocol HomePresenterProtocol: AnyObject {
@@ -50,7 +49,7 @@ final class HomePresenter {
         self.router = router
         self.view = view
     }
-    
+
     private func setParseImageURL(_ urlString: String?) -> String? {
         guard let urlString else { return nil }
         var parsePath = urlString.split(separator: "/")
