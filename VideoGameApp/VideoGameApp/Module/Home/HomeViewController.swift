@@ -7,16 +7,6 @@
 
 import UIKit
 
-private let lineSpacingForCollectionView: CGFloat = 0
-private let heightCellIsLandscape: Int = 100
-private let heightCellIsPortrait: Int = 110
-private let heightOfInnerViewIsLandscapeConstant: CGFloat = 200
-private let heightOfInnerViewIsPortrait: CGFloat = 0
-private let requiredWordToSearch: Int = 3
-private let titleOfEmptyView: String = "Sorry"
-private let messageOfEmptyView: String = "The game you were looking for was not found"
-private var numberOfItemPerRowPortrait: CGFloat = 1
-private var numberOfItemPerRowLandscape: CGFloat = 2
 // MARK: Protocol HomeViewControllerProtocol
 protocol HomeViewControllerProtocol: BaseViewControllerProtocol {
     func setSliderImages(_ videoGame: [VideoGame])
@@ -41,9 +31,19 @@ final class HomeViewController: BaseViewController {
     // MARK: - Variable Definitions
     public var presenter: HomePresenterProtocol!
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
-    private var numberOfItemPerRow: CGFloat = numberOfItemPerRowPortrait
+    private var numberOfItemPerRow: CGFloat = 1
     private var isSearching = false
     private var isPageRefreshing: Bool = false
+    private let lineSpacingForCollectionView: CGFloat = 0
+    private let heightCellIsLandscape: Int = 100
+    private let heightCellIsPortrait: Int = 110
+    private let heightOfInnerViewIsLandscapeConstant: CGFloat = 150
+    private let heightOfInnerViewIsPortrait: CGFloat = -52
+    private let requiredWordToSearch: Int = 3
+    private let titleOfEmptyView: String = "Sorry"
+    private let messageOfEmptyView: String = "The game you were looking for was not found"
+    private var numberOfItemPerRowPortrait: CGFloat = 1
+    private var numberOfItemPerRowLandscape: CGFloat = 2
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -107,8 +107,8 @@ final class HomeViewController: BaseViewController {
         let navVC = UINavigationController(rootViewController: vc)
 
         if let sheet = navVC.sheetPresentationController {
-            sheet.detents = [.custom(resolver: { context in
-                return context.maximumDetentValue * 0.4
+            sheet.detents = [.custom(resolver: { _ in
+                return 350
             }), .custom(resolver: { context in
                 return context.maximumDetentValue * 0.6
             })]
@@ -124,20 +124,20 @@ extension HomeViewController: HomeViewControllerProtocol {
     }
     
     func hidePageView() {
-        DispatchQueue.main.async {
-            self.pageView.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.pageView.isHidden = true
         }
     }
     
     func showPageView() {
-        DispatchQueue.main.async {
-            self.pageView.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            self?.pageView.isHidden = false
         }
     }
     
     func reloadData() {
-        DispatchQueue.main.async {
-            self.gameCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.gameCollectionView.reloadData()
         }
     }
     
@@ -167,7 +167,7 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = self.gameCollectionView.contentSize.height - self.gameCollectionView.bounds.size.height
-        if self.gameCollectionView.contentOffset.y >= height && isSearching == false {
+        if self.gameCollectionView.contentOffset.y >= height, isSearching == false {
             if !isPageRefreshing {
                 isPageRefreshing = true
                 presenter.fetchNextPage()
@@ -199,7 +199,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
-        if string.charIsSpace() && !string.charIsBackSpace() && text.isEmpty {
+        if string.charIsSpace(), !string.charIsBackSpace(), text.isEmpty {
             return false
         }
         let currentText = (text as NSString).replacingCharacters(in: range, with: string)

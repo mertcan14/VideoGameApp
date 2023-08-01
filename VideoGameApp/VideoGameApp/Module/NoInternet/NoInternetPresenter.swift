@@ -7,21 +7,20 @@
 
 import Foundation
 
-private let maxSecondForWait: Int = 90
-private let addSecondForWait: Int = 10
-private var timeWaitStarter: Int = 5
-
 // MARK: - Protocol NoInternetPresenterProtocol
 protocol NoInternetPresenterProtocol: AnyObject {
     func checkInternetConnection()
 }
 // MARK: - Class NoInternetPresenter
 final class NoInternetPresenter {
-    unowned var view: NoInternetViewControllerProtocol
-    let router: NoInternetRouterProtocol
-    let interactor: NoInternetInteractorProtocol
-    var timeWait: Int = timeWaitStarter
-    var timer: Timer?
+    internal unowned var view: NoInternetViewControllerProtocol
+    internal let router: NoInternetRouterProtocol
+    internal let interactor: NoInternetInteractorProtocol
+    private let maxSecondForWait: Int = 90
+    private let addSecondForWait: Int = 10
+    private var timeWaitStarter: Int = 5
+    private var timeWait: Int = 5
+    private var timer: Timer?
     
     init(
         _ view: NoInternetViewControllerProtocol,

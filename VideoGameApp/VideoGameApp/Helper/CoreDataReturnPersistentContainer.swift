@@ -5,8 +5,6 @@
 //  Created by mertcan YAMAN on 20.07.2023.
 //
 
-import Foundation
-
 import UIKit
 import CoreData
 

@@ -7,13 +7,6 @@
 
 import UIKit
 
-private let lineSpacingForCollectionView: CGFloat = 0
-private let heightCellIsLandscape: Int = 100
-private let heightCellIsPortrait: Int = 110
-private let numberItemPerRowPortrait: CGFloat = 1
-private let numberItemPerRowLandscape: CGFloat = 2
-private let titleOfEmptyView: String = "Sorry"
-private let messageOfEmptyView: String = "The game you were looking for was not found"
 // MARK: Protocol FavoritesViewControllerProtocol
 protocol FavoritesViewControllerProtocol: BaseViewControllerProtocol {
     func reloadData()
@@ -27,7 +20,14 @@ final class FavoritesViewController: BaseViewController {
     // MARK: - Variable Definitions
     public var presenter: FavoritesPresenterProtocol!
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
-    private var numberOfItemPerRow: CGFloat = numberItemPerRowPortrait
+    private var numberOfItemPerRow: CGFloat = 1
+    private let lineSpacingForCollectionView: CGFloat = 0
+    private let heightCellIsLandscape: Int = 100
+    private let heightCellIsPortrait: Int = 110
+    private let numberItemPerRowPortrait: CGFloat = 1
+    private let numberItemPerRowLandscape: CGFloat = 2
+    private let titleOfEmptyView: String = "Sorry"
+    private let messageOfEmptyView: String = "The game you were looking for was not found"
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,8 @@ final class FavoritesViewController: BaseViewController {
         updateCollectionViewItemSize()
     }
     
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator: UIViewControllerTransitionCoordinator) {
         checkDeviceOrientation()
     }
     // MARK: - Private Funcs
@@ -62,7 +63,8 @@ final class FavoritesViewController: BaseViewController {
     
     private func updateCollectionViewItemSize() {
         let width = self.view.safeAreaLayoutGuide.layoutFrame.width / self.numberOfItemPerRow
-        let height = self.numberOfItemPerRow == numberItemPerRowPortrait ? heightCellIsPortrait : heightCellIsLandscape
+        let height = self.numberOfItemPerRow == numberItemPerRowPortrait ? heightCellIsPortrait
+        : heightCellIsLandscape
         
         collectionViewFlowLayout.itemSize = CGSize(width: Int(width - 4), height: height)
         collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero

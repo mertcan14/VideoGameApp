@@ -6,8 +6,7 @@
 //
 
 import Foundation
-private let titleOfPopUpForUnLike = "Are you sure?"
-private let contentOfPopUpForUnLike = "You are about to deregister the game"
+
 // MARK: - Protocol DetailVideoGamePresenterProtocol
 protocol DetailVideoGamePresenterProtocol: AnyObject {
     var isLiked: Bool { get }
@@ -27,6 +26,8 @@ final class DetailVideoGamePresenter {
     internal let router: DetailVideoGameRouterProtocol
     internal let interactor: DetailVideoGameInteractorProtocol
     private var idOfVideoGame: String?
+    private let titleOfPopUpForUnLike = "Are you sure?"
+    private let contentOfPopUpForUnLike = "You are about to deregister the game"
     internal var isLiked: Bool = false
     private(set) var videoGame: DetailVideoGame? {
         didSet {

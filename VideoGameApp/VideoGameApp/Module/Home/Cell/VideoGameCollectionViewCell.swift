@@ -7,10 +7,6 @@
 
 import UIKit
 
-private let loadingImage: UIImage = .loading
-private let borderColor: UIColor = .cellBorderColor
-private let borderWidth: CGFloat = 1.0
-private let defaultNameOfGame: String = "No Name"
 // MARK: - Protocol VideoGameCollectionViewCellProtocol
 protocol VideoGameCollectionViewCellProtocol: AnyObject {
     func setImage(_ image: String?)
@@ -28,7 +24,11 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingView: UIStackView!
     @IBOutlet weak var nameOfGameLabel: UILabel!
     @IBOutlet weak var realesedView: UIStackView!
-    
+    // MARK: - Variable Definitions
+    private let loadingImage: UIImage = .loading
+    private let borderColor: UIColor = .cellBorderColor
+    private let borderWidth: CGFloat = 1.0
+    private let defaultNameOfGame: String = "No Name"
     var cellPresenter: VideoGameCellPresenterProtocol! {
         didSet {
             cellPresenter.load()
@@ -55,7 +55,7 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
 // MARK: - Extension VideoGameCollectionViewCellProtocol
 extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
     func setImage(_ image: String?) {
-        guard let image, let url = URL(string: image) else {
+        guard let image else {
             self.imageOfGameView.image = .noimage
             return
         }

@@ -31,13 +31,6 @@ final class FavoritesPresenter {
         self.interactor = interactor
         self.router = router
     }
-    
-    private func setParseImageURL(_ urlString: String?) -> String? {
-        guard let url = urlString else { return nil }
-        var parseUrl = url.split(separator: "/")
-        parseUrl.insert("crop/600/400", at: 3)
-        return parseUrl.joined(separator: "/")
-    }
 }
 // MARK: Extension FavoritesPresenterProtocol
 extension FavoritesPresenter: FavoritesPresenterProtocol {
@@ -53,7 +46,7 @@ extension FavoritesPresenter: FavoritesPresenterProtocol {
     
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
         guard let videoGame = self.videoGames[safe: index] else { return nil }
-        return VideoGameCellModel(imageURL: setParseImageURL(videoGame.backgroundImage),
+        return VideoGameCellModel(imageURL: videoGame.backgroundImage?.setParseImageURL(),
                                   nameOfGame: videoGame.name,
                                   ratingOfGame: videoGame.rating,
                                   releasedOfGame: videoGame.released)

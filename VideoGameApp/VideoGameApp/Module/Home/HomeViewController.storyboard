@@ -13,7 +13,7 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -50,11 +50,11 @@
                                     <constraint firstAttribute="bottom" secondItem="5Pv-O3-usT" secondAttribute="bottom" constant="4" id="uoF-Oa-gwO"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="faM-cG-Cg8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="faM-cG-Cg8">
                                 <rect key="frame" x="0.0" y="111" width="393" height="707"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kZg-H4-fMk">
-                                        <rect key="frame" x="12" y="0.0" width="369" height="682"/>
+                                        <rect key="frame" x="12" y="0.0" width="369" height="699"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4gC-BF-lG6">
                                                 <rect key="frame" x="0.0" y="0.0" width="369" height="220"/>
@@ -66,11 +66,8 @@
                                                 </connections>
                                             </containerView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dh9-Oz-pcb">
-                                                <rect key="frame" x="0.0" y="232" width="369" height="450"/>
+                                                <rect key="frame" x="0.0" y="232" width="369" height="467"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="450" id="Qmk-mL-7hH"/>
-                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HuK-z7-3cQ">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -116,7 +113,7 @@
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="leading" secondItem="a1l-kd-T8N" secondAttribute="leading" id="fVm-s5-DeN"/>
                             <constraint firstItem="kZg-H4-fMk" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="jhE-yG-Ugf"/>
                             <constraint firstItem="faM-cG-Cg8" firstAttribute="top" secondItem="a1l-kd-T8N" secondAttribute="bottom" constant="8" id="qJS-qh-oX8"/>
-                            <constraint firstItem="kZg-H4-fMk" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.9" id="uDE-K9-4ZT"/>
+                            <constraint firstItem="kZg-H4-fMk" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" constant="-60" id="uDE-K9-4ZT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oO9-ja-hFi" secondAttribute="trailing" constant="12" id="uY9-oE-PMR"/>
                             <constraint firstItem="a1l-kd-T8N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="xyX-OF-daa"/>
                         </constraints>

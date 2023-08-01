@@ -7,8 +7,6 @@
 
 import Foundation
 
-private let slideCount: Int = 3
-private let limitNextPage: Int = 5
 // MARK: Protocol HomePresenterProtocol
 protocol HomePresenterProtocol: AnyObject {
     var numberOfVideoGames: Int { get }
@@ -27,17 +25,18 @@ protocol HomePresenterProtocol: AnyObject {
 // MARK: Class HomePresenter
 final class HomePresenter {
     unowned var view: HomeViewControllerProtocol
-    let router: HomeRouterProtocol
-    let interactor: HomeInteractorProtocol
-    var nextPage: String?
-    var searchedVideoGame: [VideoGame] = []
-    var totalNextPage: Int = 0
-    var videoGames: [VideoGame] = [] {
+    internal let router: HomeRouterProtocol
+    internal let interactor: HomeInteractorProtocol
+    private let slideCount: Int = 3
+    private let limitNextPage: Int = 5
+    private var nextPage: String?
+    private var searchedVideoGame: [VideoGame] = []
+    private var totalNextPage: Int = 0
+    private var videoGames: [VideoGame] = [] {
         didSet {
             setImagesForSlider()
             self.view.reloadData()
             self.view.hideLoading(0.5)
-            
         }
     }
     
@@ -50,14 +49,6 @@ final class HomePresenter {
         self.router = router
         self.view = view
     }
-    
-    private func setParseImageURL(_ urlString: String?) -> String? {
-        guard let urlString else { return nil }
-        var parsePath = urlString.split(separator: "/")
-        parsePath.insert("crop/600/400", at: 3)
-        parsePath[0] = "https:/"
-        return parsePath.joined(separator: "/")
-    }
 }
 // MARK: - Extension HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
@@ -67,7 +58,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func fetchNextPage() {
         self.view.showLoading()
-        if self.totalNextPage < limitNextPage && nextPage != nil {
+        if self.totalNextPage < limitNextPage, nextPage != nil {
             self.totalNextPage += 1
             self.interactor.fetchGames(nextPage)
         } else {
@@ -91,7 +82,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func getSearchedVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
         guard let videoGame = self.searchedVideoGame[safe: index] else { return nil }
-        return VideoGameCellModel(imageURL: setParseImageURL(videoGame.backgroundImage),
+        return VideoGameCellModel(imageURL: videoGame.backgroundImage?.setParseImageURL(),
                                   nameOfGame: videoGame.name,
                                   ratingOfGame: videoGame.rating,
                                   releasedOfGame: videoGame.released)
@@ -111,7 +102,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func getVideoGameByIndex(_ index: Int) -> VideoGameCellModel? {
         guard let videoGame = self.videoGames[safe: index] else { return nil }
-        return VideoGameCellModel(imageURL: setParseImageURL(videoGame.backgroundImage),
+        return VideoGameCellModel(imageURL: videoGame.backgroundImage?.setParseImageURL(),
                                   nameOfGame: videoGame.name,
                                   ratingOfGame: videoGame.rating,
                                   releasedOfGame: videoGame.released)
@@ -139,6 +130,12 @@ extension HomePresenter: HomePresenterProtocol {
 }
 // MARK: - Extension HomeInteractorOutputProtocol
 extension HomePresenter: HomeInteractorOutputProtocol {
+    func goNoInternet(_ errorText: String) {
+        self.view.showAlert("Connection", errorText) { [weak self] in
+            self?.router.navigate(.goNoInternetScreen)
+        }
+    }
+    
     func refreshGames(_ games: VideoGameResult) {
         guard let results = games.results else { return }
         ImageProvider.shared.refreshCache()

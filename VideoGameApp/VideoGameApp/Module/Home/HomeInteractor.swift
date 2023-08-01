@@ -17,10 +17,20 @@ protocol HomeInteractorOutputProtocol: AnyObject {
     func getGames(_ games: VideoGameResult)
     func refreshGames(_ games: VideoGameResult)
     func getError(_ errorText: String)
+    func goNoInternet(_ errorText: String)
 }
 // MARK: - Class HomeInteractor
 final class HomeInteractor {
     var output: HomeInteractorOutputProtocol?
+    private let optinalErrorMessage = "Error"
+    
+    private func checkError(_ error: String) {
+        if error == NetworkError.connectionError.message {
+            self.output?.goNoInternet(error)
+        } else {
+            self.output?.getError(error)
+        }
+    }
 }
 // MARK: - Extension HomeInteractorProtocol
 extension HomeInteractor: HomeInteractorProtocol {
@@ -31,7 +41,7 @@ extension HomeInteractor: HomeInteractorProtocol {
             case .success(let games):
                 self.output?.refreshGames(games)
             case .failure(let error):
-                self.output?.getError(error.message ?? "Error")
+                self.checkError(error.message ?? optinalErrorMessage)
             }
         }
     }
@@ -43,7 +53,7 @@ extension HomeInteractor: HomeInteractorProtocol {
             case .success(let games):
                 self.output?.getGames(games)
             case .failure(let error):
-                self.output?.getError(error.message ?? "Error")
+                self.checkError(error.message ?? optinalErrorMessage)
             }
         }
     }

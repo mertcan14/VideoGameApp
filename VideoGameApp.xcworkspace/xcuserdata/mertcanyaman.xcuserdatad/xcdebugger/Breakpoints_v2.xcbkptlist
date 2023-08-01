@@ -46,8 +46,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "setImagesForSlider()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,58 +62,10 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeRouter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "createModule()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51B023B4-53B4-44E9-9B3A-B87AB1235A37"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "setParseImageURL(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51B023B4-53B4-44E9-9B3A-B87AB1235A37 - e8bf45aa0bdf2474"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VideoGameApp.HomePresenter.getVideoGameByIndex(Swift.Int) -&gt; Swift.Optional&lt;VideoGameApp.VideoGameCellModel&gt;"
-                  moduleName = "VideoGameApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/VideoGameApp/VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "256">
-               </Location>
-               <Location
-                  uuid = "51B023B4-53B4-44E9-9B3A-B87AB1235A37 - 3d136989d47f952"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VideoGameApp.HomePresenter.setParseImageURL(Swift.String) -&gt; ()"
-                  moduleName = "VideoGameApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/VideoGameApp/VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,8 +142,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGamePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "getRemoveFromAddObj(_:)"
             landmarkType = "7">
             <Locations>
@@ -253,8 +205,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGamePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "getIsLikedVideoGame(_:)"
             landmarkType = "7">
             <Locations>
@@ -316,8 +268,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "DetailVideoGameViewController"
             landmarkType = "3">
             <Locations>
@@ -364,8 +316,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "fetchDetailVideoGameById(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -380,8 +332,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "setLikeImageView(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,8 +348,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "setBackImageView(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,8 +366,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "showLoading()"
-            landmarkType = "7">
+            landmarkName = "LoadingShowable"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -430,7 +382,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "hideLoading()"
+            landmarkName = "showLoading(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -619,8 +571,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Favorites/FavoritesPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "getVideoGames(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,22 +590,6 @@
             startingLineNumber = "61"
             endingLineNumber = "61"
             landmarkName = "isLikedVideoGame(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5FEA5AF4-13E4-4DFD-BC84-BA4FA474B95E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VideoGameApp/VideoGameApp/Module/Favorites/FavoritesPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "setParseImageURL(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -683,8 +619,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "goDetailScreen(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -699,8 +635,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "unLikedVideoGame()"
             landmarkType = "7">
          </BreakpointContent>
@@ -715,8 +651,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "setLikeImageView(_:)"
             landmarkType = "7">
             <Locations>
@@ -779,8 +715,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "searchVideoGame(_:)"
             landmarkType = "7">
             <Locations>
@@ -836,54 +772,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "39222EB8-A8C7-4228-87F5-8852983481E5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "setParseImageURL(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "39222EB8-A8C7-4228-87F5-8852983481E5 - 82215ce41c004403"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VideoGameApp.HomePresenter.setParseImageURL(Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "VideoGameApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/VideoGameApp/VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "39222EB8-A8C7-4228-87F5-8852983481E5 - 82215ce41c004403"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VideoGameApp.HomePresenter.setParseImageURL(Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "VideoGameApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/VideoGameApp/VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1FEE0622-C103-4575-87DA-1E52412CB2BA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -891,8 +779,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "fetchNextPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -907,8 +795,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "getGames(_:)"
             landmarkType = "7">
             <Locations>
@@ -1018,8 +906,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "fetchGamesWithParams(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1223,8 +1111,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGamePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "DetailVideoGamePresenter"
             landmarkType = "3">
          </BreakpointContent>
@@ -1239,8 +1127,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/DetailVideoGame/DetailVideoGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "hideWebOfGameImageView(_:)"
             landmarkType = "7">
             <Locations>
@@ -1287,8 +1175,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1303,8 +1191,8 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1576,6 +1464,38 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "downloaded(from:contentMode:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C2A6B89-07F0-4A0A-B13E-97463A7A1A1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "fetchGamesWithParams(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFAC1AE6-C532-4CA0-97CF-02F11B583CFD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "fetchGames(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

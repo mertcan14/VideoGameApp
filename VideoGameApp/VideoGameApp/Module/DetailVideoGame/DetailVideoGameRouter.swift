@@ -51,7 +51,7 @@ extension DetailVideoGameRouter: DetailVideoGameRouterProtocol {
         case .goMetacriticSite(url: let url):
             guard let viewController = viewController else { return }
             let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
-            vc.delegate = viewController as? any SFSafariViewControllerDelegate
+            vc.delegate = viewController as any SFSafariViewControllerDelegate
             viewController.present(vc, animated: true)
         }
     }

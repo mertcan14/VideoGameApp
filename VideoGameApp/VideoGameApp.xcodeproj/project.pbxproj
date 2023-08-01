@@ -57,14 +57,13 @@
 		E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679422A6143E10036D886 /* NoInternetRouter.swift */; };
 		E5AE20982A6679F40022B4A9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */; };
 		E5C015592A7156CC00F1F73F /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C015582A7156CC00F1F73F /* FiltersPresenter.swift */; };
-		E5C0155B2A71623D00F1F73F /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */; };
 		E5C0A6422A77974B00E99346 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */; };
 		E5C18DEE2A64349500856941 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C18DED2A64349500856941 /* HomeViewController.storyboard */; };
 		E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DEF2A64387300856941 /* HomePageViewController.swift */; };
 		E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */; };
 		E5C19CBA2A6FFC23004C0929 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CB82A6FFC23004C0929 /* FiltersViewController.swift */; };
 		E5C19CBB2A6FFC23004C0929 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C19CB92A6FFC23004C0929 /* FiltersViewController.xib */; };
-		E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */; };
+		E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift */; };
 		E5C9DB2F2A6912E00097FE0B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */; };
 		E5C9DB302A6912E00097FE0B /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */; };
 		E5C9DB322A6912FE0097FE0B /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */; };
@@ -163,14 +162,13 @@
 		E5A679422A6143E10036D886 /* NoInternetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetRouter.swift; sourceTree = "<group>"; };
 		E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		E5C015582A7156CC00F1F73F /* FiltersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
-		E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		E5C18DED2A64349500856941 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		E5C18DEF2A64387300856941 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E5C18DF12A6438AE00856941 /* PageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
 		E5C19CB82A6FFC23004C0929 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		E5C19CB92A6FFC23004C0929 /* FiltersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
-		E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift.swift"; sourceTree = "<group>"; };
+		E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				E5A679322A61302E0036D886 /* BaseViewController.swift */,
-				E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -450,7 +447,7 @@
 				E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */,
 				E59DA0E72A6AB15B0029AF33 /* String+Extension.swift */,
 				E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */,
-				E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */,
+				E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift */,
 				E59CD2AC2A68053300B99CF5 /* UIImage+Extension.swift */,
 				E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */,
 				E5D348272A616D6E00322844 /* UIView+Extension.swift */,
@@ -823,7 +820,6 @@
 				E5A679362A6140370036D886 /* LoadingView.swift in Sources */,
 				E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */,
 				E59CD2AB2A67CD0F00B99CF5 /* DetailVideoGameInteractor.swift in Sources */,
-				E5C0155B2A71623D00F1F73F /* BaseInteractor.swift in Sources */,
 				E5AE20982A6679F40022B4A9 /* UIApplication+Extension.swift in Sources */,
 				E5D348332A61871100322844 /* HomeRouter.swift in Sources */,
 				E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */,
@@ -841,7 +837,7 @@
 				E59CD2AD2A68053300B99CF5 /* UIImage+Extension.swift in Sources */,
 				E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */,
 				E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */,
-				E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */,
+				E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

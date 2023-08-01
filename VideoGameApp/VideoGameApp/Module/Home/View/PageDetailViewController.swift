@@ -7,9 +7,6 @@
 
 import UIKit
 
-private let imageCornerRadius: CGFloat = 24
-private let blurViewCorner: CACornerMask = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-
 // MARK: - Enum ParentPlatformEnum
 enum ParentPlatformEnum: String {
     case pc = "PC"
@@ -70,7 +67,8 @@ final class PageDetailViewController: BaseViewController {
     
     // MARK: - Variable Definitions
     private var videoGame: VideoGame?
-
+    private let imageCornerRadius: CGFloat = 24
+    private let blurViewCorner: CACornerMask = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()

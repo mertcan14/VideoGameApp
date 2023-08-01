@@ -7,10 +7,6 @@
 
 import UIKit
 
-private let alertTitle: String = "Error"
-private let alertContentForMinMax: String = "The minimum value cannot be greater than the maximum."
-private let selectedOrderImage: UIImage? = UIImage(systemName: "checkmark.circle.fill")
-private let unselectedOrderImage: UIImage? = UIImage(systemName: "circle.fill")
 // MARK: - Enum OrderEnum
 enum OrderEnum: String {
     case metacriticLowToHigh = "metacritic"
@@ -39,6 +35,10 @@ final class FiltersViewController: BaseViewController {
     @IBOutlet weak var ratingHighToLowButton: UIButton!
     // MARK: - Variable Definitions
     public var presenter: FiltersPresenterProtocol!
+    private let alertTitle: String = "Error"
+    private let alertContentForMinMax: String = "The minimum value cannot be greater than the maximum."
+    private let selectedOrderImage: UIImage? = UIImage(systemName: "checkmark.circle.fill")
+    private let unselectedOrderImage: UIImage? = UIImage(systemName: "circle.fill")
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +55,8 @@ final class FiltersViewController: BaseViewController {
     }
     
     @IBAction func searchButtonClicked(_ sender: Any) {
-        presenter.fetchWithFilters()
         closeScreen()
+        presenter.fetchWithFilters()
     }
     // MARK: - Private Methods
     private func deselectAllButtons() {
@@ -89,7 +89,7 @@ final class FiltersViewController: BaseViewController {
     }
     
     private func checkTextFields() -> Bool {
-        if metacriticMinTextField.text != "" && metacriticMaxTextField.text != "" {
+        if metacriticMinTextField.text != "", metacriticMaxTextField.text != "" {
             let max = Int(metacriticMaxTextField.text ?? "100") ?? 100
             let min = Int(metacriticMinTextField.text ?? "0") ?? 0
             if min > max {
@@ -126,7 +126,7 @@ extension FiltersViewController: UITextFieldDelegate {
             return true
         }
         guard let text = textField.text else { return false }
-        if string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && text.count < 2 {
+        if string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil, text.count < 2 {
             return true
         } else {
             return false

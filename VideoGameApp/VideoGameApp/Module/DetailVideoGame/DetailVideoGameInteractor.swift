@@ -9,9 +9,6 @@ import Foundation
 import VideoGameAPI
 import MyCoreData
 
-private let entityName = "SavedVideoGame"
-private let optinalErrorMessage = "Error"
-
 // MARK: - Protocol DetailVideoGameInteractorProtocol
 protocol DetailVideoGameInteractorProtocol {
     func fetchDetailVideoGameById(_ id: String)
@@ -29,8 +26,10 @@ protocol DetailVideoGameInteractorOutputProtocol {
 }
 // MARK: - Class DetailVideoGameInteractor
 final class DetailVideoGameInteractor {
-    var output: DetailVideoGameInteractorOutputProtocol?
-    var persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer
+    public var output: DetailVideoGameInteractorOutputProtocol?
+    private var persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer
+    private let entityName = "SavedVideoGame"
+    private let optinalErrorMessage = "Error"
     
     private func checkError(_ error: String) {
         if error == NetworkError.connectionError.message {
@@ -47,11 +46,12 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
         MyCoreDataService.shared.deleteObj(persistentContainer,
                                            entityName: entityName,
                                            removeObj) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let isRemove):
-                self?.output?.getRemoveFromAddObj(isRemove)
+                self.output?.getRemoveFromAddObj(isRemove)
             case .failure(let error):
-                self?.output?.getError(error.message ?? optinalErrorMessage)
+                self.output?.getError(error.message ?? self.optinalErrorMessage)
             }
         }
     }
@@ -61,11 +61,12 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
         MyCoreDataService.shared.checkObject(persistentContainer,
                                              entityName: entityName,
                                              checkAttribute: addObj) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let isLike):
-                self?.output?.getIsLikedVideoGame(isLike)
+                self.output?.getIsLikedVideoGame(isLike)
             case .failure(let error):
-                self?.output?.getError(error.message ?? optinalErrorMessage)
+                self.output?.getError(error.message ?? self.optinalErrorMessage)
             }
         }
     }
@@ -75,11 +76,12 @@ extension DetailVideoGameInteractor: DetailVideoGameInteractorProtocol {
         MyCoreDataService.shared.addObj(persistentContainer: persistentContainer,
                                         entityName: entityName,
                                         addObj: addObj) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let success):
-                self?.output?.getIsLikedVideoGame(success)
+                self.output?.getIsLikedVideoGame(success)
             case .failure(let error):
-                self?.output?.getError(error.message ?? optinalErrorMessage)
+                self.output?.getError(error.message ?? self.optinalErrorMessage)
             }
         }
     }

@@ -8,13 +8,6 @@
 import UIKit
 import SafariServices
 
-private let descriptionLabelFontSize: CGFloat = 16
-private let arrowImageIsDark: UIImage = .arrowW
-private let arrowImageNoDark: UIImage = .arrow
-private let likedImage: UIImage = .likedicon
-private let likeImageIsDark: UIImage = .likeiconW
-private let likeImageNoDark: UIImage = .likeicon
-private let notFoundImage: UIImage = .noimage
 // MARK: - Protocol DetailVideoGameViewControllerProtocol
 protocol DetailVideoGameViewControllerProtocol: BaseViewControllerProtocol {
     func setImageView(_ image: String?)
@@ -46,7 +39,14 @@ final class DetailVideoGameViewController: BaseViewController {
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var infoStackView: UIStackView!
     // MARK: - Variable Definitions
-    var presenter: DetailVideoGamePresenterProtocol!
+    internal var presenter: DetailVideoGamePresenterProtocol!
+    private let descriptionLabelFontSize: CGFloat = 16
+    private let arrowImageIsDark: UIImage = .arrowW
+    private let arrowImageNoDark: UIImage = .arrow
+    private let likedImage: UIImage = .likedicon
+    private let likeImageIsDark: UIImage = .likeiconW
+    private let likeImageNoDark: UIImage = .likeicon
+    private let notFoundImage: UIImage = .noimage
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,13 +89,17 @@ final class DetailVideoGameViewController: BaseViewController {
     
     private func setBackImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.backButtonImageView.image = isDark ? arrowImageIsDark : arrowImageNoDark
+            guard let self else { return }
+            self.backButtonImageView.image = isDark ? self.arrowImageIsDark
+            : self.arrowImageNoDark
         }
     }
     
     private func setLikeImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.likeButtonImageView.image = isDark ? likeImageIsDark : likeImageNoDark
+            guard let self else { return }
+            self.likeButtonImageView.image = isDark ? self.likeImageIsDark
+            : self.likeImageNoDark
         }
     }
     
@@ -143,7 +147,7 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
     
     func isLikedVideoGame(_ isLiked: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.likeButtonImageView.image = likedImage
+            self?.likeButtonImageView.image = self?.likedImage
         }
     }
     
@@ -207,10 +211,11 @@ extension DetailVideoGameViewController: DetailVideoGameViewControllerProtocol {
             return
         }
         DispatchQueue.main.async { [weak self] in
-            self?.descriptionLabel.attributedText = description.htmlToAttributedString
-            self?.descriptionLabel.font = self?.descriptionLabel.font.withSize(descriptionLabelFontSize)
-            if self?.traitCollection.userInterfaceStyle == .dark {
-                self?.descriptionLabel.textColor = .white
+            guard let self else { return }
+            self.descriptionLabel.attributedText = description.htmlToAttributedString
+            self.descriptionLabel.font = self.descriptionLabel.font.withSize(self.descriptionLabelFontSize)
+            if self.traitCollection.userInterfaceStyle == .dark {
+                self.descriptionLabel.textColor = .white
             }
         }
     }
