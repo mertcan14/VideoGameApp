@@ -7,17 +7,6 @@
 
 import UIKit
 
-private let loadingImage: UIImage = .loading
-private let borderColor: UIColor = .cellBorderColor
-private let borderWidth: CGFloat = 1.0
-private let defaultNameOfGame: String = "No Name"
-// MARK: - Protocol VideoGameCollectionViewCellProtocol
-protocol VideoGameCollectionViewCellProtocol: AnyObject {
-    func setImage(_ image: String?)
-    func setNameOfGame(_ text: String?)
-    func setRatingOfGame(_ text: Double?)
-    func setReleasedOfGame(_ text: String?)
-}
 // MARK: - Class VideoGameCollectionViewCell
 final class VideoGameCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlet Definitions
@@ -28,10 +17,14 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingView: UIStackView!
     @IBOutlet weak var nameOfGameLabel: UILabel!
     @IBOutlet weak var realesedView: UIStackView!
-    
-    var cellPresenter: VideoGameCellPresenterProtocol! {
+    // MARK: - Variable Definitions
+    private let loadingImage: UIImage = .loading
+    private let borderColor: UIColor = .cellBorderColor
+    private let borderWidth: CGFloat = 1.0
+    private let defaultNameOfGame: String = "No Name"
+    internal var videoGame: VideoGameNetworkModel? {
         didSet {
-            cellPresenter.load()
+            load()
         }
     }
     
@@ -51,11 +44,19 @@ final class VideoGameCollectionViewCell: UICollectionViewCell {
         outerView.layer.borderWidth = borderWidth
         outerView.layer.borderColor = borderColor.cgColor
     }
+    
+    func load() {
+        guard let videoGame else { return }
+        self.setImage(videoGame.backgroundImage)
+        self.setNameOfGame(videoGame.name)
+        self.setRatingOfGame(videoGame.rating)
+        self.setReleasedOfGame(videoGame.released)
+    }
 }
 // MARK: - Extension VideoGameCollectionViewCellProtocol
-extension VideoGameCollectionViewCell: VideoGameCollectionViewCellProtocol {
+extension VideoGameCollectionViewCell {
     func setImage(_ image: String?) {
-        guard let image, let url = URL(string: image) else {
+        guard let image else {
             self.imageOfGameView.image = .noimage
             return
         }

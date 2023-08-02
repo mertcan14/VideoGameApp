@@ -6,15 +6,13 @@
 //
 
 import UIKit
-
+// MARK: Protocol VideoGameListDisplayLogic
 protocol VideoGameListDisplayLogic: AnyObject {
     func displayVideoGameList(viewModel: VideoGameList.FetchVideoGameList.ViewModel)
+    func displayNextPage(viewModel: VideoGameList.FetchNextPage.ViewModel)
 }
-
+// MARK: Class VideoGameListViewController
 final class VideoGameListViewController: BaseViewController {
-    var interactor: VideoGameListBusinessLogic?
-    var router: (NSObjectProtocol & VideoGameListRoutingLogic & VideoGameListDataPassing)?
-    
     // MARK: - IBOutlet Definitions
     @IBOutlet weak var gameCollectionView: UICollectionView!
     @IBOutlet weak var searchView: UIView!
@@ -24,9 +22,12 @@ final class VideoGameListViewController: BaseViewController {
     @IBOutlet weak var searhTextField: UITextField!
     
     // MARK: - Variable Definitions
+    internal var interactor: VideoGameListBusinessLogic?
+    internal var router: (NSObjectProtocol & VideoGameListRoutingLogic & VideoGameListDataPassing)?
     private var videoGames: [VideoGameNetworkModel] = []
     private var searchedVideoGames: [VideoGameNetworkModel] = []
     private var nextPage: String?
+    private var sliderCount: Int = 3
     private let lineSpacingForCollectionView: CGFloat = 0
     private let heightCellIsLandscape: Int = 100
     private let heightCellIsPortrait: Int = 110
@@ -53,21 +54,9 @@ final class VideoGameListViewController: BaseViewController {
       setup()
     }
     
-    private func setup() {
-        let viewController = self
-        let interactor = VideoGameListInteractor()
-        let presenter = VideoGameListPresenter()
-        let router = VideoGameListRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showLoading()
         self.interactor?.fetchVideoGameList()
         self.collectionViewRegister()
         self.setupCollectionViewLayout()
@@ -75,11 +64,7 @@ final class VideoGameListViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.showLoading()
         checkDeviceOrientation()
-        if videoGames.isEmpty {
-            //self.showLoading()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,74 +79,21 @@ final class VideoGameListViewController: BaseViewController {
         checkDeviceOrientation()
         updateBorderFromSearchView()
     }
-    
-    // MARK: - Funcs For Configure
-    private func setImagesForSlider() {
-        if videoGames.count > 3 {
-            self.showPageView()
-            self.setSliderImages(Array(self.videoGames.prefix(upTo: 3)))
-        } else {
-            self.hidePageView()
-        }
-    }
-    
-    private func checkDeviceOrientation() {
-        guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
-            .windowScene?.interfaceOrientation else { return }
-        if deviceOrientation.isLandscape {
-            self.numberOfItemPerRow = numberOfItemPerRowLandscape
-            innerViewConstraint.constant = heightOfInnerViewIsLandscapeConstant
-        } else {
-            self.numberOfItemPerRow = numberOfItemPerRowPortrait
-            innerViewConstraint.constant = heightOfInnerViewIsPortrait
-        }
-    }
-    
-    private func updateCollectionViewItemSize() {
-        let width = (self.view.safeAreaLayoutGuide.layoutFrame.width - 24 - ((numberOfItemPerRow - 1) * 6)) / self.numberOfItemPerRow
-        let height = self.numberOfItemPerRow == 1 ? heightCellIsPortrait : heightCellIsLandscape
-        
-        collectionViewFlowLayout.itemSize = CGSize(width: Int(width), height: height)
-        collectionViewFlowLayout.sectionInset = .zero
-        collectionViewFlowLayout.scrollDirection = .vertical
-        collectionViewFlowLayout.minimumLineSpacing = lineSpacingForCollectionView
-        collectionViewFlowLayout.minimumInteritemSpacing = lineSpacingForCollectionView
-    }
-    
-    private func updateBorderFromSearchView() {
-        DispatchQueue.main.async {
-            self.searchView.updateBottomBorderWithColor(color: .fieldColor, width: 2)
-        }
-    }
-    
-    @objc private func tapFilter() {
-//        let vc = FiltersViewController()
-//        vc.presenter = FiltersPresenter(view: vc, interactor: presenter.getInteractor())
-//        let navVC = UINavigationController(rootViewController: vc)
-//
-//        if let sheet = navVC.sheetPresentationController {
-//            sheet.detents = [.custom(resolver: { context in
-//                return context.maximumDetentValue * 0.4
-//            }), .custom(resolver: { context in
-//                return context.maximumDetentValue * 0.6
-//            })]
-//            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-//        }
-//        navigationController?.present(navVC, animated: true)
-    }
 }
 
 extension VideoGameListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //self.presenter.goDetailScreen(indexPath.row, isSearching)
+        // self.presenter.goDetailScreen(indexPath.row, isSearching)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = self.gameCollectionView.contentSize.height - self.gameCollectionView.bounds.size.height
         if self.gameCollectionView.contentOffset.y >= height && isSearching == false {
             if !isPageRefreshing {
+                guard let nextPage else { return }
+                showLoading()
                 isPageRefreshing = true
-                //presenter.fetchNextPage()
+                interactor?.fetchNextPage(url: nextPage)
             }
         }
     }
@@ -171,7 +103,7 @@ extension VideoGameListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItem = isSearching
                 ? self.searchedVideoGames.count
-                : self.videoGames.count
+                : self.videoGames.count - sliderCount
         if numberOfItem < 0 {
             collectionView.setEmptyView(title: titleOfEmptyView, message: messageOfEmptyView)
         } else {
@@ -184,8 +116,8 @@ extension VideoGameListViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(indexPath: indexPath as NSIndexPath, cellType: VideoGameCollectionViewCell.self)
         guard let videoGameCell = isSearching
                 ? self.searchedVideoGames[safe: indexPath.row]
-                : self.videoGames[safe: indexPath.row] else { return cell }
-        cell.cellPresenter = VideoGameCellPresenter(view: cell, videoGame: videoGameCell)
+                : self.videoGames[safe: indexPath.row + sliderCount] else { return cell }
+        cell.videoGame = videoGameCell
         return cell
     }
 }
@@ -206,7 +138,7 @@ extension VideoGameListViewController: UITextFieldDelegate {
     }
     
     @objc func performSearch(_ text: String) {
-        hidePageView()
+        hidePageView(true)
         searchedVideoGames = []
         videoGames.forEach { [weak self] videoGame in
             guard let name = videoGame.name else { return }
@@ -219,13 +151,22 @@ extension VideoGameListViewController: UITextFieldDelegate {
     }
     
     @objc func removeSearch() {
-        showPageView()
+        hidePageView(false)
         isSearching = false
         reloadData()
     }
 }
-
+// MARK: Extension VideoGameListDisplayLogic
 extension VideoGameListViewController: VideoGameListDisplayLogic {
+    func displayNextPage(viewModel: VideoGameList.FetchNextPage.ViewModel) {
+        guard let results = viewModel.results, let next = viewModel.next else { return }
+        videoGames += results
+        nextPage = next
+        isPageRefreshing = false
+        self.reloadData()
+        self.hideLoading(0.5)
+    }
+    
     func displayVideoGameList(viewModel: VideoGameList.FetchVideoGameList.ViewModel) {
         guard let results = viewModel.results, let next = viewModel.next else { return }
         ImageProvider.shared.refreshCache()
@@ -236,45 +177,91 @@ extension VideoGameListViewController: VideoGameListDisplayLogic {
         self.hideLoading(0.5)
     }
 }
-
+// MARK: Extension For Private Funcs
 extension VideoGameListViewController {
-    func setPageRefreshing() {
-        self.isPageRefreshing = false
-    }
-    
-    func hidePageView() {
+    private func hidePageView(_ isHide: Bool) {
         DispatchQueue.main.async {
-            self.pageView.isHidden = true
+            self.pageView.isHidden = isHide
         }
     }
     
-    func showPageView() {
-        DispatchQueue.main.async {
-            self.pageView.isHidden = false
-        }
-    }
-    
-    func reloadData() {
+    private func reloadData() {
         DispatchQueue.main.async {
             self.gameCollectionView.reloadData()
         }
     }
     
-    func setupCollectionViewLayout() {
+    private func setupCollectionViewLayout() {
         self.collectionViewFlowLayout = UICollectionViewFlowLayout()
         gameCollectionView.setCollectionViewLayout(self.collectionViewFlowLayout, animated: true)
     }
     
-    func setSliderImages(_ videoGame: [VideoGameNetworkModel]) {
+    private func setSliderImages(_ videoGame: [VideoGameNetworkModel]) {
         NotificationCenter.default.post(name: Notification.Name("GetvideoGames"), object: nil, userInfo: ["videoGame": videoGame])
     }
     
-    func collectionViewRegister() {
+    private func collectionViewRegister() {
         gameCollectionView.register(cellType: VideoGameCollectionViewCell.self)
     }
     
-    func configFiltersButton() {
+    private func configFiltersButton() {
         let tapFilter = UITapGestureRecognizer(target: self, action: #selector(tapFilter))
         filtersButtonImageView.addGestureRecognizer(tapFilter)
+    }
+    
+    private func setImagesForSlider() {
+        if videoGames.count > sliderCount {
+            self.hidePageView(false)
+            self.setSliderImages(Array(self.videoGames.prefix(upTo: sliderCount)))
+        } else {
+            self.hidePageView(true)
+        }
+    }
+    
+    private func checkDeviceOrientation() {
+        guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
+            .windowScene?.interfaceOrientation else { return }
+        if deviceOrientation.isLandscape {
+            self.numberOfItemPerRow = numberOfItemPerRowLandscape
+            innerViewConstraint.constant = heightOfInnerViewIsLandscapeConstant
+        } else {
+            self.numberOfItemPerRow = numberOfItemPerRowPortrait
+            innerViewConstraint.constant = heightOfInnerViewIsPortrait
+        }
+    }
+    
+    private func updateCollectionViewItemSize() {
+        let width = (self.view.safeAreaLayoutGuide.layoutFrame.width - 24 - ((numberOfItemPerRow - 1) * 6))
+        / self.numberOfItemPerRow
+        let height = self.numberOfItemPerRow == 1 ? heightCellIsPortrait
+        : heightCellIsLandscape
+        
+        collectionViewFlowLayout.itemSize = CGSize(width: Int(width), height: height)
+        collectionViewFlowLayout.sectionInset = .zero
+        collectionViewFlowLayout.scrollDirection = .vertical
+        collectionViewFlowLayout.minimumLineSpacing = lineSpacingForCollectionView
+        collectionViewFlowLayout.minimumInteritemSpacing = lineSpacingForCollectionView
+    }
+    
+    private func updateBorderFromSearchView() {
+        DispatchQueue.main.async {
+            self.searchView.updateBottomBorderWithColor(color: .fieldColor, width: 2)
+        }
+    }
+    
+    @objc private func tapFilter() {
+        let vc = FiltersViewController()
+        vc.interactor = interactor
+        let navVC = UINavigationController(rootViewController: vc)
+
+        if let sheet = navVC.sheetPresentationController {
+            sheet.detents = [.custom(resolver: { _ in
+                return 350
+            }), .custom(resolver: { context in
+                return context.maximumDetentValue * 0.6
+            })]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        present(navVC, animated: true)
     }
 }

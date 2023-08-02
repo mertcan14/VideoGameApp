@@ -18,4 +18,17 @@ enum VideoGameList {
             let results: [VideoGameNetworkModel]?
         }
     }
+    
+    enum FetchNextPage {
+        struct Request {
+            let url: String
+        }
+        struct Response {
+            var videoGameResult: ListVideoGameNetworkModel
+        }
+        struct ViewModel {
+            let next: String?
+            let results: [VideoGameNetworkModel]?
+        }
+    }
 }

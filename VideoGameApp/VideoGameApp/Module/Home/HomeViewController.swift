@@ -103,7 +103,7 @@ final class HomeViewController: BaseViewController {
     
     @objc private func tapFilter() {
         let vc = FiltersViewController()
-        vc.presenter = FiltersPresenter(view: vc, interactor: presenter.getInteractor())
+        //vc.presenter = FiltersPresenter(view: vc, interactor: presenter.getInteractor())
         let navVC = UINavigationController(rootViewController: vc)
 
         if let sheet = navVC.sheetPresentationController {

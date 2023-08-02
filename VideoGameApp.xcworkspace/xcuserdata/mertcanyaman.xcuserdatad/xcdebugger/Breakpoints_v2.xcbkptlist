@@ -1500,22 +1500,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CD627B5B-C119-479C-818F-D0BF890011FD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VideoGameApp/VideoGameApp/Domain/VideoGame/Scenes/VideoGameList/VideoGameListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "setImagesForSlider()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E10CB05C-15EB-4A42-B91A-CF5509B45AA8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1555,8 +1539,8 @@
             filePath = "VideoGameApp/VideoGameApp/Domain/VideoGame/Scenes/VideoGameList/VideoGameListPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "VideoGameListPresenter"
             landmarkType = "3">
             <Locations>
@@ -1761,8 +1745,8 @@
             filePath = "VideoGameApp/VideoGameApp/Domain/VideoGame/Scenes/VideoGameList/VideoGameListPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "VideoGameListPresenter"
             landmarkType = "3">
             <Locations>
@@ -1809,8 +1793,8 @@
             filePath = "VideoGameApp/VideoGameApp/Domain/VideoGame/Scenes/VideoGameList/VideoGameListPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "VideoGameListPresenter"
             landmarkType = "3">
          </BreakpointContent>
@@ -1825,8 +1809,8 @@
             filePath = "VideoGameApp/VideoGameApp/Domain/VideoGame/Scenes/VideoGameList/VideoGameListPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "presentVideoGameList(response:)"
             landmarkType = "7">
             <Locations>
