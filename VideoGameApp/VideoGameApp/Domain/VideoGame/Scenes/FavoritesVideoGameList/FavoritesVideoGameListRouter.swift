@@ -24,12 +24,16 @@ final class FavoritesVideoGameListRouter: NSObject,
             let destinationVC = segue.destination as! VideoGameDetailViewController
             var destinationDS = destinationVC.router?.dataStore
             guard let destination = destinationDS else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.modalTransitionStyle = .coverVertical
             passDataToStudentList(source: dataStore!, destination: &destinationDS!)
         } else {
             let storyboard = UIStoryboard(name: "VideoGame", bundle: nil)
             let destinationVC = storyboard
                 .instantiateViewController(withIdentifier: "VideoGameDetailViewController") as! VideoGameDetailViewController
             var destinationDS = destinationVC.router!.dataStore!
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.modalTransitionStyle = .coverVertical
             passDataToStudentList(source: dataStore!, destination: &destinationDS)
             navigateToStudentList(source: viewController!, destination: destinationVC)
         }
@@ -40,6 +44,6 @@ final class FavoritesVideoGameListRouter: NSObject,
     }
     
     func navigateToStudentList(source: FavoritesVideoGameListViewController, destination: VideoGameDetailViewController) {
-        source.show(destination, sender: nil)
+        source.present(destination, animated: true)
     }
 }
