@@ -127,10 +127,10 @@ final class PageDetailViewController: BaseViewController {
     }
     // MARK: Funcs
     @objc func handleTap() {
-        let sendVC = DetailVideoGameRouter.createModule()
-        self.navigationController?.pushViewController(sendVC, animated: true)
-        guard let idOfVideoGame = videoGame?.id else { return }
-        sendVC.presenter.setIdOfVideoGame(String(idOfVideoGame))
+//        let sendVC = DetailVideoGameRouter.createModule()
+//        self.navigationController?.pushViewController(sendVC, animated: true)
+//        guard let idOfVideoGame = videoGame?.id else { return }
+//        sendVC.presenter.setIdOfVideoGame(String(idOfVideoGame))
     }
     // MARK: - Funcs For Instance
     static func getInstance(videoGame: VideoGameNetworkModel?) -> PageDetailViewController {

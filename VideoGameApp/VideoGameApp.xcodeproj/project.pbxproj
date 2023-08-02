@@ -17,17 +17,24 @@
 		E59AFE5C2A65248F0060CA62 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */; };
 		E59AFE602A65532D0060CA62 /* VideoGameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE5E2A65532D0060CA62 /* VideoGameCollectionViewCell.swift */; };
 		E59AFE612A65532D0060CA62 /* VideoGameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59AFE5F2A65532D0060CA62 /* VideoGameCollectionViewCell.xib */; };
-		E59AFE662A65623E0060CA62 /* VideoGameCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AFE652A65623E0060CA62 /* VideoGameCellModel.swift */; };
-		E59CD2A42A67CCBB00B99CF5 /* DetailVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59CD2A22A67CCBB00B99CF5 /* DetailVideoGameViewController.swift */; };
-		E59CD2A52A67CCBB00B99CF5 /* DetailVideoGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59CD2A32A67CCBB00B99CF5 /* DetailVideoGameViewController.xib */; };
-		E59CD2A72A67CCED00B99CF5 /* DetailVideoGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59CD2A62A67CCED00B99CF5 /* DetailVideoGameRouter.swift */; };
-		E59CD2A92A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59CD2A82A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift */; };
-		E59CD2AB2A67CD0F00B99CF5 /* DetailVideoGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59CD2AA2A67CD0F00B99CF5 /* DetailVideoGameInteractor.swift */; };
 		E59CD2AD2A68053300B99CF5 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59CD2AC2A68053300B99CF5 /* UIImage+Extension.swift */; };
 		E59DA0E82A6AB15B0029AF33 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59DA0E72A6AB15B0029AF33 /* String+Extension.swift */; };
 		E5A194A22A7A3FA000F8F519 /* CreateVideoGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194A12A7A3FA000F8F519 /* CreateVideoGameList.swift */; };
+		E5A194A82A7A76D100F8F519 /* FavoritesVideoGameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194A72A7A76D100F8F519 /* FavoritesVideoGameListViewController.swift */; };
+		E5A194AA2A7A76F400F8F519 /* FavoritesVideoGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194A92A7A76F400F8F519 /* FavoritesVideoGameListInteractor.swift */; };
+		E5A194AC2A7A76FE00F8F519 /* FavoritesVideoGameListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194AB2A7A76FE00F8F519 /* FavoritesVideoGameListPresenter.swift */; };
+		E5A194AE2A7A770800F8F519 /* FavoritesVideoGameListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194AD2A7A770800F8F519 /* FavoritesVideoGameListModels.swift */; };
+		E5A194B02A7A771400F8F519 /* FavoritesVideoGameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194AF2A7A771400F8F519 /* FavoritesVideoGameListRouter.swift */; };
+		E5A194B22A7A772300F8F519 /* CreateFavoritesVideoGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194B12A7A772300F8F519 /* CreateFavoritesVideoGameList.swift */; };
+		E5A194B72A7A8C9100F8F519 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A194B62A7A8C9100F8F519 /* Splash.storyboard */; };
+		E5A194BC2A7A8FC300F8F519 /* SplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194BB2A7A8FC300F8F519 /* SplashModels.swift */; };
+		E5A194BE2A7A940900F8F519 /* NoInternetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194BD2A7A940900F8F519 /* NoInternetInteractor.swift */; };
+		E5A194C02A7A941600F8F519 /* NoInternetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194BF2A7A941600F8F519 /* NoInternetPresenter.swift */; };
+		E5A194C22A7A942200F8F519 /* NoInternetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194C12A7A942200F8F519 /* NoInternetRouter.swift */; };
+		E5A194C42A7A942D00F8F519 /* NoInternetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194C32A7A942D00F8F519 /* NoInternetModels.swift */; };
+		E5A194C62A7A968100F8F519 /* CreateSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194C52A7A968100F8F519 /* CreateSplash.swift */; };
+		E5A194C82A7A972500F8F519 /* CreateNoInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A194C72A7A972500F8F519 /* CreateNoInternet.swift */; };
 		E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679272A6123EC0036D886 /* SplashViewController.swift */; };
-		E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A679282A6123EC0036D886 /* SplashViewController.xib */; };
 		E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792B2A6124000036D886 /* SplashRouter.swift */; };
 		E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792D2A6124100036D886 /* SplashPresenter.swift */; };
 		E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6792F2A6124220036D886 /* SplashInteractor.swift */; };
@@ -35,12 +42,7 @@
 		E5A679362A6140370036D886 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679352A6140370036D886 /* LoadingView.swift */; };
 		E5A679382A6141AE0036D886 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679372A6141AE0036D886 /* LoadingShowable.swift */; };
 		E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */; };
-		E5A6793D2A6142B00036D886 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */; };
-		E5A6793F2A6143C10036D886 /* NoInternetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A6793E2A6143C10036D886 /* NoInternetPresenter.swift */; };
-		E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679402A6143D20036D886 /* NoInternetInteractor.swift */; };
-		E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A679422A6143E10036D886 /* NoInternetRouter.swift */; };
 		E5AE20982A6679F40022B4A9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */; };
-		E5C0155B2A71623D00F1F73F /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */; };
 		E5C0A6422A77974B00E99346 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */; };
 		E5C18DEE2A64349500856941 /* VideoGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C18DED2A64349500856941 /* VideoGame.storyboard */; };
 		E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C18DEF2A64387300856941 /* HomePageViewController.swift */; };
@@ -48,26 +50,12 @@
 		E5C19CBA2A6FFC23004C0929 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CB82A6FFC23004C0929 /* FiltersViewController.swift */; };
 		E5C19CBB2A6FFC23004C0929 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C19CB92A6FFC23004C0929 /* FiltersViewController.xib */; };
 		E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */; };
-		E5C9DB2F2A6912E00097FE0B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */; };
-		E5C9DB302A6912E00097FE0B /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */; };
-		E5C9DB322A6912FE0097FE0B /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */; };
-		E5C9DB342A69130D0097FE0B /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB332A69130D0097FE0B /* FavoritesPresenter.swift */; };
-		E5C9DB362A69131A0097FE0B /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */; };
-		E5C9DB392A691F3B0097FE0B /* VideoGameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */; };
-		E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */; };
 		E5C9DB3E2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */; };
 		E5C9DB422A6952350097FE0B /* MyCoreDataService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */; };
 		E5CCB80E2A5FEB6500864F1F /* VideoGameAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CCB80D2A5FEB6500864F1F /* VideoGameAPI */; };
-		E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */; };
 		E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */; };
-		E5CCB8172A600AC500864F1F /* VideoGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8162A600AC500864F1F /* VideoGameModel.swift */; };
-		E5CCB8192A60397800864F1F /* DetailVideoGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB8182A60397800864F1F /* DetailVideoGameModel.swift */; };
 		E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */; };
 		E5D348282A616D6E00322844 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D348272A616D6E00322844 /* UIView+Extension.swift */; };
-		E5D3482C2A61869600322844 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3482A2A61869600322844 /* HomeViewController.swift */; };
-		E5D3482F2A6186D500322844 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3482E2A6186D500322844 /* HomeInteractor.swift */; };
-		E5D348312A6186E500322844 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D348302A6186E500322844 /* HomePresenter.swift */; };
-		E5D348332A61871100322844 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D348322A61871100322844 /* HomeRouter.swift */; };
 		E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */; };
 		E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */; };
 		E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5D3D2C52A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld */; };
@@ -113,17 +101,24 @@
 		E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		E59AFE5E2A65532D0060CA62 /* VideoGameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameCollectionViewCell.swift; sourceTree = "<group>"; };
 		E59AFE5F2A65532D0060CA62 /* VideoGameCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoGameCollectionViewCell.xib; sourceTree = "<group>"; };
-		E59AFE652A65623E0060CA62 /* VideoGameCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameCellModel.swift; sourceTree = "<group>"; };
-		E59CD2A22A67CCBB00B99CF5 /* DetailVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGameViewController.swift; sourceTree = "<group>"; };
-		E59CD2A32A67CCBB00B99CF5 /* DetailVideoGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVideoGameViewController.xib; sourceTree = "<group>"; };
-		E59CD2A62A67CCED00B99CF5 /* DetailVideoGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGameRouter.swift; sourceTree = "<group>"; };
-		E59CD2A82A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGamePresenter.swift; sourceTree = "<group>"; };
-		E59CD2AA2A67CD0F00B99CF5 /* DetailVideoGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGameInteractor.swift; sourceTree = "<group>"; };
 		E59CD2AC2A68053300B99CF5 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E59DA0E72A6AB15B0029AF33 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E5A194A12A7A3FA000F8F519 /* CreateVideoGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVideoGameList.swift; sourceTree = "<group>"; };
+		E5A194A72A7A76D100F8F519 /* FavoritesVideoGameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVideoGameListViewController.swift; sourceTree = "<group>"; };
+		E5A194A92A7A76F400F8F519 /* FavoritesVideoGameListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVideoGameListInteractor.swift; sourceTree = "<group>"; };
+		E5A194AB2A7A76FE00F8F519 /* FavoritesVideoGameListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVideoGameListPresenter.swift; sourceTree = "<group>"; };
+		E5A194AD2A7A770800F8F519 /* FavoritesVideoGameListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVideoGameListModels.swift; sourceTree = "<group>"; };
+		E5A194AF2A7A771400F8F519 /* FavoritesVideoGameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVideoGameListRouter.swift; sourceTree = "<group>"; };
+		E5A194B12A7A772300F8F519 /* CreateFavoritesVideoGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoritesVideoGameList.swift; sourceTree = "<group>"; };
+		E5A194B62A7A8C9100F8F519 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		E5A194BB2A7A8FC300F8F519 /* SplashModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModels.swift; sourceTree = "<group>"; };
+		E5A194BD2A7A940900F8F519 /* NoInternetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetInteractor.swift; sourceTree = "<group>"; };
+		E5A194BF2A7A941600F8F519 /* NoInternetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPresenter.swift; sourceTree = "<group>"; };
+		E5A194C12A7A942200F8F519 /* NoInternetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetRouter.swift; sourceTree = "<group>"; };
+		E5A194C32A7A942D00F8F519 /* NoInternetModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetModels.swift; sourceTree = "<group>"; };
+		E5A194C52A7A968100F8F519 /* CreateSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSplash.swift; sourceTree = "<group>"; };
+		E5A194C72A7A972500F8F519 /* CreateNoInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoInternet.swift; sourceTree = "<group>"; };
 		E5A679272A6123EC0036D886 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		E5A679282A6123EC0036D886 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		E5A6792B2A6124000036D886 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		E5A6792D2A6124100036D886 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		E5A6792F2A6124220036D886 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
@@ -131,12 +126,7 @@
 		E5A679352A6140370036D886 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E5A679372A6141AE0036D886 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
 		E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
-		E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
-		E5A6793E2A6143C10036D886 /* NoInternetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPresenter.swift; sourceTree = "<group>"; };
-		E5A679402A6143D20036D886 /* NoInternetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetInteractor.swift; sourceTree = "<group>"; };
-		E5A679422A6143E10036D886 /* NoInternetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetRouter.swift; sourceTree = "<group>"; };
 		E5AE20972A6679F30022B4A9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
-		E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		E5C0A6412A77974B00E99346 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		E5C18DED2A64349500856941 /* VideoGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoGame.storyboard; sourceTree = "<group>"; };
 		E5C18DEF2A64387300856941 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -144,26 +134,12 @@
 		E5C19CB82A6FFC23004C0929 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		E5C19CB92A6FFC23004C0929 /* FiltersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
 		E5C9DB2A2A68F9500097FE0B /* UICollectionView+Extension.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift.swift"; sourceTree = "<group>"; };
-		E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
-		E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
-		E5C9DB332A69130D0097FE0B /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
-		E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
-		E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameTabBarController.swift; sourceTree = "<group>"; };
-		E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		E5C9DB3D2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
 		E5C9DB412A6952350097FE0B /* MyCoreDataService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCoreDataService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB80B2A5FBDD800864F1F /* VideoGameAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoGameAPI; path = ../VideoGameAPI; sourceTree = "<group>"; };
-		E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoGameService+Extension.swift"; sourceTree = "<group>"; };
 		E5CCB8132A5FEE7700864F1F /* GetListVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVideoGameRequest.swift; sourceTree = "<group>"; };
-		E5CCB8162A600AC500864F1F /* VideoGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameModel.swift; sourceTree = "<group>"; };
-		E5CCB8182A60397800864F1F /* DetailVideoGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoGameModel.swift; sourceTree = "<group>"; };
 		E5CCB81A2A60410200864F1F /* GetDetailVideoGameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailVideoGameRequest.swift; sourceTree = "<group>"; };
 		E5D348272A616D6E00322844 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		E5D3482A2A61869600322844 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		E5D3482E2A6186D500322844 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
-		E5D348302A6186E500322844 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		E5D348322A61871100322844 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		E5D3D2B92A5E983A00B98AD1 /* Video Games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Games.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D3D2BC2A5E983A00B98AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3D2BE2A5E983A00B98AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,33 +198,6 @@
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
-		E59AFE5D2A6553020060CA62 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		E59AFE642A6561B10060CA62 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E59AFE652A65623E0060CA62 /* VideoGameCellModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E59CD2A12A67CC7C00B99CF5 /* DetailVideoGame */ = {
-			isa = PBXGroup;
-			children = (
-				E59CD2AA2A67CD0F00B99CF5 /* DetailVideoGameInteractor.swift */,
-				E59CD2A82A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift */,
-				E59CD2A62A67CCED00B99CF5 /* DetailVideoGameRouter.swift */,
-				E59CD2A22A67CCBB00B99CF5 /* DetailVideoGameViewController.swift */,
-				E59CD2A32A67CCBB00B99CF5 /* DetailVideoGameViewController.xib */,
-			);
-			path = DetailVideoGame;
-			sourceTree = "<group>";
-		};
 		E5A194A32A7A456200F8F519 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,37 +225,75 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		E5A679252A6121F30036D886 /* Module */ = {
+		E5A194A62A7A766E00F8F519 /* FavoritesVideoGameList */ = {
 			isa = PBXGroup;
 			children = (
-				E5A679312A6130060036D886 /* Base */,
-				E59CD2A12A67CC7C00B99CF5 /* DetailVideoGame */,
-				E5C9DB2C2A6912740097FE0B /* Favorites */,
-				E5D348292A61867F00322844 /* Home */,
-				E5A679392A61427B0036D886 /* NoInternet */,
-				E5A679262A6122160036D886 /* Splash */,
-				E5C9DB372A691EF90097FE0B /* TabBar */,
+				E5A194B12A7A772300F8F519 /* CreateFavoritesVideoGameList.swift */,
+				E5A194A92A7A76F400F8F519 /* FavoritesVideoGameListInteractor.swift */,
+				E5A194AD2A7A770800F8F519 /* FavoritesVideoGameListModels.swift */,
+				E5A194AB2A7A76FE00F8F519 /* FavoritesVideoGameListPresenter.swift */,
+				E5A194AF2A7A771400F8F519 /* FavoritesVideoGameListRouter.swift */,
+				E5A194A72A7A76D100F8F519 /* FavoritesVideoGameListViewController.swift */,
 			);
-			path = Module;
+			path = FavoritesVideoGameList;
 			sourceTree = "<group>";
 		};
-		E5A679262A6122160036D886 /* Splash */ = {
+		E5A194B42A7A8C4700F8F519 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				E5A194B62A7A8C9100F8F519 /* Splash.storyboard */,
+				E5A194B52A7A8C6F00F8F519 /* Models */,
+				E5A194B82A7A8C9800F8F519 /* Scenes */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		E5A194B52A7A8C6F00F8F519 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5A194B82A7A8C9800F8F519 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E5A194BA2A7A8D6600F8F519 /* NoInternet */,
+				E5A194B92A7A8D5E00F8F519 /* Splash */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E5A194B92A7A8D5E00F8F519 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E5A194C52A7A968100F8F519 /* CreateSplash.swift */,
 				E5A6792F2A6124220036D886 /* SplashInteractor.swift */,
+				E5A194BB2A7A8FC300F8F519 /* SplashModels.swift */,
 				E5A6792D2A6124100036D886 /* SplashPresenter.swift */,
 				E5A6792B2A6124000036D886 /* SplashRouter.swift */,
 				E5A679272A6123EC0036D886 /* SplashViewController.swift */,
-				E5A679282A6123EC0036D886 /* SplashViewController.xib */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		E5A194BA2A7A8D6600F8F519 /* NoInternet */ = {
+			isa = PBXGroup;
+			children = (
+				E5A194C72A7A972500F8F519 /* CreateNoInternet.swift */,
+				E5A194BD2A7A940900F8F519 /* NoInternetInteractor.swift */,
+				E5A194C32A7A942D00F8F519 /* NoInternetModels.swift */,
+				E5A194BF2A7A941600F8F519 /* NoInternetPresenter.swift */,
+				E5A194C12A7A942200F8F519 /* NoInternetRouter.swift */,
+				E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */,
+			);
+			path = NoInternet;
 			sourceTree = "<group>";
 		};
 		E5A679312A6130060036D886 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				E5A679322A61302E0036D886 /* BaseViewController.swift */,
-				E5C0155A2A71623D00F1F73F /* BaseInteractor.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -317,46 +304,6 @@
 				E5A679352A6140370036D886 /* LoadingView.swift */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		E5A679392A61427B0036D886 /* NoInternet */ = {
-			isa = PBXGroup;
-			children = (
-				E5A679402A6143D20036D886 /* NoInternetInteractor.swift */,
-				E5A6793E2A6143C10036D886 /* NoInternetPresenter.swift */,
-				E5A679422A6143E10036D886 /* NoInternetRouter.swift */,
-				E5A6793A2A6142B00036D886 /* NoInternetViewController.swift */,
-				E5A6793B2A6142B00036D886 /* NoInternetViewController.xib */,
-			);
-			path = NoInternet;
-			sourceTree = "<group>";
-		};
-		E5C19CB72A6FF537004C0929 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E5C9DB2C2A6912740097FE0B /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				E5C9DB312A6912FE0097FE0B /* FavoritesInteractor.swift */,
-				E5C9DB332A69130D0097FE0B /* FavoritesPresenter.swift */,
-				E5C9DB352A69131A0097FE0B /* FavoritesRouter.swift */,
-				E5C9DB2D2A6912E00097FE0B /* FavoritesViewController.swift */,
-				E5C9DB2E2A6912E00097FE0B /* FavoritesViewController.xib */,
-			);
-			path = Favorites;
-			sourceTree = "<group>";
-		};
-		E5C9DB372A691EF90097FE0B /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				E5C9DB382A691F3B0097FE0B /* VideoGameTabBarController.swift */,
-				E5C9DB3A2A691FA50097FE0B /* TabBarRouter.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		E5CCB80C2A5FEB6500864F1F /* Frameworks */ = {
@@ -377,7 +324,6 @@
 				E59CD2AC2A68053300B99CF5 /* UIImage+Extension.swift */,
 				E59AFE5B2A65248F0060CA62 /* UIImageView+Extension.swift */,
 				E5D348272A616D6E00322844 /* UIView+Extension.swift */,
-				E5CCB8102A5FED1800864F1F /* VideoGameService+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,29 +338,6 @@
 				E53EE7BE2A77FB21008FF5A6 /* ImageProvider.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		E5CCB8152A600AB100864F1F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E5CCB8162A600AC500864F1F /* VideoGameModel.swift */,
-				E5CCB8182A60397800864F1F /* DetailVideoGameModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E5D348292A61867F00322844 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				E5C19CB72A6FF537004C0929 /* View */,
-				E59AFE5D2A6553020060CA62 /* Cell */,
-				E59AFE642A6561B10060CA62 /* Model */,
-				E5D3482E2A6186D500322844 /* HomeInteractor.swift */,
-				E5D348302A6186E500322844 /* HomePresenter.swift */,
-				E5D348322A61871100322844 /* HomeRouter.swift */,
-				E5D3482A2A61869600322844 /* HomeViewController.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		E5D3D2B02A5E983A00B98AD1 = {
@@ -443,16 +366,14 @@
 		E5D3D2BB2A5E983A00B98AD1 /* VideoGameApp */ = {
 			isa = PBXGroup;
 			children = (
-				E5FE74672A783D6E002D355F /* Domain */,
 				E5D3D2EF2A5E984C00B98AD1 /* App */,
 				E5A679342A61401C0036D886 /* CustomView */,
+				E5FE74672A783D6E002D355F /* Domain */,
 				E5CCB80F2A5FECD100864F1F /* Extensions */,
 				E5CCB8122A5FEE5300864F1F /* Helper */,
-				E5CCB8152A600AB100864F1F /* Model */,
-				E5A679252A6121F30036D886 /* Module */,
-				E5495BB92A5EE4CA000CED59 /* SwiftGen */,
-				E5D3D2CA2A5E983B00B98AD1 /* LaunchScreen.storyboard */,
 				E5D3D2CD2A5E983B00B98AD1 /* Info.plist */,
+				E5D3D2CA2A5E983B00B98AD1 /* LaunchScreen.storyboard */,
+				E5495BB92A5EE4CA000CED59 /* SwiftGen */,
 			);
 			path = VideoGameApp;
 			sourceTree = "<group>";
@@ -490,6 +411,8 @@
 		E5FE74672A783D6E002D355F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				E5A679312A6130060036D886 /* Base */,
+				E5A194B42A7A8C4700F8F519 /* Splash */,
 				E5FE74682A783DA0002D355F /* VideoGame */,
 			);
 			path = Domain;
@@ -517,6 +440,7 @@
 		E5FE746A2A783E4C002D355F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E5A194A62A7A766E00F8F519 /* FavoritesVideoGameList */,
 				E5FE746F2A783F71002D355F /* VideoGameList */,
 			);
 			path = Scenes;
@@ -526,14 +450,14 @@
 			isa = PBXGroup;
 			children = (
 				E5A194A52A7A6C7C00F8F519 /* Cell */,
-				E5A194A42A7A6C5E00F8F519 /* Slider */,
 				E5A194A32A7A456200F8F519 /* Filter */,
+				E5A194A42A7A6C5E00F8F519 /* Slider */,
+				E5A194A12A7A3FA000F8F519 /* CreateVideoGameList.swift */,
 				E5FE74722A78400F002D355F /* VideoGameListInteractor.swift */,
-				E5FE74742A78401D002D355F /* VideoGameListPresenter.swift */,
 				E5FE74762A784032002D355F /* VideoGameListModels.swift */,
+				E5FE74742A78401D002D355F /* VideoGameListPresenter.swift */,
 				E5FE74782A784056002D355F /* VideoGameListRouter.swift */,
 				E5FE747C2A784094002D355F /* VideoGameListViewController.swift */,
-				E5A194A12A7A3FA000F8F519 /* CreateVideoGameList.swift */,
 			);
 			path = VideoGameList;
 			sourceTree = "<group>";
@@ -651,17 +575,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59AFE612A65532D0060CA62 /* VideoGameCollectionViewCell.xib in Resources */,
-				E59CD2A52A67CCBB00B99CF5 /* DetailVideoGameViewController.xib in Resources */,
 				E5D3D2CC2A5E983B00B98AD1 /* LaunchScreen.storyboard in Resources */,
 				E59AFE582A6516490060CA62 /* Color.xcassets in Resources */,
 				E5D3D2C92A5E983B00B98AD1 /* Assets.xcassets in Resources */,
-				E5C9DB302A6912E00097FE0B /* FavoritesViewController.xib in Resources */,
 				E5C18DEE2A64349500856941 /* VideoGame.storyboard in Resources */,
-				E5A6793D2A6142B00036D886 /* NoInternetViewController.xib in Resources */,
 				E5495BBE2A5EE4CA000CED59 /* swiftgen.config.yml in Resources */,
-				E5A6792A2A6123EC0036D886 /* SplashViewController.xib in Resources */,
 				E5C19CBB2A6FFC23004C0929 /* FiltersViewController.xib in Resources */,
 				E5495BBF2A5EE4CA000CED59 /* template.stencil in Resources */,
+				E5A194B72A7A8C9100F8F519 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,54 +680,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59AFE602A65532D0060CA62 /* VideoGameCollectionViewCell.swift in Sources */,
-				E5A679432A6143E10036D886 /* NoInternetRouter.swift in Sources */,
 				E59AFE5A2A6522FB0060CA62 /* Collection+Extension.swift in Sources */,
-				E5D3482F2A6186D500322844 /* HomeInteractor.swift in Sources */,
 				E5A679302A6124220036D886 /* SplashInteractor.swift in Sources */,
 				E5A6792C2A6124000036D886 /* SplashRouter.swift in Sources */,
 				E5FE747D2A784094002D355F /* VideoGameListViewController.swift in Sources */,
-				E5CCB8172A600AC500864F1F /* VideoGameModel.swift in Sources */,
 				E5FE74732A78400F002D355F /* VideoGameListInteractor.swift in Sources */,
-				E5C9DB322A6912FE0097FE0B /* FavoritesInteractor.swift in Sources */,
 				E5A679382A6141AE0036D886 /* LoadingShowable.swift in Sources */,
-				E5C9DB3B2A691FA50097FE0B /* TabBarRouter.swift in Sources */,
+				E5A194C82A7A972500F8F519 /* CreateNoInternet.swift in Sources */,
 				E5A194A22A7A3FA000F8F519 /* CreateVideoGameList.swift in Sources */,
 				E5D3D2BD2A5E983A00B98AD1 /* AppDelegate.swift in Sources */,
+				E5A194C02A7A941600F8F519 /* NoInternetPresenter.swift in Sources */,
 				E5C9DB3E2A6950330097FE0B /* CoreDataReturnPersistentContainer.swift in Sources */,
 				E5A679332A61302E0036D886 /* BaseViewController.swift in Sources */,
-				E5D3482C2A61869600322844 /* HomeViewController.swift in Sources */,
-				E5CCB8192A60397800864F1F /* DetailVideoGameModel.swift in Sources */,
-				E5CCB8112A5FED1800864F1F /* VideoGameService+Extension.swift in Sources */,
 				E5C19CBA2A6FFC23004C0929 /* FiltersViewController.swift in Sources */,
 				E59DA0E82A6AB15B0029AF33 /* String+Extension.swift in Sources */,
+				E5A194B22A7A772300F8F519 /* CreateFavoritesVideoGameList.swift in Sources */,
 				E5FE74752A78401D002D355F /* VideoGameListPresenter.swift in Sources */,
+				E5A194BE2A7A940900F8F519 /* NoInternetInteractor.swift in Sources */,
 				E5CCB81B2A60410200864F1F /* GetDetailVideoGameRequest.swift in Sources */,
+				E5A194AC2A7A76FE00F8F519 /* FavoritesVideoGameListPresenter.swift in Sources */,
+				E5A194BC2A7A8FC300F8F519 /* SplashModels.swift in Sources */,
+				E5A194C62A7A968100F8F519 /* CreateSplash.swift in Sources */,
 				E5C18DF22A6438AE00856941 /* PageDetailViewController.swift in Sources */,
-				E59CD2A72A67CCED00B99CF5 /* DetailVideoGameRouter.swift in Sources */,
 				E59AFE5C2A65248F0060CA62 /* UIImageView+Extension.swift in Sources */,
-				E5C9DB362A69131A0097FE0B /* FavoritesRouter.swift in Sources */,
 				E53EE7BF2A77FB21008FF5A6 /* ImageProvider.swift in Sources */,
 				E5FE746C2A783EB6002D355F /* ListVideoGameNetworkModel.swift in Sources */,
-				E59CD2A92A67CCFF00B99CF5 /* DetailVideoGamePresenter.swift in Sources */,
-				E5C9DB2F2A6912E00097FE0B /* FavoritesViewController.swift in Sources */,
+				E5A194A82A7A76D100F8F519 /* FavoritesVideoGameListViewController.swift in Sources */,
+				E5A194AA2A7A76F400F8F519 /* FavoritesVideoGameListInteractor.swift in Sources */,
 				E5C9DB422A6952350097FE0B /* MyCoreDataService+Extension.swift in Sources */,
-				E5C9DB342A69130D0097FE0B /* FavoritesPresenter.swift in Sources */,
+				E5A194B02A7A771400F8F519 /* FavoritesVideoGameListRouter.swift in Sources */,
 				E5A679362A6140370036D886 /* LoadingView.swift in Sources */,
 				E5A6793C2A6142B00036D886 /* NoInternetViewController.swift in Sources */,
-				E59CD2AB2A67CD0F00B99CF5 /* DetailVideoGameInteractor.swift in Sources */,
-				E5C0155B2A71623D00F1F73F /* BaseInteractor.swift in Sources */,
+				E5A194C22A7A942200F8F519 /* NoInternetRouter.swift in Sources */,
 				E5AE20982A6679F40022B4A9 /* UIApplication+Extension.swift in Sources */,
-				E5D348332A61871100322844 /* HomeRouter.swift in Sources */,
-				E5A679412A6143D20036D886 /* NoInternetInteractor.swift in Sources */,
-				E59AFE662A65623E0060CA62 /* VideoGameCellModel.swift in Sources */,
-				E5D348312A6186E500322844 /* HomePresenter.swift in Sources */,
 				E5D3D2BF2A5E983A00B98AD1 /* SceneDelegate.swift in Sources */,
-				E5A6793F2A6143C10036D886 /* NoInternetPresenter.swift in Sources */,
 				E5FE74792A784056002D355F /* VideoGameListRouter.swift in Sources */,
 				E5D348282A616D6E00322844 /* UIView+Extension.swift in Sources */,
-				E59CD2A42A67CCBB00B99CF5 /* DetailVideoGameViewController.swift in Sources */,
-				E5C9DB392A691F3B0097FE0B /* VideoGameTabBarController.swift in Sources */,
 				E5C18DF02A64387300856941 /* HomePageViewController.swift in Sources */,
+				E5A194C42A7A942D00F8F519 /* NoInternetModels.swift in Sources */,
 				E5FE74772A784032002D355F /* VideoGameListModels.swift in Sources */,
 				E5CCB8142A5FEE7700864F1F /* GetListVideoGameRequest.swift in Sources */,
 				E5D3D2C72A5E983A00B98AD1 /* VideoGameApp.xcdatamodeld in Sources */,
@@ -814,6 +725,7 @@
 				E5FE746E2A783F25002D355F /* DetailVideoGameNetworkModel.swift in Sources */,
 				E59CD2AD2A68053300B99CF5 /* UIImage+Extension.swift in Sources */,
 				E5A679292A6123EC0036D886 /* SplashViewController.swift in Sources */,
+				E5A194AE2A7A770800F8F519 /* FavoritesVideoGameListModels.swift in Sources */,
 				E5A6792E2A6124100036D886 /* SplashPresenter.swift in Sources */,
 				E5C9DB2B2A68F9500097FE0B /* UICollectionView+Extension.swift.swift in Sources */,
 			);
@@ -989,7 +901,7 @@
 				INFOPLIST_FILE = VideoGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = VideoGame;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1016,7 +928,7 @@
 				INFOPLIST_FILE = VideoGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = VideoGame;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

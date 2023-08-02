@@ -238,7 +238,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="IRQ-9t-kv0">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kcG-WL-RQ8" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="kcG-WL-RQ8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9sK-3G-QQ2">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -258,7 +258,7 @@
         <!--Item-->
         <scene sceneID="kKl-9C-OVV">
             <objects>
-                <viewController id="EcQ-FV-Cf6" customClass="FavoritesViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EcQ-FV-Cf6" customClass="FavoritesVideoGameListViewController" customModule="Video_Games" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="FRl-Wq-ygx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,6 +296,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="star" id="90S-dq-wS8"/>
+                    <connections>
+                        <outlet property="videoGamesCollectionView" destination="1Cq-PC-51b" id="XT8-mR-egR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ob-0b-Db5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

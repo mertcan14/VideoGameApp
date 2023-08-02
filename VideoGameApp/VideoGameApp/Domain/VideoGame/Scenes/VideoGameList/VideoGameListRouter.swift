@@ -11,7 +11,9 @@ protocol VideoGameListRoutingLogic {}
 
 protocol VideoGameListDataPassing {}
 
-final class VideoGameListRouter: NSObject, VideoGameListRoutingLogic, VideoGameListDataPassing {
+final class VideoGameListRouter: NSObject,
+                                 VideoGameListRoutingLogic,
+                                 VideoGameListDataPassing {
   weak var viewController: VideoGameListViewController?
   var dataStore: VideoGameListDataStore?
 }

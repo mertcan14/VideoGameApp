@@ -5,7 +5,6 @@
 //  Created by mertcan YAMAN on 31.07.2023.
 //
 
-import UIKit
 import VideoGameAPI
 
 protocol VideoGameListBusinessLogic {
@@ -20,7 +19,6 @@ protocol VideoGameListDataStore {
 
 final class VideoGameListInteractor: VideoGameListDataStore {
     var presenter: VideoGameListPresentationLogic?
-    var videoGames: VideoGameResult?
     lazy var request = GetListVideoGameRequest(urlConst: nil)
 }
 
