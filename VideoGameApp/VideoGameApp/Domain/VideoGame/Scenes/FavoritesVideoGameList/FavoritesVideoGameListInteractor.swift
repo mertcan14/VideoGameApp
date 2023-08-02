@@ -10,17 +10,23 @@ import MyCoreData
 
 protocol FavoritesVideoGameListBusinessLogic {
     func fetchFavoritesVideoGameList()
+    func setGameId(_ id: String)
 }
 
 protocol FavoritesVideoGameListDataStore {
-    
+    var gameID: String { get set }
 }
 
 final class FavoritesVideoGameListInteractor: FavoritesVideoGameListDataStore {
+    var gameID: String = ""
     var presenter: FavoritesVideoGameListPresentationLogic?
 }
 
 extension FavoritesVideoGameListInteractor: FavoritesVideoGameListBusinessLogic {
+    func setGameId(_ id: String) {
+        gameID = id
+    }
+    
     func fetchFavoritesVideoGameList() {
         MyCoreDataService.shared.getVideoGames { [weak self] result in
             guard let self else { return }

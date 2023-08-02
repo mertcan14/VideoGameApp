@@ -56,6 +56,15 @@ final class FavoritesVideoGameListViewController: BaseViewController {
         //presenter.viewWillAppear()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if let scene = segue.identifier {
+        let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+        if let router = router, router.responds(to: selector) {
+          router.perform(selector, with: segue)
+        }
+      }
+    }
+    
     override func viewDidLayoutSubviews() {
         updateCollectionViewItemSize()
     }
@@ -113,7 +122,9 @@ extension FavoritesVideoGameListViewController: FavoritesVideoGameListDisplayLog
 // MARK: - Extension UICollectionViewDelegate
 extension FavoritesVideoGameListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //self.presenter.goDetailScreen(indexPath.row)
+        guard let id = videoGames[safe: indexPath.row]?.id else { return }
+        interactor?.setGameId(String(id))
+        router?.routeToDetailVideoGame(segue: nil)
     }
 }
 // MARK: - Extension UICollectionViewDataSource
