@@ -11,18 +11,24 @@ protocol VideoGameListBusinessLogic {
     func fetchVideoGameList()
     func fetchNextPage(url: String)
     func fetchWithParams(params: [String: String])
+    func setGameId(_ id: String)
 }
 
 protocol VideoGameListDataStore {
-
+    var gameID: String { get set }
 }
 
 final class VideoGameListInteractor: VideoGameListDataStore {
     var presenter: VideoGameListPresentationLogic?
+    var gameID: String = ""
     lazy var request = GetListVideoGameRequest(urlConst: nil)
 }
 
 extension VideoGameListInteractor: VideoGameListBusinessLogic {
+    func setGameId(_ id: String) {
+        gameID = id
+    }
+    
     func fetchWithParams(params: [String: String]) {
         NetworkService.shared.fetchFromAPI(GetListVideoGameRequest(params: params)) { [weak self] result in
             guard let self else { return }

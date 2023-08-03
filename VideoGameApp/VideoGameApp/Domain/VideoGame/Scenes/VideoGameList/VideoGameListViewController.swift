@@ -83,7 +83,9 @@ final class VideoGameListViewController: BaseViewController {
 
 extension VideoGameListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // self.presenter.goDetailScreen(indexPath.row, isSearching)
+        guard let id = videoGames[safe: indexPath.row + sliderCount]?.id else { return }
+        interactor?.setGameId(String(id))
+        router?.routeToDetailVideoGame(segue: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
