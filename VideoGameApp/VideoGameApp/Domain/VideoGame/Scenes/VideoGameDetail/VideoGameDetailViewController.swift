@@ -64,80 +64,29 @@ final class VideoGameDetailViewController: BaseViewController {
         self.configBackButton()
         self.configLikeButton()
         self.configureWebOfGameImageView()
+        self.setDeviceOrientation()
         self.interactor?.fetchVideoGameDetail()
         self.interactor?.fetchIsLikeVideoGame()
-        
-        landScapeAction = {
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                infoStackView.removeFromSuperview()
-                upperStackView.insertArrangedSubview(infoStackView, at: 1)
-            }
-        }
-        
-        portraitAction = {
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                self.infoStackView.removeFromSuperview()
-                self.lowerStackView.insertArrangedSubview(infoStackView, at: 0)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.showLoading()
+        if videoGame == nil {
+            showLoading()
+        }
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         checkDeviceOrientation(landScapeAction, portraitAction)
     }
-    // MARK: - Private Funcs
-    private func hideMetacriticView(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.metacriticView.isHidden = isHide
-        }
-    }
-    
-    private func hideReleasedView(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.releasedView.isHidden = isHide
-        }
-    }
-    
-    private func setBackImageView(_ isDark: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            self.backButtonImageView.image = isDark ? self.arrowImageIsDark
-            : self.arrowImageNoDark
-        }
-    }
-    
-    private func setLikeImageView(_ isDark: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            self.likeButtonImageView.image = isDark ? self.likeImageIsDark
-            : self.likeImageNoDark
-        }
-    }
-    
+    // MARK: - @objc Funcs
     @objc private func goBackScreen() {
         dismiss(animated: true)
     }
     
     @objc private func goWeb() {
-        //presenter.goWebsite()
-    }
-    
-    private func convertVideoGameToDict() -> [String: Any]? {
-        guard let id = videoGame?.id else { return nil }
-        let objDict: [String: Any] = [
-            "id": id,
-            "name": videoGame?.name ?? "",
-            "background_image": videoGame?.backgroundImage ?? "",
-            "rating": videoGame?.rating ?? 0.0,
-            "released": videoGame?.released ?? ""
-        ]
-        return objDict
+        guard let urlString = videoGame?.website,
+              let url = URL(string: urlString)  else { return }
+        router?.routeToWeb(url: url)
     }
     
     @objc private func liked() {
@@ -156,97 +105,6 @@ final class VideoGameDetailViewController: BaseViewController {
                 cancelAction: nil)
         }
     }
-    
-    func hideWebOfGameImageView(_ isHide: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.webOfGameImageView.isHidden = isHide
-        }
-    }
-    
-    func isLikedVideoGame() {
-        DispatchQueue.main.async { [weak self] in
-            self?.likeButtonImageView.image = self?.likedImage
-        }
-    }
-    
-    func setImageView(_ image: String?) {
-        guard let image, let url = URL(string: image) else {
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                self.gameImageView.image = notFoundImage
-                setLikedButton()
-                self.setBackImageView(false)
-                self.gameImageView.contentMode = .scaleAspectFill
-            }
-            return
-        }
-        self.gameImageView.downloadedWithCompletion(from: url) {[weak self] image in
-            guard let self else { return }
-            guard let image else {
-                self.gameImageView.image = notFoundImage
-                return
-            }
-            self.setLikedButton()
-            self.setBackImageView(image.isDark(.leftTop))
-            self.gameImageView.contentMode = .scaleAspectFill
-        }
-    }
-    
-    func setGameName(_ name: String?) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.checkDeviceOrientation(self.landScapeAction, self.portraitAction)
-            self.gameNameLabel.text = name
-        }
-    }
-    
-    func setReleasedDate(_ date: String?) {
-        guard let date else {
-            hideReleasedView(true)
-            return
-        }
-        DispatchQueue.main.async { [weak self] in
-            self?.realesedDateLabel.text = date
-        }
-    }
-    
-    func setMetacriticRate(_ metaCriticRate: Int?) {
-        guard let point = metaCriticRate else {
-            hideMetacriticView(true)
-            return
-        }
-        DispatchQueue.main.async { [weak self] in
-            self?.metacriticRateLabel.text = "\(point)"
-        }
-    }
-    
-    private func checkWebOfGame() {
-        self.hideWebOfGameImageView(videoGame?.website == "")
-    }
-    
-    private func setLikedButton() {
-        if isLiked {
-            isLikedVideoGame()
-        } else {
-            guard let isDark = gameImageView.image?.isDark(.bottomRight) else { return }
-            self.setLikeImageView(isDark)
-        }
-    }
-    
-    func setDescription(_ description: String?) {
-        guard let description else {
-            self.descriptionLabel.text = "No description."
-            return
-        }
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            self.descriptionLabel.attributedText = description.htmlToAttributedString
-            self.descriptionLabel.font = self.descriptionLabel.font.withSize(self.descriptionLabelFontSize)
-            if self.traitCollection.userInterfaceStyle == .dark {
-                self.descriptionLabel.textColor = .white
-            }
-        }
-    }
 }
 
 extension VideoGameDetailViewController: VideoGameDetailDisplayLogic {
@@ -262,7 +120,6 @@ extension VideoGameDetailViewController: VideoGameDetailDisplayLogic {
     
     func displayVideoGameList(viewModel: VideoGameDetailModels.FetchVideoGameDetail.ViewModel) {
         self.videoGame = viewModel.results
-        self.hideLoading()
         self.setImageView(videoGame?.backgroundImage)
         self.checkWebOfGame()
         self.setDescription(videoGame?.description)
@@ -287,5 +144,158 @@ extension VideoGameDetailViewController {
     private func configLikeButton() {
         let likeButton = UITapGestureRecognizer(target: self, action: #selector(liked))
         likeButtonImageView.addGestureRecognizer(likeButton)
+    }
+}
+// MARK: Extension Set Funcs
+extension VideoGameDetailViewController {
+    private func setDeviceOrientation() {
+        landScapeAction = {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                infoStackView.removeFromSuperview()
+                upperStackView.insertArrangedSubview(infoStackView, at: 1)
+            }
+        }
+        
+        portraitAction = {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.infoStackView.removeFromSuperview()
+                self.lowerStackView.insertArrangedSubview(infoStackView, at: 0)
+            }
+        }
+    }
+    
+    private func setDescription(_ description: String?) {
+        guard let description else {
+            self.descriptionLabel.text = "No description."
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.descriptionLabel.attributedText = description.htmlToAttributedString
+            self.descriptionLabel.font = self.descriptionLabel.font.withSize(self.descriptionLabelFontSize)
+            if self.traitCollection.userInterfaceStyle == .dark {
+                self.descriptionLabel.textColor = .white
+            }
+        }
+    }
+    
+    private func setBackImageView(_ isDark: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.backButtonImageView.image = isDark ? self.arrowImageIsDark
+            : self.arrowImageNoDark
+        }
+    }
+    
+    private func setLikeImageView(_ isDark: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.likeButtonImageView.image = isDark ? self.likeImageIsDark
+            : self.likeImageNoDark
+        }
+    }
+    
+    private func setImageView(_ image: String?) {
+        guard let image, let url = URL(string: image) else {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.gameImageView.image = notFoundImage
+                setLikedButton()
+                self.setBackImageView(false)
+                self.gameImageView.contentMode = .scaleAspectFill
+            }
+            return
+        }
+        self.gameImageView.downloadedWithCompletion(from: url) {[weak self] image in
+            guard let self else { return }
+            guard let image else {
+                self.gameImageView.image = notFoundImage
+                return
+            }
+            self.setLikedButton()
+            self.setBackImageView(image.isDark(.leftTop))
+            self.gameImageView.contentMode = .scaleAspectFill
+        }
+    }
+    
+    private func setGameName(_ name: String?) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.checkDeviceOrientation(self.landScapeAction, self.portraitAction)
+            self.gameNameLabel.text = name
+        }
+    }
+    
+    private func setReleasedDate(_ date: String?) {
+        guard let date else {
+            hideReleasedView(true)
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.realesedDateLabel.text = date
+        }
+    }
+    
+    private func setMetacriticRate(_ metaCriticRate: Int?) {
+        guard let point = metaCriticRate else {
+            hideMetacriticView(true)
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.metacriticRateLabel.text = "\(point)"
+        }
+    }
+    
+    private func setLikedButton() {
+        if isLiked {
+            isLikedVideoGame()
+        } else {
+            guard let isDark = gameImageView.image?.isDark(.bottomRight) else { return }
+            self.setLikeImageView(isDark)
+        }
+    }
+}
+// MARK: Extension Private Funcs
+extension VideoGameDetailViewController {
+    private func hideMetacriticView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.metacriticView.isHidden = isHide
+        }
+    }
+    
+    private func hideReleasedView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.releasedView.isHidden = isHide
+        }
+    }
+    
+    private func convertVideoGameToDict() -> [String: Any]? {
+        guard let id = videoGame?.id else { return nil }
+        let objDict: [String: Any] = [
+            "id": id,
+            "name": videoGame?.name ?? "",
+            "background_image": videoGame?.backgroundImage ?? "",
+            "rating": videoGame?.rating ?? 0.0,
+            "released": videoGame?.released ?? ""
+        ]
+        return objDict
+    }
+    
+    private func hideWebOfGameImageView(_ isHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.webOfGameImageView.isHidden = isHide
+        }
+    }
+    
+    private func isLikedVideoGame() {
+        DispatchQueue.main.async { [weak self] in
+            self?.likeButtonImageView.image = self?.likedImage
+        }
+    }
+    
+    private func checkWebOfGame() {
+        self.hideWebOfGameImageView(videoGame?.website == "")
     }
 }

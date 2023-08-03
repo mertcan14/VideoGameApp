@@ -58,7 +58,7 @@ extension VideoGameDetailInteractor: VideoGameDetailBusinessLogic {
             case .success(let isDeleted):
                 let response = VideoGameDetailModels.DeleteSavedVideoGame.Response(isDelete: isDeleted)
                 self.presenter?.getIsDeletedVideoGame(response: response)
-            case .failure(let error):
+            case .failure:
                 let response = VideoGameDetailModels.DeleteSavedVideoGame.Response(isDelete: false)
                 self.presenter?.getIsDeletedVideoGame(response: response)
             }

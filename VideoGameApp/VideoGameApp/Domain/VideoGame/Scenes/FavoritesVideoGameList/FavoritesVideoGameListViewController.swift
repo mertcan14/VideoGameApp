@@ -22,6 +22,8 @@ final class FavoritesVideoGameListViewController: BaseViewController {
     internal var router: (NSObjectProtocol &
                           FavoritesVideoGameListRoutingLogic &
                           FavoritesVideoGameListDataPassing)?
+    private var landScapeAction: () -> Void = {}
+    private var portraitAction: () -> Void = {}
     private var collectionViewFlowLayout: UICollectionViewFlowLayout!
     private var numberOfItemPerRow: CGFloat = 1
     private let lineSpacingForCollectionView: CGFloat = 0
@@ -46,14 +48,14 @@ final class FavoritesVideoGameListViewController: BaseViewController {
         super.viewDidLoad()
         self.collectionViewRegister()
         self.setupCollectionViewLayout()
-        
-        
+        self.setDeviceOrientation()
+    
         videoGamesCollectionView.dataSource = self
         videoGamesCollectionView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        checkDeviceOrientation()
+        checkDeviceOrientation(landScapeAction, portraitAction)
         self.showLoading()
         interactor?.fetchFavoritesVideoGameList()
     }
@@ -72,16 +74,16 @@ final class FavoritesVideoGameListViewController: BaseViewController {
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        checkDeviceOrientation()
+        checkDeviceOrientation(landScapeAction, portraitAction)
     }
     // MARK: - Private Funcs
-    private func checkDeviceOrientation() {
-        guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
-            .windowScene?.interfaceOrientation else { return }
-        if deviceOrientation.isLandscape {
-            self.numberOfItemPerRow = numberItemPerRowLandscape
-        } else {
-            self.numberOfItemPerRow = numberItemPerRowPortrait
+    private func setDeviceOrientation() {
+        landScapeAction = {
+            self.numberOfItemPerRow = self.numberItemPerRowLandscape
+        }
+        
+        portraitAction = {
+            self.numberOfItemPerRow = self.numberItemPerRowPortrait
         }
     }
     
@@ -96,22 +98,22 @@ final class FavoritesVideoGameListViewController: BaseViewController {
         collectionViewFlowLayout.minimumInteritemSpacing = lineSpacingForCollectionView
     }
     
-    func reloadData() {
+    private func reloadData() {
         DispatchQueue.main.async { [weak self] in
             self?.videoGamesCollectionView.reloadData()
         }
     }
     
-    func setupCollectionViewLayout() {
+    private func setupCollectionViewLayout() {
         self.collectionViewFlowLayout = UICollectionViewFlowLayout()
         videoGamesCollectionView.setCollectionViewLayout(self.collectionViewFlowLayout, animated: true)
     }
     
-    func collectionViewRegister() {
+    private func collectionViewRegister() {
         videoGamesCollectionView.register(cellType: VideoGameCollectionViewCell.self)
     }
 }
-
+// MARK: - Extension FavoritesVideoGameListDisplayLogic
 extension FavoritesVideoGameListViewController: FavoritesVideoGameListDisplayLogic {
     func getEmptyValue() {
         hideLoading()
@@ -130,7 +132,6 @@ extension FavoritesVideoGameListViewController: FavoritesVideoGameListDisplayLog
         reloadData()
     }
 }
-
 // MARK: - Extension UICollectionViewDelegate
 extension FavoritesVideoGameListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

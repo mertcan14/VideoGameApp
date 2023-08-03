@@ -19,7 +19,7 @@ final class VideoGameListPresenter {
     -> VideoGameList.FetchVideoGameList.Response {
         guard let count = response.videoGameResult.count else {return response}
         for index in 0..<count {
-            guard var game = response.videoGameResult.results?[safe: index] else { break }
+            guard let game = response.videoGameResult.results?[safe: index] else { break }
             response.videoGameResult.results?[index].backgroundImage = game.backgroundImage?.setParseImageURL()
         }
         return response
@@ -29,7 +29,7 @@ final class VideoGameListPresenter {
     -> VideoGameList.FetchNextPage.Response {
         guard let count = response.videoGameResult.count else {return response}
         for index in 0..<count {
-            guard var game = response.videoGameResult.results?[safe: index] else { break }
+            guard let game = response.videoGameResult.results?[safe: index] else { break }
             response.videoGameResult.results?[index].backgroundImage = game.backgroundImage?.setParseImageURL()
         }
         return response

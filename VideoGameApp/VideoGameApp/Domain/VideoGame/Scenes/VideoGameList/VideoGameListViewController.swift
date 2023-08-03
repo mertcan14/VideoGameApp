@@ -23,10 +23,15 @@ final class VideoGameListViewController: BaseViewController {
     
     // MARK: - Variable Definitions
     internal var interactor: VideoGameListBusinessLogic?
-    internal var router: (NSObjectProtocol & VideoGameListRoutingLogic & VideoGameListDataPassing)?
+    internal var router: (
+        NSObjectProtocol
+        & VideoGameListRoutingLogic
+        & VideoGameListDataPassing)?
     private var videoGames: [VideoGameNetworkModel] = []
     private var searchedVideoGames: [VideoGameNetworkModel] = []
     private var nextPage: String?
+    private var landScapeAction: () -> Void = {}
+    private var portraitAction: () -> Void = {}
     private var sliderCount: Int = 3
     private let lineSpacingForCollectionView: CGFloat = 0
     private let heightCellIsLandscape: Int = 100
@@ -61,10 +66,16 @@ final class VideoGameListViewController: BaseViewController {
         self.collectionViewRegister()
         self.setupCollectionViewLayout()
         self.configFiltersButton()
+        self.setDeviceOrientation()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(goDetailScreen(notification:)),
+                                               name: Notification.Name("GoDetailScreen"),
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        checkDeviceOrientation()
+        checkDeviceOrientation(landScapeAction, portraitAction)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,14 +87,16 @@ final class VideoGameListViewController: BaseViewController {
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        checkDeviceOrientation()
+        checkDeviceOrientation(landScapeAction, portraitAction)
         updateBorderFromSearchView()
     }
 }
 
 extension VideoGameListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let id = videoGames[safe: indexPath.row + sliderCount]?.id else { return }
+        guard let id = isSearching
+        ? searchedVideoGames[safe: indexPath.row]?.id
+        : videoGames[safe: indexPath.row + sliderCount]?.id else { return }
         interactor?.setGameId(String(id))
         router?.routeToDetailVideoGame(segue: nil)
     }
@@ -152,6 +165,13 @@ extension VideoGameListViewController: UITextFieldDelegate {
         isSearching = true
     }
     
+    @objc func goDetailScreen(notification: Notification) {
+        guard let imagesAny = notification.userInfo?["videoGameID"],
+              let id = imagesAny as? String else { return }
+        interactor?.setGameId(id)
+        router?.routeToDetailVideoGame(segue: nil)
+    }
+    
     @objc func removeSearch() {
         hidePageView(false)
         isSearching = false
@@ -181,6 +201,18 @@ extension VideoGameListViewController: VideoGameListDisplayLogic {
 }
 // MARK: Extension For Private Funcs
 extension VideoGameListViewController {
+    private func setDeviceOrientation() {
+        landScapeAction = {
+            self.numberOfItemPerRow = self.numberOfItemPerRowLandscape
+            self.innerViewConstraint.constant = self.heightOfInnerViewIsLandscapeConstant
+        }
+        
+        portraitAction = {
+            self.numberOfItemPerRow = self.numberOfItemPerRowPortrait
+            self.innerViewConstraint.constant = self.heightOfInnerViewIsPortrait
+        }
+    }
+    
     private func hidePageView(_ isHide: Bool) {
         DispatchQueue.main.async {
             self.pageView.isHidden = isHide
@@ -217,18 +249,6 @@ extension VideoGameListViewController {
             self.setSliderImages(Array(self.videoGames.prefix(upTo: sliderCount)))
         } else {
             self.hidePageView(true)
-        }
-    }
-    
-    private func checkDeviceOrientation() {
-        guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
-            .windowScene?.interfaceOrientation else { return }
-        if deviceOrientation.isLandscape {
-            self.numberOfItemPerRow = numberOfItemPerRowLandscape
-            innerViewConstraint.constant = heightOfInnerViewIsLandscapeConstant
-        } else {
-            self.numberOfItemPerRow = numberOfItemPerRowPortrait
-            innerViewConstraint.constant = heightOfInnerViewIsPortrait
         }
     }
     
