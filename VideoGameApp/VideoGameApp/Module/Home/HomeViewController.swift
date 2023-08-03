@@ -179,7 +179,7 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItem = isSearching ? self.presenter.numberOfSearchedVideoGames : self.presenter.numberOfVideoGames - presenter.numberOfSlide
-        if numberOfItem < 0 {
+        if numberOfItem <= 0 {
             collectionView.setEmptyView(title: titleOfEmptyView, message: messageOfEmptyView)
         } else {
             collectionView.restore()
