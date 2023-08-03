@@ -9,6 +9,8 @@ import UIKit
 
 protocol FavoritesVideoGameListDisplayLogic: AnyObject {
     func displayVideoGameList(viewModel: FavoritesVideoGameList.FetchVideoGameListFromCoreData.ViewModel)
+    func getError(_ content: String)
+    func getEmptyValue()
 }
 
 final class FavoritesVideoGameListViewController: BaseViewController {
@@ -44,8 +46,7 @@ final class FavoritesVideoGameListViewController: BaseViewController {
         super.viewDidLoad()
         self.collectionViewRegister()
         self.setupCollectionViewLayout()
-        self.showLoading()
-        interactor?.fetchFavoritesVideoGameList()
+        
         
         videoGamesCollectionView.dataSource = self
         videoGamesCollectionView.delegate = self
@@ -53,7 +54,8 @@ final class FavoritesVideoGameListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         checkDeviceOrientation()
-        //presenter.viewWillAppear()
+        self.showLoading()
+        interactor?.fetchFavoritesVideoGameList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,6 +113,16 @@ final class FavoritesVideoGameListViewController: BaseViewController {
 }
 
 extension FavoritesVideoGameListViewController: FavoritesVideoGameListDisplayLogic {
+    func getEmptyValue() {
+        hideLoading()
+        self.videoGames = []
+    }
+    
+    func getError(_ content: String) {
+        self.hideLoading(0.5)
+        self.showAlert("Error", content, nil)
+    }
+    
     func displayVideoGameList(viewModel: FavoritesVideoGameList.FetchVideoGameListFromCoreData.ViewModel) {
         guard let results = viewModel.results else { return }
         self.videoGames = results

@@ -10,6 +10,8 @@ import Foundation
 protocol FavoritesVideoGameListPresentationLogic {
     func presentFavoritesVideoGameList(
         response: FavoritesVideoGameList.FetchVideoGameListFromCoreData.Response)
+    func getError(content: String)
+    func getEmptyValue()
 }
 
 final class FavoritesVideoGameListPresenter {
@@ -28,6 +30,14 @@ final class FavoritesVideoGameListPresenter {
 }
 
 extension FavoritesVideoGameListPresenter: FavoritesVideoGameListPresentationLogic {
+    func getEmptyValue() {
+        viewController?.getEmptyValue()
+    }
+    
+    func getError(content: String) {
+        self.viewController?.getError(content)
+    }
+    
     func presentFavoritesVideoGameList(response: FavoritesVideoGameList.FetchVideoGameListFromCoreData.Response) {
         var changeResponse = response
         let updatedRespone = setImagesForNextPage(response: &changeResponse)

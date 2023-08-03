@@ -35,7 +35,11 @@ extension FavoritesVideoGameListInteractor: FavoritesVideoGameListBusinessLogic 
                 let response = FavoritesVideoGameList.FetchVideoGameListFromCoreData.Response(videoGameResult: data)
                 self.presenter?.presentFavoritesVideoGameList(response: response)
             case .failure(let error):
-                print(error)
+                if error.message == CoreDataError.emptyValue.message {
+                    self.presenter?.getEmptyValue()
+                } else {
+                    self.presenter?.getError(content: error.message ?? "")
+                }
             }
         }
     }

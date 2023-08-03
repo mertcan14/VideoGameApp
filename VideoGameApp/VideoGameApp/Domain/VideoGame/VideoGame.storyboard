@@ -154,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-7D-OJd">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cvE-GK-tKq">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1164"/>
@@ -219,16 +219,16 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="902"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8G2-pK-m73">
-                                                                <rect key="frame" x="8" y="8" width="377" height="483"/>
+                                                                <rect key="frame" x="8" y="8" width="377" height="449"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of Game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DId-Ei-LTc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="377" height="405"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="377" height="371"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wh-Xs-LEQ">
-                                                                        <rect key="frame" x="0.0" y="414" width="377" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="380" width="377" height="30"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realese date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqI-q0-4wD">
                                                                                 <rect key="frame" x="34" y="0.0" width="309" height="30"/>
@@ -268,7 +268,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZL-Au-ekw">
-                                                                        <rect key="frame" x="0.0" y="453" width="377" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="419" width="377" height="30"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metacritic Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-zZ-TwX">
                                                                                 <rect key="frame" x="34" y="0.0" width="343" height="30"/>
@@ -300,7 +300,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Les-ys-L9U">
-                                                                <rect key="frame" x="8" y="500" width="377" height="394"/>
+                                                                <rect key="frame" x="8" y="466" width="377" height="394"/>
                                                                 <string key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</string>
@@ -324,7 +324,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="cvE-GK-tKq" secondAttribute="bottom" id="S4E-G8-e2l"/>
+                                    <constraint firstAttribute="bottom" secondItem="cvE-GK-tKq" secondAttribute="bottom" constant="-371" id="S4E-G8-e2l"/>
                                     <constraint firstItem="cvE-GK-tKq" firstAttribute="top" secondItem="MiN-7D-OJd" secondAttribute="top" id="TOI-kx-7Xs"/>
                                     <constraint firstAttribute="trailing" secondItem="cvE-GK-tKq" secondAttribute="trailing" id="maM-y4-29t"/>
                                     <constraint firstItem="cvE-GK-tKq" firstAttribute="width" secondItem="MiN-7D-OJd" secondAttribute="width" id="uQz-Gn-6cC"/>
@@ -340,7 +340,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                             <constraint firstAttribute="bottom" secondItem="MiN-7D-OJd" secondAttribute="bottom" id="0G9-g1-o0g"/>
                             <constraint firstItem="MiN-7D-OJd" firstAttribute="trailing" secondItem="0o9-LM-w41" secondAttribute="trailing" id="DXd-gh-QBf"/>
                             <constraint firstItem="MiN-7D-OJd" firstAttribute="leading" secondItem="0o9-LM-w41" secondAttribute="leading" id="X3l-Fq-BJN"/>
-                            <constraint firstItem="MiN-7D-OJd" firstAttribute="top" secondItem="CYz-E5-wBE" secondAttribute="top" id="qHv-Ao-y8M"/>
+                            <constraint firstItem="MiN-7D-OJd" firstAttribute="top" secondItem="CYz-E5-wBE" secondAttribute="top" constant="59" id="qHv-Ao-y8M"/>
                         </constraints>
                     </view>
                     <connections>
@@ -361,7 +361,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSH-tL-QV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="130"/>
+            <point key="canvasLocation" x="2478.6259541984732" y="129.57746478873241"/>
         </scene>
         <!--Page Detail View Controller-->
         <scene sceneID="S2R-Cw-TwN">

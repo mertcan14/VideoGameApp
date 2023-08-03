@@ -33,6 +33,16 @@ class BaseViewController: UIViewController, LoadingShowable {
         let when = DispatchTime.now() + delay
         DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
     }
+    
+    func checkDeviceOrientation(_ isLandscape: () -> Void, _ isPortrait: () -> Void) {
+        guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
+            .windowScene?.interfaceOrientation else { return }
+        if deviceOrientation.isLandscape {
+            isLandscape()
+        } else {
+            isPortrait()
+        }
+    }
 }
 // MARK: - Extension BaseViewControllerProtocol
 extension BaseViewController: BaseViewControllerProtocol {

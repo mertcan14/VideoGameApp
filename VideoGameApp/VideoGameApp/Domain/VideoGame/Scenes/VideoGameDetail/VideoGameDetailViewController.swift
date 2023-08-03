@@ -9,11 +9,12 @@ import UIKit
 
 protocol VideoGameDetailDisplayLogic: AnyObject {
     func displayVideoGameList(viewModel: VideoGameDetailModels.FetchVideoGameDetail.ViewModel)
-    func displayIsLikedVideoGame(viewModel: VideoGameDetailModels.FetchIsLikedVideoGame.ViewModel)
+    func displayIsLikedVideoGame(isLike: Bool)
+    func getError(_ content: String)
 }
 
 final class VideoGameDetailViewController: BaseViewController {
-    // MARK: - IBOutlet Definitions   
+    // MARK: - IBOutlet Definitions
     @IBOutlet weak var realesedDateLabel: UILabel!
     @IBOutlet weak var lowerStackView: UIStackView!
     @IBOutlet weak var upperStackView: UIStackView!
@@ -36,6 +37,8 @@ final class VideoGameDetailViewController: BaseViewController {
     
     private var videoGame: DetailVideoGameNetworkModel?
     private var isLiked: Bool = false
+    private var landScapeAction: () -> Void = {}
+    private var portraitAction: () -> Void = {}
     private let descriptionLabelFontSize: CGFloat = 16
     private let arrowImageIsDark: UIImage = .arrowW
     private let arrowImageNoDark: UIImage = .arrow
@@ -43,41 +46,36 @@ final class VideoGameDetailViewController: BaseViewController {
     private let likeImageIsDark: UIImage = .likeiconW
     private let likeImageNoDark: UIImage = .likeicon
     private let notFoundImage: UIImage = .noimage
+    private let titleOfPopUpForUnLike = "Are you sure?"
+    private let contentOfPopUpForUnLike = "You are about to deregister the game"
     // MARK: - Lifecycle Methods
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-      super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-      setup()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-      setup()
+        super.init(coder: aDecoder)
+        setup()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showLoading()
         self.configBackButton()
         self.configLikeButton()
         self.configureWebOfGameImageView()
         self.interactor?.fetchVideoGameDetail()
         self.interactor?.fetchIsLikeVideoGame()
-    }
-    
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        checkDeviceOrientation()
-    }
-    // MARK: - Private Funcs
-    func checkDeviceOrientation() {
-        guard let deviceOrientation = UIApplication.shared.currentUIWindow()?
-            .windowScene?.interfaceOrientation else { return }
-        if deviceOrientation.isLandscape {
+        
+        landScapeAction = {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                self.infoStackView.removeFromSuperview()
-                self.upperStackView.insertArrangedSubview(infoStackView, at: 1)
+                infoStackView.removeFromSuperview()
+                upperStackView.insertArrangedSubview(infoStackView, at: 1)
             }
-        } else {
+        }
+        
+        portraitAction = {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.infoStackView.removeFromSuperview()
@@ -85,19 +83,27 @@ final class VideoGameDetailViewController: BaseViewController {
             }
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.showLoading()
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        checkDeviceOrientation(landScapeAction, portraitAction)
+    }
+    // MARK: - Private Funcs
     private func hideMetacriticView(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.metacriticView.isHidden = isHide
         }
     }
-
+    
     private func hideReleasedView(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.releasedView.isHidden = isHide
         }
     }
-
+    
     private func setBackImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -105,7 +111,7 @@ final class VideoGameDetailViewController: BaseViewController {
             : self.arrowImageNoDark
         }
     }
-
+    
     private func setLikeImageView(_ isDark: Bool) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -113,61 +119,62 @@ final class VideoGameDetailViewController: BaseViewController {
             : self.likeImageNoDark
         }
     }
-
+    
     @objc private func goBackScreen() {
         dismiss(animated: true)
     }
-
+    
     @objc private func goWeb() {
         //presenter.goWebsite()
     }
-
-    @objc private func liked() {
-        //presenter.likeVideoGame()
+    
+    private func convertVideoGameToDict() -> [String: Any]? {
+        guard let id = videoGame?.id else { return nil }
+        let objDict: [String: Any] = [
+            "id": id,
+            "name": videoGame?.name ?? "",
+            "background_image": videoGame?.backgroundImage ?? "",
+            "rating": videoGame?.rating ?? 0.0,
+            "released": videoGame?.released ?? ""
+        ]
+        return objDict
     }
-
+    
+    @objc private func liked() {
+        if !isLiked {
+            guard let objDict = convertVideoGameToDict() else { return }
+            self.interactor?.likedVideoGame(VideoGameDetailModels.SaveVideoGame.Request(obj: objDict))
+        } else {
+            let okAction = {
+                self.interactor?.unLikedVideoGame()
+            }
+            self.showPopUp(
+                titleOfPopUpForUnLike,
+                contentOfPopUpForUnLike,
+                buttonTitle: "Remove",
+                buttonAction: { okAction() },
+                cancelAction: nil)
+        }
+    }
+    
     func hideWebOfGameImageView(_ isHide: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.webOfGameImageView.isHidden = isHide
         }
     }
-
-    func configBackButton() {
-        let backTap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
-        backButtonImageView.addGestureRecognizer(backTap)
-    }
-
-    func configureWebOfGameImageView() {
-        let goWeb = UITapGestureRecognizer(target: self, action: #selector(goWeb))
-        webOfGameImageView.addGestureRecognizer(goWeb)
-    }
-
-    func configLikeButton() {
-        let likeButton = UITapGestureRecognizer(target: self, action: #selector(liked))
-        likeButtonImageView.addGestureRecognizer(likeButton)
-    }
-
-    func unLikedVideoGame() {
-        guard let image = gameImageView.image else { return }
-        DispatchQueue.main.async { [weak self] in
-            self?.setLikeImageView(image.isDark(.bottomRight))
-        }
-    }
-
-    func isLikedVideoGame(_ isLiked: Bool) {
+    
+    func isLikedVideoGame() {
         DispatchQueue.main.async { [weak self] in
             self?.likeButtonImageView.image = self?.likedImage
         }
     }
-
+    
     func setImageView(_ image: String?) {
         guard let image, let url = URL(string: image) else {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                self.gameImageView.image = .noimage
-                if true {
-                    self.setLikeImageView(false)
-                }
+                self.gameImageView.image = notFoundImage
+                setLikedButton()
                 self.setBackImageView(false)
                 self.gameImageView.contentMode = .scaleAspectFill
             }
@@ -179,21 +186,20 @@ final class VideoGameDetailViewController: BaseViewController {
                 self.gameImageView.image = notFoundImage
                 return
             }
-            if true {
-                self.setLikeImageView(image.isDark(.bottomRight))
-            }
+            self.setLikedButton()
             self.setBackImageView(image.isDark(.leftTop))
             self.gameImageView.contentMode = .scaleAspectFill
         }
     }
-
+    
     func setGameName(_ name: String?) {
         DispatchQueue.main.async { [weak self] in
-            self?.checkDeviceOrientation()
-            self?.gameNameLabel.text = name
+            guard let self = self else { return }
+            self.checkDeviceOrientation(self.landScapeAction, self.portraitAction)
+            self.gameNameLabel.text = name
         }
     }
-
+    
     func setReleasedDate(_ date: String?) {
         guard let date else {
             hideReleasedView(true)
@@ -203,7 +209,7 @@ final class VideoGameDetailViewController: BaseViewController {
             self?.realesedDateLabel.text = date
         }
     }
-
+    
     func setMetacriticRate(_ metaCriticRate: Int?) {
         guard let point = metaCriticRate else {
             hideMetacriticView(true)
@@ -213,15 +219,20 @@ final class VideoGameDetailViewController: BaseViewController {
             self?.metacriticRateLabel.text = "\(point)"
         }
     }
-
-    private func setImages() {
-        self.setImageView(videoGame?.backgroundImage)
-    }
-
+    
     private func checkWebOfGame() {
         self.hideWebOfGameImageView(videoGame?.website == "")
     }
-
+    
+    private func setLikedButton() {
+        if isLiked {
+            isLikedVideoGame()
+        } else {
+            guard let isDark = gameImageView.image?.isDark(.bottomRight) else { return }
+            self.setLikeImageView(isDark)
+        }
+    }
+    
     func setDescription(_ description: String?) {
         guard let description else {
             self.descriptionLabel.text = "No description."
@@ -239,20 +250,42 @@ final class VideoGameDetailViewController: BaseViewController {
 }
 
 extension VideoGameDetailViewController: VideoGameDetailDisplayLogic {
-    func displayIsLikedVideoGame(viewModel: VideoGameDetailModels.FetchIsLikedVideoGame.ViewModel) {
-        self.isLikedVideoGame(viewModel.isLike)
-        self.isLiked = viewModel.isLike
+    func getError(_ content: String) {
+        hideLoading()
+        self.showAlert("Error", content, nil)
+    }
+    
+    func displayIsLikedVideoGame(isLike: Bool) {
+        self.isLiked = isLike
+        setLikedButton()
     }
     
     func displayVideoGameList(viewModel: VideoGameDetailModels.FetchVideoGameDetail.ViewModel) {
         self.videoGame = viewModel.results
         self.hideLoading()
-        setImages()
-        checkWebOfGame()
+        self.setImageView(videoGame?.backgroundImage)
+        self.checkWebOfGame()
         self.setDescription(videoGame?.description)
         self.setMetacriticRate(videoGame?.metacritic)
         self.setGameName(videoGame?.name)
         self.setReleasedDate(videoGame?.released)
-        self.hideLoading()
+        self.hideLoading(0.5)
+    }
+}
+// MARK: Extension Configure Funcs
+extension VideoGameDetailViewController {
+    private func configBackButton() {
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(goBackScreen))
+        backButtonImageView.addGestureRecognizer(backTap)
+    }
+    
+    private func configureWebOfGameImageView() {
+        let goWeb = UITapGestureRecognizer(target: self, action: #selector(goWeb))
+        webOfGameImageView.addGestureRecognizer(goWeb)
+    }
+    
+    private func configLikeButton() {
+        let likeButton = UITapGestureRecognizer(target: self, action: #selector(liked))
+        likeButtonImageView.addGestureRecognizer(likeButton)
     }
 }

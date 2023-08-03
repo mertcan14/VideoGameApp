@@ -27,4 +27,26 @@ enum VideoGameDetailModels {
             let isLike: Bool
         }
     }
+    
+    enum DeleteSavedVideoGame {
+        struct Request {}
+        struct Response {
+            let isDelete: Bool
+        }
+        struct ViewModel {
+            let isDelete: Bool
+        }
+    }
+    
+    enum SaveVideoGame {
+        struct Request {
+            let obj: [String: Any]
+        }
+        struct Response {
+            let isLike: Bool
+        }
+        struct ViewModel {
+            let isLike: Bool
+        }
+    }
 }

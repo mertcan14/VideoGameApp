@@ -12,6 +12,10 @@ protocol VideoGameDetailPresentationLogic {
         response: VideoGameDetailModels.FetchVideoGameDetail.Response)
     func getIsLikedVideoGame(
         response: VideoGameDetailModels.FetchIsLikedVideoGame.Response)
+    func getSavedVideoGame(
+        response: VideoGameDetailModels.SaveVideoGame.Response)
+    func getIsDeletedVideoGame(
+        response: VideoGameDetailModels.DeleteSavedVideoGame.Response)
 }
 
 final class VideoGameDetailPresenter {
@@ -19,9 +23,19 @@ final class VideoGameDetailPresenter {
 }
 
 extension VideoGameDetailPresenter: VideoGameDetailPresentationLogic {
+    func getSavedVideoGame(response: VideoGameDetailModels.SaveVideoGame.Response) {
+        let viewModel = VideoGameDetailModels.SaveVideoGame.ViewModel(isLike: response.isLike)
+        viewController?.displayIsLikedVideoGame(isLike: viewModel.isLike)
+    }
+    
+    func getIsDeletedVideoGame(response: VideoGameDetailModels.DeleteSavedVideoGame.Response) {
+        let viewModel = VideoGameDetailModels.FetchIsLikedVideoGame.ViewModel(isLike: response.isDelete)
+        viewController?.displayIsLikedVideoGame(isLike: !viewModel.isLike)
+    }
+    
     func getIsLikedVideoGame(response: VideoGameDetailModels.FetchIsLikedVideoGame.Response) {
         let viewModel = VideoGameDetailModels.FetchIsLikedVideoGame.ViewModel(isLike: response.isLike)
-        viewController?.displayIsLikedVideoGame(viewModel: viewModel)
+        viewController?.displayIsLikedVideoGame(isLike: viewModel.isLike)
     }
     
     func presentVideoGameDetail(response: VideoGameDetailModels.FetchVideoGameDetail.Response) {
