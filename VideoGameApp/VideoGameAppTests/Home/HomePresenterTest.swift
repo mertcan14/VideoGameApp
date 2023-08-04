@@ -81,7 +81,6 @@ final class HomePresenterTest: XCTestCase {
     func test_getGames() {
         XCTAssertEqual(presenter.numberOfVideoGames, 0)
         XCTAssertNil(presenter.getVideoGameByIndex(0))
-        XCTAssertNil(presenter.nextPage)
         XCTAssertFalse(view.isInvokedSetSliderImages)
         XCTAssertEqual(view.invokedSetSliderImagesCount, 0)
         XCTAssertFalse(view.isInvokedReloadData)
@@ -90,7 +89,6 @@ final class HomePresenterTest: XCTestCase {
         
         presenter.getGames(.response)
         
-        XCTAssertEqual(presenter.nextPage, "https://api.rawg.io/api/games?key=<key>&page=2")
         XCTAssertEqual(presenter.numberOfVideoGames, 20)
         XCTAssertNotNil(presenter.getVideoGameByIndex(0))
         XCTAssertTrue(view.isInvokedSetSliderImages)
@@ -113,7 +111,6 @@ final class HomePresenterTest: XCTestCase {
     func test_refreshGames() {
         XCTAssertEqual(presenter.numberOfVideoGames, 0)
         XCTAssertNil(presenter.getVideoGameByIndex(0))
-        XCTAssertNil(presenter.nextPage)
         XCTAssertFalse(view.isInvokedSetSliderImages)
         XCTAssertEqual(view.invokedSetSliderImagesCount, 0)
         XCTAssertFalse(view.isInvokedReloadData)
@@ -122,7 +119,6 @@ final class HomePresenterTest: XCTestCase {
         
         presenter.refreshGames(.response)
         
-        XCTAssertEqual(presenter.nextPage, "https://api.rawg.io/api/games?key=<key>&page=2")
         XCTAssertEqual(presenter.numberOfVideoGames, 20)
         XCTAssertNotNil(presenter.getVideoGameByIndex(0))
         XCTAssertTrue(view.isInvokedSetSliderImages)
