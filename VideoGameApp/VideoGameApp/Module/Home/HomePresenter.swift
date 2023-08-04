@@ -142,6 +142,7 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         self.totalNextPage = 0
         self.videoGames = results
         self.nextPage = games.next
+        self.view.setPageRefreshing()
     }
     
     func getError(_ errorText: String) {
