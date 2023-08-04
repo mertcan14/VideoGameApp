@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "getVideoGameByIndex(_:)"
+            landmarkName = "setImagesForSlider()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -621,7 +621,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "fetchNextPage()"
+            landmarkName = "goDetailScreen(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -717,7 +717,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "getSearchedVideoGameByIndex(_:)"
+            landmarkName = "searchVideoGame(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -781,8 +781,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "HomePresenter"
-            landmarkType = "21">
+            landmarkName = "fetchNextPage()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -795,10 +795,10 @@
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "HomePresenter"
-            landmarkType = "21">
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "getGames(_:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "6A3DEBC6-5D99-4317-8172-14085CCF12F3 - e5d3114149320c3f"
@@ -908,7 +908,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "fetchGames(_:)"
+            landmarkName = "fetchGamesWithParams(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1479,7 +1479,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "fetchGames(_:)"
+            landmarkName = "fetchGamesWithParams(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1487,14 +1487,16 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DFAC1AE6-C532-4CA0-97CF-02F11B583CFD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VideoGameApp/VideoGameApp/Module/Home/HomeInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
-            endingLineNumber = "56">
+            endingLineNumber = "56"
+            landmarkName = "fetchGames(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
